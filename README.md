@@ -1,0 +1,2 @@
+# AutoWeighingAndPrinting-WithLicenseV3
+SQLITE DB, MAPPING MULTIPLE LABLE SIZE
