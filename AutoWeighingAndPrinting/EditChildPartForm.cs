@@ -38,6 +38,7 @@ namespace AutoWeighingAndPrinting
             tbReferenceNumber.Enabled = false;
 
             tbExpiryDays.Text = dataGridViewRow.Cells["ExpiryDays"].Value.ToString();
+            tbSideInfo.Text = dataGridViewRow.Cells["SideInfo"].Value.ToString();
 
             tbPartNumber.Text = dataGridViewRow.Cells["PartNumber"].Value.ToString();
             tbPartNumber.Enabled = false;
@@ -113,6 +114,7 @@ namespace AutoWeighingAndPrinting
                 string positiveTolPartWeight = tbPositiveTolPartWeight.Text;
                 string referenceNumber = tbReferenceNumber.Text;
                 string expiryDays = tbExpiryDays.Text;
+                string sideInfo = tbSideInfo.Text;
 
                 byte[] imgByteArr = null;
 
@@ -142,10 +144,10 @@ namespace AutoWeighingAndPrinting
                                                 part_weight = @PARTWEIGHT, tol_percent = @TOLERANCEPERCENT, tol_part_weight = @TOLERANCEPARTWEIGHT,
                                                 negative_tol_percent = @NEGATIVETOLPERCENT, negative_tol_part_weight = @NEGATIVETOLPARTWEIGHT,
                                                 positive_tol_percent = @POSITIVETOLPERCENT, positive_tol_part_weight = @POSITIVETOLPARTWEIGHT,
-                                                image = @IMAGE,expiry_days=@EXPIRYDAYS 
+                                                image = @IMAGE,expiry_days=@EXPIRYDAYS ,side_info = @SIDEINFO
                                                 WHERE reference_number = @REFERENCENUMBER";
 
-                SQLiteParameter[] parameters0 = new SQLiteParameter[13];
+                SQLiteParameter[] parameters0 = new SQLiteParameter[14];
                 parameters0[0] = new SQLiteParameter("@DESCRIPTION", description);
                 parameters0[1] = new SQLiteParameter("@DEFAULTQTY", defaultQty);
                 parameters0[2] = new SQLiteParameter("@TOTALWEIGHT", totalWeight);
@@ -159,6 +161,7 @@ namespace AutoWeighingAndPrinting
                 parameters0[10] = new SQLiteParameter("@IMAGE", imgByteArr);
                 parameters0[11] = new SQLiteParameter("@REFERENCENUMBER", referenceNumber);
                 parameters0[12] = new SQLiteParameter("@EXPIRYDAYS", expiryDays);
+                parameters0[13] = new SQLiteParameter("@SIDEINFO", sideInfo);
 
                 SqlLiteHelper.ExecuteNonQuery(connectionString, commandText0, parameters0);
 

@@ -50,7 +50,7 @@ namespace AutoWeighingAndPrinting
                                 part_weight as PartWeight, tol_percent as TolerancePercent, tol_part_weight as TolerancePartWeight,
                                 negative_tol_percent as NegativeTolerancePercent, negative_tol_part_weight as NegativeTolerancePartWeight,
                                 positive_tol_percent as PositiveTolerancePercent, positive_tol_part_weight as PositiveTolerancePartWeight,
-                                image as Image, expiry_days as ExpiryDays,batch_no as LastBatchNumber FROM [1.childpart] order by ReferenceNumber";
+                                image as Image, expiry_days as ExpiryDays,side_info as SideInfo,batch_no as LastBatchNumber FROM [1.childpart] order by ReferenceNumber";
                 using (SQLiteConnection con = new SQLiteConnection(connectionString, true))
                 using (SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(sql, con))
                 {
@@ -1052,7 +1052,8 @@ namespace AutoWeighingAndPrinting
                                 quantity as Quantity,part_weight as PartWeight, net_weight as NetWeight,
                                 pallet_weight as PalletWeight, gross_weight as GrossWeight, batch_no as BatchNo, other_info as OtherInfo,
                                 no_of_packet as NoOfPacket, negative_tol_percent as NegativeTolerancePercent, negative_tol_part_weight as NegativeTolerancePartWeight,
-                                db_part_weight as DBPartWeight, positive_tol_percent as PositiveTolerancePercent, positive_tol_part_weight as PositiveTolerancePartWeight
+                                db_part_weight as DBPartWeight, positive_tol_percent as PositiveTolerancePercent, positive_tol_part_weight as PositiveTolerancePartWeight,
+                                side_info as SideInfo
                                 FROM [4.childpart_history] where date_time>= '" + fromDate.ToString("yyyy-MM-dd") + " 00:00:00' and date_time<='" + toDate.ToString("yyyy-MM-dd") + " 23:59:59' order by date_time";
                     using (SQLiteConnection con = new SQLiteConnection(connectionString, true))
                     using (SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(sql, con))

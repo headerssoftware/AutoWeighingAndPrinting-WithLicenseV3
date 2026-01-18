@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoWeighingAndPrinting.Data;
+using AutoWeighingAndPrinting.Helpers;
+using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
@@ -8,9 +10,6 @@ using System.IO.Ports;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using AutoWeighingAndPrinting.Data;
-using AutoWeighingAndPrinting.Helpers;
-using DocumentFormat.OpenXml.Wordprocessing;
 using Color = System.Drawing.Color;
 
 namespace AutoWeighingAndPrinting
@@ -36,7 +35,7 @@ namespace AutoWeighingAndPrinting
 
         readonly Config config;
         AppSettings appSettings;
-        readonly string connectionString;
+        string connectionString;
 
 
         [Obsolete]
@@ -106,7 +105,7 @@ namespace AutoWeighingAndPrinting
             }
         }
 
-        private bool ShowEnterLicenseKeyDialog(LicenseStatus licenseStatus,DateTime? licenseExpiryDate)
+        private bool ShowEnterLicenseKeyDialog(LicenseStatus licenseStatus, DateTime? licenseExpiryDate)
         {
             frmEnterLicenseKeyPopup licenseKeyPopup = new frmEnterLicenseKeyPopup(appSettings, licenseStatus, licenseExpiryDate);
             licenseKeyPopup.ShowDialog();
@@ -129,7 +128,7 @@ namespace AutoWeighingAndPrinting
 
                 if (string.IsNullOrEmpty(licensekey))
                 {
-                    return ShowEnterLicenseKeyDialog(LicenseStatus.NewUser, null) ;
+                    return ShowEnterLicenseKeyDialog(LicenseStatus.NewUser, null);
                 }
 
                 var appLicensevalidator = new AppLicenseValidator();
@@ -153,12 +152,12 @@ namespace AutoWeighingAndPrinting
                     return SetLicenseInfoText(licenseDetail);
                 }
             }
-            catch(Exception ex)
-            {               
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "Error Checking App License", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-           
+
 
         }
 
@@ -262,6 +261,7 @@ namespace AutoWeighingAndPrinting
                 }
 
                 appSettings = config.ReadSettings();
+                connectionString = @"DataSource=" + appSettings.DBFilePath + ";foreign keys=true;";
                 _serialPort.PortName = appSettings.PortName;
                 _serialPort.BaudRate = appSettings.BaudRate;
                 _serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), appSettings.Parity);
@@ -416,7 +416,7 @@ namespace AutoWeighingAndPrinting
                 DataTable dtChildParts = new DataTable();
                 string sql = @"SELECT reference_number as ReferenceNumber,childpart_id as ID, child_part_number as PartNumber, child_part_description as Description, part_weight as PartWeight,
                                 tol_percent AS TolerancePercent, tol_part_weight as TolerancePartWeight, negative_tol_percent as NegativeTolPercent, negative_tol_part_weight as NegativeTolPartWeight, 
-                                positive_tol_percent as PositiveTolPercent, positive_tol_part_weight as PositiveTolPartWeight, image as Image,expiry_days as ExpiryDays FROM [1.childpart] where reference_number=@REFERENCENUMBER order by ReferenceNumber";
+                                positive_tol_percent as PositiveTolPercent, positive_tol_part_weight as PositiveTolPartWeight, image as Image,expiry_days as ExpiryDays,side_info as SideInfo FROM [1.childpart] where reference_number=@REFERENCENUMBER order by ReferenceNumber";
                 using (SQLiteConnection con = new SQLiteConnection(connectionString, true))
                 using (SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(sql, con))
                 {
@@ -448,6 +448,7 @@ namespace AutoWeighingAndPrinting
                     tbPositiveTolPercent.Text = dtChildParts.Rows[0]["PositiveTolPercent"].ToString() + " %";
                     tbPositiveTolPartWeight.Text = dtChildParts.Rows[0]["PositiveTolPartWeight"].ToString();
                     tbExpiryDays.Text = dtChildParts.Rows[0]["ExpiryDays"].ToString();
+                    tbSideInfo.Text = dtChildParts.Rows[0]["SideInfo"].ToString();
 
                     if (dtChildParts.Rows[0]["Image"] == null || dtChildParts.Rows[0]["Image"] == DBNull.Value)
                     {
@@ -545,7 +546,7 @@ namespace AutoWeighingAndPrinting
             tbTolPercent.Text = tbTolPartWeight.Text = "";
             tbPositiveTolPercent.Text = tbPositiveTolPartWeight.Text = "";
             pbImage.Image = null;
-            tbExpiryDays.Text = "";
+            tbExpiryDays.Text = tbSideInfo.Text = "";
 
             lblMinimumWeight.Text = "0.0000";
             lblRequiredWeight.Text = "0.0000";
@@ -604,7 +605,7 @@ namespace AutoWeighingAndPrinting
 
                 string expiryDays = string.IsNullOrEmpty(tbExpiryDays.Text) ? "0" : tbExpiryDays.Text;
                 string expiryDate = DateTime.Now.AddDays(Convert.ToInt32(expiryDays)).ToString("dd-MMM-yyyy");
-
+                string sideInfo = tbSideInfo.Text;
 
                 //if DataGridView is empty, create a columns and assign it
                 if (dgvChildPartsPrinting.Columns.Count == 0)
@@ -713,8 +714,15 @@ namespace AutoWeighingAndPrinting
                         ReadOnly = true
                     };
 
+                    var column15 = new DataGridViewTextBoxColumn
+                    {
+                        HeaderText = "SideInfo",
+                        Name = "SideInfo",
+                        ReadOnly = true
+                    };
+
                     dgvChildPartsPrinting.Columns.AddRange(new DataGridViewColumn[]
-                    { column0,column1,column2,column3,column4, column5, column6,column7,column8, column9,column10,column11,column12,column13,column14 });
+                    { column0,column1,column2,column3,column4, column5, column6,column7,column8, column9,column10,column11,column12,column13,column14,column15 });
 
                 }
 
@@ -739,6 +747,7 @@ namespace AutoWeighingAndPrinting
                 row.Cells["PositiveTolPartWeight"].Value = positiveTolPartWeight;
                 row.Cells["ExpiryDays"].Value = expiryDays;
                 row.Cells["ExpiryDate"].Value = expiryDate;
+                row.Cells["SideInfo"].Value = sideInfo;
 
                 foreach (DataGridViewColumn column in dgvChildPartsPrinting.Columns)
                 {
@@ -1303,16 +1312,41 @@ namespace AutoWeighingAndPrinting
         {
             if (dgvChildPartsPrinting.Rows.Count > 0)
             {
-                CustomerSelectionForm customerForm = new CustomerSelectionForm();
-                customerForm.ShowDialog();
+
+                var sizeFolders = PrnHelper.GetSizeFolders();
+
+                if (sizeFolders.Length == 0)
+                {
+                    MessageBox.Show("No PRN size folders found", "ERROR");
+                    return;
+                }
+
+                // ONLY ONE SIZE THEN AUTO SELECT
+                if (sizeFolders.Length == 1)
+                {
+                    string singleSize = Path.GetFileName(sizeFolders[0]);
+                    appSettings.SelectedSize = singleSize;
+                    config.WriteSettings(appSettings);
+
+                    CustomerSelectionForm customerForm = new CustomerSelectionForm();
+                    customerForm.ShowDialog();
+
+                }
+                else
+                {
+                    SizeSelectionForm sizeForm = new SizeSelectionForm();
+                    sizeForm.ShowDialog();
+                }
+
+
 
                 appSettings = config.ReadSettings();
-                if (appSettings.PrintingFileName == "")
+                if (appSettings.PrintingFileName == "" || appSettings.SelectedSize == "")
                     return;
 
                 try
                 {
-                    string outputSourcePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+                    string outputSourcePath = Path.Combine(PrnHelper.PrnRootPath, appSettings.SelectedSize);
                     string outputFileName = appSettings.PrintingFileName + ".prn";
                     string outputTargetPath = Path.GetTempPath();
 
@@ -1323,7 +1357,7 @@ namespace AutoWeighingAndPrinting
                     PrintDialog pd = new PrintDialog
                     {
                         PrinterSettings = new PrinterSettings(),
-                        UseEXDialog = true
+                        UseEXDialog = appSettings.IsUseExDialog
                     };
 
 
@@ -1369,6 +1403,7 @@ namespace AutoWeighingAndPrinting
                             dtChildPartsPrinting.Columns.Add(new DataColumn("positive_tol_part_weight", typeof(string)));
                             dtChildPartsPrinting.Columns.Add(new DataColumn("expiry_days", typeof(Int32)));
                             dtChildPartsPrinting.Columns.Add(new DataColumn("expiry_date", typeof(string)));
+                            dtChildPartsPrinting.Columns.Add(new DataColumn("side_info", typeof(string)));
                         }
 
 
@@ -1400,6 +1435,7 @@ namespace AutoWeighingAndPrinting
                             string positiveTolPartWeight = dgvChildPartsPrinting.Rows[i].Cells["PositiveTolPartWeight"].Value.ToString();
                             int expiryDays = Convert.ToInt32(dgvChildPartsPrinting.Rows[i].Cells["ExpiryDays"].Value);
                             string expiryDate = dgvChildPartsPrinting.Rows[i].Cells["ExpiryDate"].Value.ToString();
+                            string sideInfo = dgvChildPartsPrinting.Rows[i].Cells["SideInfo"].Value.ToString();
 
                             // To copy a folder's contents to a new location:
                             // Create a new target folder, if necessary.
@@ -1438,6 +1474,8 @@ namespace AutoWeighingAndPrinting
                             text = text.Replace("{EXPIRYDAYS}", expiryDays.ToString());
                             text = text.Replace("{EXPIRYDATE}", DateTime.Now.AddDays(expiryDays).ToString("dd/MMM/yyyy"));
 
+                            text = text.Replace("{SIDEINFO}", sideInfo);
+
                             File.WriteAllText(outputDestFile, text);
 
                             SendTextFileToPrinter(outputDestFile, pd.PrinterSettings.PrinterName);
@@ -1468,6 +1506,7 @@ namespace AutoWeighingAndPrinting
                                 row["positive_tol_part_weight"] = positiveTolPartWeight;
                                 row["expiry_days"] = expiryDays;
                                 row["expiry_date"] = expiryDate;
+                                row["side_info"] = sideInfo;
                                 dtChildPartsPrinting.Rows.Add(row);
                             }
                         }
@@ -1513,10 +1552,10 @@ namespace AutoWeighingAndPrinting
                                             cmd.CommandText =
                                                 @"INSERT INTO [4.childpart_history] (date_time, customer_name, reference_number , child_part_number, child_part_description,
                                                 quantity, part_weight, net_weight, pallet_weight, gross_weight, batch_no, other_info, no_of_packet,
-                                                negative_tol_percent, negative_tol_part_weight, db_part_weight, positive_tol_percent, positive_tol_part_weight, expiry_days, expiry_date)" +
+                                                negative_tol_percent, negative_tol_part_weight, db_part_weight, positive_tol_percent, positive_tol_part_weight, expiry_days, expiry_date,side_info)" +
                                                 @" VALUES (@date_time, @customer_name, @reference_number, @child_part_number, @child_part_description,
                                                 @quantity, @part_weight, @net_weight, @pallet_weight, @gross_weight, @batch_no, @other_info, @no_of_packet,
-                                                @negative_tol_percent, @negative_tol_part_weight, @db_part_weight, @positive_tol_percent, @positive_tol_part_weight, @expiry_days, @expiry_date);";
+                                                @negative_tol_percent, @negative_tol_part_weight, @db_part_weight, @positive_tol_percent, @positive_tol_part_weight, @expiry_days, @expiry_date,@side_info);";
                                             cmd.Parameters.AddWithValue("@date_time", dtChildPartsPrinting.Rows[i]["date_time"].ToString());
                                             cmd.Parameters.AddWithValue("@customer_name", dtChildPartsPrinting.Rows[i]["customer_name"].ToString());
                                             cmd.Parameters.AddWithValue("@reference_number", dtChildPartsPrinting.Rows[i]["reference_number"].ToString());
@@ -1537,6 +1576,7 @@ namespace AutoWeighingAndPrinting
                                             cmd.Parameters.AddWithValue("@positive_tol_part_weight", dtChildPartsPrinting.Rows[i]["positive_tol_part_weight"].ToString() + " KG");
                                             cmd.Parameters.AddWithValue("@expiry_days", dtChildPartsPrinting.Rows[i]["expiry_days"].ToString());
                                             cmd.Parameters.AddWithValue("@expiry_date", dtChildPartsPrinting.Rows[i]["expiry_date"].ToString());
+                                            cmd.Parameters.AddWithValue("@side_info", dtChildPartsPrinting.Rows[i]["side_info"].ToString());
                                             cmd.ExecuteNonQuery();
                                         }
 
@@ -1976,7 +2016,7 @@ namespace AutoWeighingAndPrinting
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Checking App License", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

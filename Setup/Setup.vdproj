@@ -21,26 +21,38 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0AA938FC858023E26807C260EAD40DAD"
-        "OwnerKey" = "8:_E78440CF5703FBDBA118E9671824541D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_0AA938FC858023E26807C260EAD40DAD"
+        "MsmKey" = "8:_3AF8A70AA96D8C1B5E99AE83E430EE13"
         "OwnerKey" = "8:_06E7992B3E9B4C78B58ABB77F9AA94B5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3FF47BA4CA386950D5D1CF694664120B"
+        "MsmKey" = "8:_456D8ABBD5E9A7231E287DC598881909"
+        "OwnerKey" = "8:_AE5D1F482D413A9A8D31C58F54DE940E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_456D8ABBD5E9A7231E287DC598881909"
         "OwnerKey" = "8:_06E7992B3E9B4C78B58ABB77F9AA94B5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_62B2A6801EFF468B97D975C5680B6932"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_55D43F4B6DAE74FE87FA5FAE1B9389EF"
+        "OwnerKey" = "8:_06E7992B3E9B4C78B58ABB77F9AA94B5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6D73BFF53500C082D003B35FDEECD78A"
+        "OwnerKey" = "8:_AE5D1F482D413A9A8D31C58F54DE940E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6D73BFF53500C082D003B35FDEECD78A"
+        "OwnerKey" = "8:_06E7992B3E9B4C78B58ABB77F9AA94B5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -51,37 +63,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_89BDDE972B3D97B8D0DAB0B14EA120D4"
+        "MsmKey" = "8:_AE5D1F482D413A9A8D31C58F54DE940E"
         "OwnerKey" = "8:_06E7992B3E9B4C78B58ABB77F9AA94B5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_982FC7BF5CE9A0603CA8C645C876A9C5"
-        "OwnerKey" = "8:_06E7992B3E9B4C78B58ABB77F9AA94B5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D3001BA033094FDC89ECD857CCAB3241"
+        "MsmKey" = "8:_B44200303BDC492C9900A9EE9FC68B4E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E78440CF5703FBDBA118E9671824541D"
-        "OwnerKey" = "8:_06E7992B3E9B4C78B58ABB77F9AA94B5"
+        "MsmKey" = "8:_BFC7C920FEC2439CBA84BD039D7A7973"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F1EEF27D8BB46DF5F88A17DC6A80D1DD"
-        "OwnerKey" = "8:_E78440CF5703FBDBA118E9671824541D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F1EEF27D8BB46DF5F88A17DC6A80D1DD"
+        "MsmKey" = "8:_E9D58A95C90CF03AEEE9D488D3202434"
         "OwnerKey" = "8:_06E7992B3E9B4C78B58ABB77F9AA94B5"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -94,37 +94,37 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_982FC7BF5CE9A0603CA8C645C876A9C5"
+        "OwnerKey" = "8:_55D43F4B6DAE74FE87FA5FAE1B9389EF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_89BDDE972B3D97B8D0DAB0B14EA120D4"
+        "OwnerKey" = "8:_3AF8A70AA96D8C1B5E99AE83E430EE13"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3FF47BA4CA386950D5D1CF694664120B"
+        "OwnerKey" = "8:_E9D58A95C90CF03AEEE9D488D3202434"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E78440CF5703FBDBA118E9671824541D"
+        "OwnerKey" = "8:_AE5D1F482D413A9A8D31C58F54DE940E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0AA938FC858023E26807C260EAD40DAD"
+        "OwnerKey" = "8:_6D73BFF53500C082D003B35FDEECD78A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F1EEF27D8BB46DF5F88A17DC6A80D1DD"
+        "OwnerKey" = "8:_456D8ABBD5E9A7231E287DC598881909"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -149,7 +149,7 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
@@ -222,116 +222,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0AA938FC858023E26807C260EAD40DAD"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_0AA938FC858023E26807C260EAD40DAD"
-                    {
-                    "Name" = "8:ExcelNumberFormat.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:ExcelNumberFormat.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B4353B0399194A47ABBB95545F030573"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3FF47BA4CA386950D5D1CF694664120B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_3FF47BA4CA386950D5D1CF694664120B"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B4353B0399194A47ABBB95545F030573"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_62B2A6801EFF468B97D975C5680B6932"
-            {
-            "SourcePath" = "8:..\\..\\Moldwell\\Headers Software Solutions Pvt Ltd\\Auto Weighing and Printing\\x64\\SQLite.Interop.dll"
-            "TargetName" = "8:SQLite.Interop.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_AC82DF84C5DC46F5B0D2DF8C541E11C8"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_780EA4BD851F45F5BE25B1EE3CD49F1E"
-            {
-            "SourcePath" = "8:..\\AutoWeighingAndPrinting\\Resources\\32x32.ico"
-            "TargetName" = "8:32x32.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_B4353B0399194A47ABBB95545F030573"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_89BDDE972B3D97B8D0DAB0B14EA120D4"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3AF8A70AA96D8C1B5E99AE83E430EE13"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:SKGL, Version=2.0.4.1, Culture=neutral, PublicKeyToken=6506df92444891d9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_89BDDE972B3D97B8D0DAB0B14EA120D4"
+                    "_3AF8A70AA96D8C1B5E99AE83E430EE13"
                     {
                     "Name" = "8:SKGL.dll"
                     "Attributes" = "3:512"
@@ -355,14 +253,45 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_982FC7BF5CE9A0603CA8C645C876A9C5"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_456D8ABBD5E9A7231E287DC598881909"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_456D8ABBD5E9A7231E287DC598881909"
+                    {
+                    "Name" = "8:DocumentFormat.OpenXml.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:DocumentFormat.OpenXml.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B4353B0399194A47ABBB95545F030573"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_55D43F4B6DAE74FE87FA5FAE1B9389EF"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_982FC7BF5CE9A0603CA8C645C876A9C5"
+                    "_55D43F4B6DAE74FE87FA5FAE1B9389EF"
                     {
                     "Name" = "8:System.Data.SQLite.dll"
                     "Attributes" = "3:512"
@@ -386,12 +315,43 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D3001BA033094FDC89ECD857CCAB3241"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6D73BFF53500C082D003B35FDEECD78A"
             {
-            "SourcePath" = "8:..\\..\\Moldwell\\Headers Software Solutions Pvt Ltd\\Auto Weighing and Printing\\x86\\SQLite.Interop.dll"
-            "TargetName" = "8:SQLite.Interop.dll"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6D73BFF53500C082D003B35FDEECD78A"
+                    {
+                    "Name" = "8:ExcelNumberFormat.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ExcelNumberFormat.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_2D46FB6F01884B5CA8646F30904F3A7D"
+            "Folder" = "8:_B4353B0399194A47ABBB95545F030573"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_780EA4BD851F45F5BE25B1EE3CD49F1E"
+            {
+            "SourcePath" = "8:..\\AutoWeighingAndPrinting\\Resources\\32x32.ico"
+            "TargetName" = "8:32x32.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B4353B0399194A47ABBB95545F030573"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -406,14 +366,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E78440CF5703FBDBA118E9671824541D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AE5D1F482D413A9A8D31C58F54DE940E"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E78440CF5703FBDBA118E9671824541D"
+                    "_AE5D1F482D413A9A8D31C58F54DE940E"
                     {
                     "Name" = "8:ClosedXML.dll"
                     "Attributes" = "3:512"
@@ -437,20 +397,60 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F1EEF27D8BB46DF5F88A17DC6A80D1DD"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B44200303BDC492C9900A9EE9FC68B4E"
+            {
+            "SourcePath" = "8:..\\AutoWeighingAndPrinting\\x86\\SQLite.Interop.dll"
+            "TargetName" = "8:SQLite.Interop.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_2D46FB6F01884B5CA8646F30904F3A7D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BFC7C920FEC2439CBA84BD039D7A7973"
+            {
+            "SourcePath" = "8:..\\AutoWeighingAndPrinting\\x64\\SQLite.Interop.dll"
+            "TargetName" = "8:SQLite.Interop.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_AC82DF84C5DC46F5B0D2DF8C541E11C8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E9D58A95C90CF03AEEE9D488D3202434"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F1EEF27D8BB46DF5F88A17DC6A80D1DD"
+                    "_E9D58A95C90CF03AEEE9D488D3202434"
                     {
-                    "Name" = "8:DocumentFormat.OpenXml.dll"
+                    "Name" = "8:Newtonsoft.Json.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:DocumentFormat.OpenXml.dll"
+            "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B4353B0399194A47ABBB95545F030573"
@@ -496,7 +496,7 @@
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_CDD6D9DE157F47F7BC7EC356C4F8BD53"
                     {
-                    "Name" = "8:Auto Weighing and Printing"
+                    "Name" = "8:Auto Weighing and Printing V3"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -556,9 +556,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Auto Weighing and Printing"
+        "ProductName" = "8:Auto Weighing and Printing V3"
         "ProductCode" = "8:{53312E90-8186-4402-AED8-61FF8B36FC39}"
-        "PackageCode" = "8:{693EF041-50BF-40DD-8299-AB98D2A6B06E}"
+        "PackageCode" = "8:{F414DC95-0625-4DF1-BBBD-180F057C1580}"
         "UpgradeCode" = "8:{42F84E9D-511C-4284-82FD-E16BB97EFF3C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -569,7 +569,7 @@
         "Manufacturer" = "8:Headers Software Solutions Pvt Ltd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Auto Weighing and Printing"
+        "Title" = "8:Auto Weighing and Printing V3"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Headers Software Solutions Pvt Ltd"
         "Keywords" = "8:"
@@ -694,7 +694,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9AD42658D1874F03A3C361946C8B7969"
             {
-            "Name" = "8:Auto Weighing and Printing"
+            "Name" = "8:Auto Weighing and Printing V3"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -1107,7 +1107,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_06E7992B3E9B4C78B58ABB77F9AA94B5"
             {
-            "SourcePath" = "8:..\\AutoWeighingAndPrinting\\obj\\Release\\AutoWeighingAndPrinting.exe"
+            "SourcePath" = "8:..\\AutoWeighingAndPrinting\\obj\\Debug\\AutoWeighingAndPrinting.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B4353B0399194A47ABBB95545F030573"

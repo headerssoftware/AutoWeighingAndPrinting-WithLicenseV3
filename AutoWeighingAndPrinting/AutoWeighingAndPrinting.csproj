@@ -121,6 +121,7 @@
       <DependentUpon>frmEnterLicenseKeyPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppLicenseValidator.cs" />
+    <Compile Include="Helpers\PrnHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +142,12 @@
     </Compile>
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SizeSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SizeSelectionForm.Designer.cs">
+      <DependentUpon>SizeSelectionForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CustomerSelectionForm.resx">
       <DependentUpon>CustomerSelectionForm.cs</DependentUpon>
@@ -175,6 +182,9 @@
     </Compile>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SizeSelectionForm.resx">
+      <DependentUpon>SizeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>

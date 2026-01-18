@@ -33,12 +33,14 @@
             this.lbCustomer = new System.Windows.Forms.ListBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
+            this.lblSelectedSize = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.lblSelectedSize);
             this.panel1.Controls.Add(this.lbCustomer);
             this.panel1.Controls.Add(this.btnPrint);
             this.panel1.Controls.Add(this.label26);
@@ -56,9 +58,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbCustomer.FormattingEnabled = true;
             this.lbCustomer.ItemHeight = 24;
-            this.lbCustomer.Location = new System.Drawing.Point(11, 57);
+            this.lbCustomer.Location = new System.Drawing.Point(11, 105);
             this.lbCustomer.Name = "lbCustomer";
-            this.lbCustomer.Size = new System.Drawing.Size(369, 484);
+            this.lbCustomer.Size = new System.Drawing.Size(369, 436);
             this.lbCustomer.TabIndex = 13;
             this.lbCustomer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LbCustomer_KeyDown);
             // 
@@ -78,12 +80,22 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(7, 18);
+            this.label26.Location = new System.Drawing.Point(15, 73);
             this.label26.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(179, 24);
             this.label26.TabIndex = 11;
             this.label26.Text = "Select the Customer";
+            // 
+            // lblSelectedSize
+            // 
+            this.lblSelectedSize.AutoSize = true;
+            this.lblSelectedSize.Location = new System.Drawing.Point(15, 16);
+            this.lblSelectedSize.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblSelectedSize.Name = "lblSelectedSize";
+            this.lblSelectedSize.Size = new System.Drawing.Size(16, 24);
+            this.lblSelectedSize.TabIndex = 14;
+            this.lblSelectedSize.Text = "-";
             // 
             // CustomerSelectionForm
             // 
@@ -111,5 +123,6 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ListBox lbCustomer;
+        private System.Windows.Forms.Label lblSelectedSize;
     }
 }

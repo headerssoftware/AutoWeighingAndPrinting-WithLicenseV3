@@ -1,9 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using DocumentFormat.OpenXml.Drawing;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace AutoWeighingAndPrinting
 {
@@ -17,7 +15,7 @@ namespace AutoWeighingAndPrinting
         {
             string commonApplicationDataDirectory = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             string manufacturer = "Headers Software Solutions Pvt Ltd";
-            string productName = "Auto Weighing and Printing";
+            string productName = "Auto Weighing and Printing V3";
 
             fileDirectory = commonApplicationDataDirectory + "\\" + manufacturer + "\\" + productName;
             filePath = fileDirectory + "\\" + fileName;
@@ -43,11 +41,13 @@ namespace AutoWeighingAndPrinting
                     DBFilePath = "",
                     LastCustomerSelected = "",
                     PrintingFileName = "",
+                    SelectedSize ="",
                     PrinterName = "",
                     EnablePrintingHistory = false,
                     DeleteHistoryDays = 180,
                     HistoryDeletedDate = DateTime.Now,
-                    LicenseKey = "MRLMH-TMJAO-UPKEP-ETHTI"
+                    LicenseKey = "MRLMH-TMJAO-UPKEP-ETHTI",
+                    IsUseExDialog= true 
 
                 };
                 File.WriteAllText(filePath, JsonConvert.SerializeObject(defaultSettings, Formatting.Indented));
@@ -78,14 +78,14 @@ namespace AutoWeighingAndPrinting
                 // Create a new file
                 File.CreateText(filePath).Dispose();
             }
-                
+
             File.WriteAllText(filePath, JsonConvert.SerializeObject(NewSettings, Formatting.Indented));
-            
+
         }
     }
     public class AppSettings
     {
-        public string PortName { get; set; } 
+        public string PortName { get; set; }
         public int BaudRate { get; set; }
         public string Parity { get; set; }
         public int DataBits { get; set; }
@@ -95,12 +95,14 @@ namespace AutoWeighingAndPrinting
         public string DBFilePath { get; set; }
         public string LastCustomerSelected { get; set; }
         public string PrintingFileName { get; set; }
+        public string SelectedSize { get; set; }
         public string PrinterName { get; set; }
         public bool EnablePrintingHistory { get; set; }
         public int DeleteHistoryDays { get; set; }
         public DateTime HistoryDeletedDate { get; set; }
         public string LicenseKey { get; set; }
-        
+        public bool IsUseExDialog { get; set; }
+
 
 
     }

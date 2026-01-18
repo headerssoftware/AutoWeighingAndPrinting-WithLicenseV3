@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using AutoWeighingAndPrinting.Helpers;
+using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 
 
@@ -30,7 +25,7 @@ namespace AutoWeighingAndPrinting
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
-            if(lbCustomer.SelectedItems.Count == 1)
+            if (lbCustomer.SelectedItems.Count == 1)
             {
                 appSettings.LastCustomerSelected = lbCustomer.SelectedItem.ToString();
                 appSettings.PrintingFileName = lbCustomer.SelectedItem.ToString();
@@ -40,26 +35,49 @@ namespace AutoWeighingAndPrinting
             }
             else
             {
-                MessageBox.Show("Select a customer","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Select a customer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void CustomerSelectionForm_Load(object sender, EventArgs e)
         {
-            string currentFolderPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            string[] fileNames = Directory.GetFiles(currentFolderPath, "*.prn");
+
+            string selectedSize = appSettings.SelectedSize;
+
+            if (string.IsNullOrEmpty(selectedSize))
+            {
+                MessageBox.Show("Size not selected", "ERROR");
+                Close();
+                return;
+            }
+
+            lblSelectedSize.Text = $"Selected Size : {appSettings.SelectedSize}";
+
+            string sizeFolderPath = Path.Combine(PrnHelper.PrnRootPath,selectedSize);
+
+            if (!Directory.Exists(sizeFolderPath))
+            {
+                MessageBox.Show("Selected size folder not found", "ERROR");
+                Close();
+                return;
+            }
+
+            lbCustomer.Items.Clear();
+
+           // string currentFolderPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            string[] fileNames = Directory.GetFiles(sizeFolderPath, "*.prn");
             Array.Sort(fileNames, StringComparer.InvariantCulture);
 
-            foreach(var name in fileNames)
+            foreach (var name in fileNames)
             {
                 lbCustomer.Items.Add(Path.GetFileNameWithoutExtension(name));
             }
 
             bool itemAvailable = false;
-            foreach(var item in lbCustomer.Items)
+            foreach (var item in lbCustomer.Items)
             {
-                if(item.ToString() == appSettings.LastCustomerSelected)
+                if (item.ToString() == appSettings.LastCustomerSelected)
                 {
                     itemAvailable = true;
                     break;

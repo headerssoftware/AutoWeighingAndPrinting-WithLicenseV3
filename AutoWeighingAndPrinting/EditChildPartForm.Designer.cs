@@ -63,6 +63,8 @@
             this.tbPartNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbSideInfo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -82,6 +84,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.SeaShell;
+            this.groupBox1.Controls.Add(this.tbSideInfo);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.tbExpiryDays);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.tbReferenceNumber);
@@ -127,7 +131,7 @@
             this.tbExpiryDays.Location = new System.Drawing.Point(574, 53);
             this.tbExpiryDays.Name = "tbExpiryDays";
             this.tbExpiryDays.Size = new System.Drawing.Size(55, 23);
-            this.tbExpiryDays.TabIndex = 3;
+            this.tbExpiryDays.TabIndex = 4;
             this.tbExpiryDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbExpiryDays_KeyPress);
             // 
             // label6
@@ -178,7 +182,7 @@
             this.tbPositiveTolPercent.Location = new System.Drawing.Point(550, 183);
             this.tbPositiveTolPercent.Name = "tbPositiveTolPercent";
             this.tbPositiveTolPercent.Size = new System.Drawing.Size(85, 23);
-            this.tbPositiveTolPercent.TabIndex = 8;
+            this.tbPositiveTolPercent.TabIndex = 9;
             this.tbPositiveTolPercent.TextChanged += new System.EventHandler(this.TbPositiveTolPercent_TextChanged);
             this.tbPositiveTolPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbPositiveTolPercent_KeyPress);
             // 
@@ -213,7 +217,7 @@
             this.tbNegativeTolPercent.Location = new System.Drawing.Point(182, 183);
             this.tbNegativeTolPercent.Name = "tbNegativeTolPercent";
             this.tbNegativeTolPercent.Size = new System.Drawing.Size(85, 23);
-            this.tbNegativeTolPercent.TabIndex = 7;
+            this.tbNegativeTolPercent.TabIndex = 8;
             this.tbNegativeTolPercent.TextChanged += new System.EventHandler(this.TbNegativeTolPercent_TextChanged);
             this.tbNegativeTolPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbNegativeTolPercent_KeyPress);
             // 
@@ -248,7 +252,7 @@
             this.tbTolPercent.Location = new System.Drawing.Point(381, 125);
             this.tbTolPercent.Name = "tbTolPercent";
             this.tbTolPercent.Size = new System.Drawing.Size(85, 23);
-            this.tbTolPercent.TabIndex = 6;
+            this.tbTolPercent.TabIndex = 7;
             this.tbTolPercent.TextChanged += new System.EventHandler(this.TbTolPercent_TextChanged);
             this.tbTolPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbTolPercent_KeyPress);
             // 
@@ -285,7 +289,7 @@
             this.tbTotalWeight.Location = new System.Drawing.Point(340, 88);
             this.tbTotalWeight.Name = "tbTotalWeight";
             this.tbTotalWeight.Size = new System.Drawing.Size(85, 23);
-            this.tbTotalWeight.TabIndex = 5;
+            this.tbTotalWeight.TabIndex = 6;
             this.tbTotalWeight.TextChanged += new System.EventHandler(this.TbTotalWeight_TextChanged);
             this.tbTotalWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbTotalWeight_KeyPress);
             // 
@@ -303,7 +307,7 @@
             this.tbDefaultQty.Location = new System.Drawing.Point(143, 88);
             this.tbDefaultQty.Name = "tbDefaultQty";
             this.tbDefaultQty.Size = new System.Drawing.Size(55, 23);
-            this.tbDefaultQty.TabIndex = 4;
+            this.tbDefaultQty.TabIndex = 5;
             this.tbDefaultQty.TextChanged += new System.EventHandler(this.TbDefaultQty_TextChanged);
             this.tbDefaultQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbDefaultQty_KeyPress);
             // 
@@ -322,7 +326,7 @@
             this.btnUpdatePartNumber.Location = new System.Drawing.Point(6, 644);
             this.btnUpdatePartNumber.Name = "btnUpdatePartNumber";
             this.btnUpdatePartNumber.Size = new System.Drawing.Size(160, 33);
-            this.btnUpdatePartNumber.TabIndex = 11;
+            this.btnUpdatePartNumber.TabIndex = 12;
             this.btnUpdatePartNumber.Text = "Update Part Number";
             this.btnUpdatePartNumber.UseVisualStyleBackColor = true;
             this.btnUpdatePartNumber.Click += new System.EventHandler(this.BtnUpdatePartNumber_Click);
@@ -333,7 +337,7 @@
             this.btnClear.Location = new System.Drawing.Point(412, 334);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 33);
-            this.btnClear.TabIndex = 10;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
@@ -344,7 +348,7 @@
             this.btnBrowse.Location = new System.Drawing.Point(412, 284);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 33);
-            this.btnBrowse.TabIndex = 9;
+            this.btnBrowse.TabIndex = 10;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
@@ -375,7 +379,7 @@
             // 
             this.tbDescription.Location = new System.Drawing.Point(143, 56);
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(337, 23);
+            this.tbDescription.Size = new System.Drawing.Size(165, 23);
             this.tbDescription.TabIndex = 2;
             // 
             // label4
@@ -411,6 +415,22 @@
             this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Part Number";
+            // 
+            // tbSideInfo
+            // 
+            this.tbSideInfo.Location = new System.Drawing.Point(381, 56);
+            this.tbSideInfo.Name = "tbSideInfo";
+            this.tbSideInfo.Size = new System.Drawing.Size(98, 23);
+            this.tbSideInfo.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(312, 59);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 17);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Side Info";
             // 
             // EditChildPartForm
             // 
@@ -471,5 +491,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbReferenceNumber;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbSideInfo;
+        private System.Windows.Forms.Label label10;
     }
 }

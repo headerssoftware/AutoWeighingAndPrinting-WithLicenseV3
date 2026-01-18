@@ -81,6 +81,7 @@ namespace AutoWeighingAndPrinting
                 string positiveTolPartWeight = tbPositiveTolPartWeight.Text;
                 string referenceNumber = tbReferenceNumber.Text;
                 string expiryDays = tbExpiryDays.Text;
+                string sideInfo = tbSideInfo.Text;
 
                 byte[] imgByteArr = null;
 
@@ -136,10 +137,10 @@ namespace AutoWeighingAndPrinting
                     imgByteArr = (byte[])converter.ConvertTo(img, typeof(byte[]));
                 }
 
-                commandText0 = @"INSERT INTO [1.childpart]('child_part_number','child_part_description','default_qty','total_weight','part_weight','tol_percent','tol_part_weight','negative_tol_percent','negative_tol_part_weight','positive_tol_percent','positive_tol_part_weight','image','reference_number','expiry_days') 
-                                    VALUES (@PARTNUMBER,@DESCRIPTION,@DEFAULTQTY,@TOTALWEIGHT,@PARTWEIGHT,@TOLPERCENT,@TOLPARTWEIGHT,@NEGATIVETOLPERCENT,@NEGATIVETOLPARTWEIGHT,@POSITIVETOLPERCENT,@POSITIVETOLPARTWEIGHT,@IMAGE,@REFERENCENUMBER,@EXPIRYDAYS)";
+                commandText0 = @"INSERT INTO [1.childpart]('child_part_number','child_part_description','default_qty','total_weight','part_weight','tol_percent','tol_part_weight','negative_tol_percent','negative_tol_part_weight','positive_tol_percent','positive_tol_part_weight','image','reference_number','expiry_days','side_info') 
+                                    VALUES (@PARTNUMBER,@DESCRIPTION,@DEFAULTQTY,@TOTALWEIGHT,@PARTWEIGHT,@TOLPERCENT,@TOLPARTWEIGHT,@NEGATIVETOLPERCENT,@NEGATIVETOLPARTWEIGHT,@POSITIVETOLPERCENT,@POSITIVETOLPARTWEIGHT,@IMAGE,@REFERENCENUMBER,@EXPIRYDAYS,@SIDEINFO)";
 
-                SQLiteParameter[] parameters2 = new SQLiteParameter[14];
+                SQLiteParameter[] parameters2 = new SQLiteParameter[15];
                 parameters2[0] = new SQLiteParameter("@PARTNUMBER", partNumber);
                 parameters2[1] = new SQLiteParameter("@DESCRIPTION", description);
                 parameters2[2] = new SQLiteParameter("@DEFAULTQTY", defaultQty);
@@ -154,6 +155,7 @@ namespace AutoWeighingAndPrinting
                 parameters2[11] = new SQLiteParameter("@IMAGE", imgByteArr);
                 parameters2[12] = new SQLiteParameter("@REFERENCENUMBER", referenceNumber);
                 parameters2[13] = new SQLiteParameter("@EXPIRYDAYS", expiryDays);
+                parameters2[14] = new SQLiteParameter("@SIDEINFO", sideInfo);
 
                 SqlLiteHelper.ExecuteNonQuery(connectionString, commandText0, parameters2);
 
@@ -180,7 +182,7 @@ namespace AutoWeighingAndPrinting
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-            tbReferenceNumber.Text = tbExpiryDays.Text = string.Empty;
+            tbReferenceNumber.Text = tbExpiryDays.Text = tbSideInfo.Text = string.Empty;
             tbPartNumber.Text = tbDescription.Text = string.Empty;
             tbDefaultQty.Text = tbTotalWeight.Text = tbPartWeight.Text = tbTolPercent.Text = tbTolPartWeight.Text = string.Empty;
             tbNegativeTolPercent.Text = tbNegativeTolPartWeight.Text = tbPositiveTolPercent.Text = tbPositiveTolPartWeight.Text = string.Empty;

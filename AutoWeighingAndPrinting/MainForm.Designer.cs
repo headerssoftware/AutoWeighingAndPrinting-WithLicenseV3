@@ -51,6 +51,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblMinimumWeight = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tbSideInfo = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.tbExpiryDays = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.tbReferenceNumber = new System.Windows.Forms.TextBox();
@@ -387,6 +389,8 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.tbSideInfo);
+            this.panel4.Controls.Add(this.label38);
             this.panel4.Controls.Add(this.tbExpiryDays);
             this.panel4.Controls.Add(this.label36);
             this.panel4.Controls.Add(this.tbReferenceNumber);
@@ -417,6 +421,26 @@
             this.panel4.Size = new System.Drawing.Size(425, 613);
             this.panel4.TabIndex = 0;
             // 
+            // tbSideInfo
+            // 
+            this.tbSideInfo.BackColor = System.Drawing.Color.LightGray;
+            this.tbSideInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSideInfo.Location = new System.Drawing.Point(275, 122);
+            this.tbSideInfo.Name = "tbSideInfo";
+            this.tbSideInfo.ReadOnly = true;
+            this.tbSideInfo.Size = new System.Drawing.Size(137, 23);
+            this.tbSideInfo.TabIndex = 26;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(206, 125);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(63, 17);
+            this.label38.TabIndex = 27;
+            this.label38.Text = "Side Info";
+            // 
             // tbExpiryDays
             // 
             this.tbExpiryDays.BackColor = System.Drawing.Color.LightGray;
@@ -424,7 +448,7 @@
             this.tbExpiryDays.Location = new System.Drawing.Point(137, 122);
             this.tbExpiryDays.Name = "tbExpiryDays";
             this.tbExpiryDays.ReadOnly = true;
-            this.tbExpiryDays.Size = new System.Drawing.Size(193, 23);
+            this.tbExpiryDays.Size = new System.Drawing.Size(63, 23);
             this.tbExpiryDays.TabIndex = 5;
             // 
             // label36
@@ -1429,7 +1453,7 @@
             this.KeyPreview = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Auto Weighing and Printing";
+            this.Text = "Auto Weighing and Printing -V3";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -1575,6 +1599,8 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label lblLicenseExpirationInfo;
         private System.Windows.Forms.PictureBox pbLicenseinfo;
+        private System.Windows.Forms.TextBox tbSideInfo;
+        private System.Windows.Forms.Label label38;
     }
 }
 
