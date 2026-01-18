@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -29,27 +30,8 @@ namespace AutoWeighingAndPrinting
                 File.CreateText(filePath).Dispose();
 
                 //Assign default values to the new file
-                AppSettings defaultSettings = new AppSettings
-                {
-                    PortName = "COM3",
-                    BaudRate = 9600,
-                    DataBits = 8,
-                    Parity = "None",
-                    StopBits = "One",
-                    NewLine = "none",
-                    DivideValue = "1000",
-                    DBFilePath = "",
-                    LastCustomerSelected = "",
-                    PrintingFileName = "",
-                    SelectedSize ="",
-                    PrinterName = "",
-                    EnablePrintingHistory = false,
-                    DeleteHistoryDays = 180,
-                    HistoryDeletedDate = DateTime.Now,
-                    LicenseKey = "MRLMH-TMJAO-UPKEP-ETHTI",
-                    IsUseExDialog= true 
+                AppSettings defaultSettings = GetDefaultSettings();
 
-                };
                 File.WriteAllText(filePath, JsonConvert.SerializeObject(defaultSettings, Formatting.Indented));
 
             }
@@ -60,9 +42,43 @@ namespace AutoWeighingAndPrinting
 
         internal AppSettings ReadSettings()
         {
-            if (File.Exists(filePath))
+            string tempFilePath = filePath + ".tmp";
+
+            // 1️. Recover from temp file if it exists
+            if (File.Exists(tempFilePath))
             {
-                appSettings = JsonConvert.DeserializeObject<AppSettings>(File.ReadAllText(filePath));
+                try
+                {
+                    // If main file is missing or broken, recover temp
+                    if (!File.Exists(filePath) || !IsValidJson(filePath))
+                    {
+                        MoveFileOverwrite(tempFilePath, filePath);
+                    }
+                    else
+                    {
+                        File.Delete(tempFilePath);
+                    }
+                }
+                catch
+                {
+                    // Best effort recovery
+                    MoveFileOverwrite(tempFilePath, filePath);
+                }
+            }
+
+            // 2️. Read config safely
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    string json = File.ReadAllText(filePath);
+                    appSettings = JsonConvert.DeserializeObject<AppSettings>(json);
+                }
+            }
+            catch
+            {
+                // 3️. Fallback to default if corrupted
+                appSettings = GetDefaultSettings();
             }
 
             return appSettings;
@@ -70,17 +86,69 @@ namespace AutoWeighingAndPrinting
 
         internal void WriteSettings(AppSettings NewSettings)
         {
-            if (!File.Exists(filePath))
-            {
-                if (!Directory.Exists(fileDirectory))  // if it doesn't exist, create
-                    Directory.CreateDirectory(fileDirectory);
+            if (!Directory.Exists(fileDirectory))
+                Directory.CreateDirectory(fileDirectory);
 
-                // Create a new file
-                File.CreateText(filePath).Dispose();
+            string tempFilePath = filePath + ".tmp";
+            string json = JsonConvert.SerializeObject(NewSettings, Formatting.Indented);
+
+            // Write to temp file first
+            File.WriteAllText(tempFilePath, json);
+
+            // Atomically replace original file
+            if (File.Exists(filePath))
+            {
+                File.Replace(tempFilePath, filePath, null);
+            }
+            else
+            {
+                File.Move(tempFilePath, filePath);
             }
 
-            File.WriteAllText(filePath, JsonConvert.SerializeObject(NewSettings, Formatting.Indented));
+        }
 
+        private AppSettings GetDefaultSettings()
+        {
+            return new AppSettings
+            {
+                PortName = "COM3",
+                BaudRate = 9600,
+                DataBits = 8,
+                Parity = "None",
+                StopBits = "One",
+                NewLine = "none",
+                DivideValue = "1000",
+                DBFilePath = "",
+                LastCustomerSelected = "",
+                PrintingFileName = "",
+                SelectedSize = "",
+                PrinterName = "",
+                EnablePrintingHistory = false,
+                DeleteHistoryDays = 180,
+                HistoryDeletedDate = DateTime.Now,
+                LicenseKey = "MRLMH-TMJAO-UPKEP-ETHTI",
+                IsUseExDialog = true
+            };
+        }
+
+        private void MoveFileOverwrite(string source, string destination)
+        {
+            if (File.Exists(destination))
+                File.Delete(destination);
+
+            File.Move(source, destination);
+        }
+        private bool IsValidJson(string path)
+        {
+            try
+            {
+                JsonConvert.DeserializeObject<AppSettings>(File.ReadAllText(path));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
     public class AppSettings
