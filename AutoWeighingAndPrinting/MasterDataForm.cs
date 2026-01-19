@@ -1126,10 +1126,10 @@ namespace AutoWeighingAndPrinting
                 using (XLWorkbook wb = new XLWorkbook())
                 {
                     var ws = wb.Worksheets.Add("ChildParts Printed History");
-                    ws.AutoFilter.Enabled = false;
                     ws.Cell(1, 1).InsertTable(dt);
                     ws.Worksheet.Table("Table1").ShowAutoFilter = false;
                     ws.Columns().AdjustToContents();
+                    ws.AutoFilter.Clear();
 
                     wb.SaveAs(folderPath + filename + ".xlsx");
                 }
@@ -1339,7 +1339,7 @@ namespace AutoWeighingAndPrinting
                 using (XLWorkbook wb = new XLWorkbook())
                 {
                     var ws = wb.Worksheets.Add("Assembly Parts Printed History");
-                    ws.AutoFilter.Enabled = false;
+                    ws.AutoFilter.Clear();
                     ws.Cell(1, 1).InsertTable(dtAssemblyPartsHistory);
                     ws.Worksheet.Table("Table1").ShowAutoFilter = false;
                     ws.Columns().AdjustToContents();
