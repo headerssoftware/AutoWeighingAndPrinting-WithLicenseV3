@@ -156,9 +156,10 @@
             this.tcMasterData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMasterData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcMasterData.Location = new System.Drawing.Point(0, 0);
+            this.tcMasterData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcMasterData.Name = "tcMasterData";
             this.tcMasterData.SelectedIndex = 0;
-            this.tcMasterData.Size = new System.Drawing.Size(984, 662);
+            this.tcMasterData.Size = new System.Drawing.Size(1312, 815);
             this.tcMasterData.TabIndex = 0;
             this.tcMasterData.SelectedIndexChanged += new System.EventHandler(this.TcMasterData_SelectedIndexChanged);
             // 
@@ -167,10 +168,11 @@
             this.tpManageChildParts.BackColor = System.Drawing.Color.Transparent;
             this.tpManageChildParts.Controls.Add(this.tableLayoutPanel1);
             this.tpManageChildParts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tpManageChildParts.Location = new System.Drawing.Point(4, 29);
+            this.tpManageChildParts.Location = new System.Drawing.Point(4, 34);
+            this.tpManageChildParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpManageChildParts.Name = "tpManageChildParts";
-            this.tpManageChildParts.Padding = new System.Windows.Forms.Padding(3);
-            this.tpManageChildParts.Size = new System.Drawing.Size(976, 629);
+            this.tpManageChildParts.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpManageChildParts.Size = new System.Drawing.Size(1304, 777);
             this.tpManageChildParts.TabIndex = 0;
             this.tpManageChildParts.Text = "Manage Child Parts";
             // 
@@ -178,15 +180,16 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 415F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 553F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(970, 623);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1296, 769);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -198,27 +201,30 @@
             this.panel1.Controls.Add(this.dgvViewChildParts);
             this.panel1.Controls.Add(this.btnViewChildParts);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(549, 617);
+            this.panel1.Size = new System.Drawing.Size(735, 761);
             this.panel1.TabIndex = 0;
             // 
             // lblChildPartRowCount
             // 
             this.lblChildPartRowCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblChildPartRowCount.AutoSize = true;
-            this.lblChildPartRowCount.Location = new System.Drawing.Point(123, 589);
+            this.lblChildPartRowCount.Location = new System.Drawing.Point(164, 727);
+            this.lblChildPartRowCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChildPartRowCount.Name = "lblChildPartRowCount";
-            this.lblChildPartRowCount.Size = new System.Drawing.Size(92, 17);
+            this.lblChildPartRowCount.Size = new System.Drawing.Size(110, 20);
             this.lblChildPartRowCount.TabIndex = 5;
             this.lblChildPartRowCount.Text = "Row Count: 0";
             // 
             // btnEditChildPart
             // 
             this.btnEditChildPart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditChildPart.Location = new System.Drawing.Point(460, 581);
+            this.btnEditChildPart.Location = new System.Drawing.Point(616, 717);
+            this.btnEditChildPart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditChildPart.Name = "btnEditChildPart";
-            this.btnEditChildPart.Size = new System.Drawing.Size(86, 33);
+            this.btnEditChildPart.Size = new System.Drawing.Size(115, 41);
             this.btnEditChildPart.TabIndex = 4;
             this.btnEditChildPart.Text = "Edit";
             this.btnEditChildPart.UseVisualStyleBackColor = true;
@@ -227,9 +233,10 @@
             // btnAddChildParts
             // 
             this.btnAddChildParts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddChildParts.Location = new System.Drawing.Point(460, 14);
+            this.btnAddChildParts.Location = new System.Drawing.Point(616, 17);
+            this.btnAddChildParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddChildParts.Name = "btnAddChildParts";
-            this.btnAddChildParts.Size = new System.Drawing.Size(86, 33);
+            this.btnAddChildParts.Size = new System.Drawing.Size(115, 41);
             this.btnAddChildParts.TabIndex = 1;
             this.btnAddChildParts.Text = "Add New";
             this.btnAddChildParts.UseVisualStyleBackColor = true;
@@ -238,9 +245,10 @@
             // btnDeleteChildPart
             // 
             this.btnDeleteChildPart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeleteChildPart.Location = new System.Drawing.Point(3, 581);
+            this.btnDeleteChildPart.Location = new System.Drawing.Point(4, 717);
+            this.btnDeleteChildPart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteChildPart.Name = "btnDeleteChildPart";
-            this.btnDeleteChildPart.Size = new System.Drawing.Size(86, 33);
+            this.btnDeleteChildPart.Size = new System.Drawing.Size(115, 41);
             this.btnDeleteChildPart.TabIndex = 3;
             this.btnDeleteChildPart.Text = "Delete";
             this.btnDeleteChildPart.UseVisualStyleBackColor = true;
@@ -259,12 +267,14 @@
             this.dgvViewChildParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViewChildParts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dgvViewChildParts.Location = new System.Drawing.Point(3, 53);
+            this.dgvViewChildParts.Location = new System.Drawing.Point(4, 65);
+            this.dgvViewChildParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvViewChildParts.MultiSelect = false;
             this.dgvViewChildParts.Name = "dgvViewChildParts";
             this.dgvViewChildParts.RowHeadersVisible = false;
+            this.dgvViewChildParts.RowHeadersWidth = 51;
             this.dgvViewChildParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvViewChildParts.Size = new System.Drawing.Size(543, 522);
+            this.dgvViewChildParts.Size = new System.Drawing.Size(727, 644);
             this.dgvViewChildParts.TabIndex = 2;
             this.dgvViewChildParts.DataSourceChanged += new System.EventHandler(this.DgvViewChildParts_DataSourceChanged);
             this.dgvViewChildParts.SelectionChanged += new System.EventHandler(this.DgvViewChildParts_SelectionChanged);
@@ -273,13 +283,15 @@
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // btnViewChildParts
             // 
-            this.btnViewChildParts.Location = new System.Drawing.Point(3, 14);
+            this.btnViewChildParts.Location = new System.Drawing.Point(4, 17);
+            this.btnViewChildParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewChildParts.Name = "btnViewChildParts";
-            this.btnViewChildParts.Size = new System.Drawing.Size(86, 33);
+            this.btnViewChildParts.Size = new System.Drawing.Size(115, 41);
             this.btnViewChildParts.TabIndex = 0;
             this.btnViewChildParts.Text = "View";
             this.btnViewChildParts.UseVisualStyleBackColor = true;
@@ -290,17 +302,19 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.pbImage);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(558, 3);
+            this.panel2.Location = new System.Drawing.Point(747, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(409, 617);
+            this.panel2.Size = new System.Drawing.Size(545, 761);
             this.panel2.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 66);
+            this.label5.Location = new System.Drawing.Point(4, 81);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "Image";
             // 
@@ -308,9 +322,10 @@
             // 
             this.pbImage.BackColor = System.Drawing.Color.LightGray;
             this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage.Location = new System.Drawing.Point(3, 89);
+            this.pbImage.Location = new System.Drawing.Point(4, 110);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(400, 400);
+            this.pbImage.Size = new System.Drawing.Size(533, 492);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 10;
             this.pbImage.TabStop = false;
@@ -319,10 +334,11 @@
             // 
             this.tpManageAssemblyParts.Controls.Add(this.tableLayoutPanel2);
             this.tpManageAssemblyParts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tpManageAssemblyParts.Location = new System.Drawing.Point(4, 29);
+            this.tpManageAssemblyParts.Location = new System.Drawing.Point(4, 34);
+            this.tpManageAssemblyParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpManageAssemblyParts.Name = "tpManageAssemblyParts";
-            this.tpManageAssemblyParts.Padding = new System.Windows.Forms.Padding(3);
-            this.tpManageAssemblyParts.Size = new System.Drawing.Size(976, 629);
+            this.tpManageAssemblyParts.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpManageAssemblyParts.Size = new System.Drawing.Size(1304, 777);
             this.tpManageAssemblyParts.TabIndex = 1;
             this.tpManageAssemblyParts.Text = "Manage Assembly Parts";
             this.tpManageAssemblyParts.UseVisualStyleBackColor = true;
@@ -336,11 +352,12 @@
             this.tableLayoutPanel2.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(970, 623);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1296, 769);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel3
@@ -351,27 +368,30 @@
             this.panel3.Controls.Add(this.btnViewAssemblyParts);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Location = new System.Drawing.Point(4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(382, 617);
+            this.panel3.Size = new System.Drawing.Size(510, 761);
             this.panel3.TabIndex = 0;
             // 
             // lblAssemblyRowCount
             // 
             this.lblAssemblyRowCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAssemblyRowCount.AutoSize = true;
-            this.lblAssemblyRowCount.Location = new System.Drawing.Point(120, 589);
+            this.lblAssemblyRowCount.Location = new System.Drawing.Point(160, 727);
+            this.lblAssemblyRowCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAssemblyRowCount.Name = "lblAssemblyRowCount";
-            this.lblAssemblyRowCount.Size = new System.Drawing.Size(92, 17);
+            this.lblAssemblyRowCount.Size = new System.Drawing.Size(110, 20);
             this.lblAssemblyRowCount.TabIndex = 6;
             this.lblAssemblyRowCount.Text = "Row Count: 0";
             // 
             // btnDeleteAssemblyPart
             // 
             this.btnDeleteAssemblyPart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeleteAssemblyPart.Location = new System.Drawing.Point(9, 581);
+            this.btnDeleteAssemblyPart.Location = new System.Drawing.Point(12, 717);
+            this.btnDeleteAssemblyPart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteAssemblyPart.Name = "btnDeleteAssemblyPart";
-            this.btnDeleteAssemblyPart.Size = new System.Drawing.Size(86, 33);
+            this.btnDeleteAssemblyPart.Size = new System.Drawing.Size(115, 41);
             this.btnDeleteAssemblyPart.TabIndex = 3;
             this.btnDeleteAssemblyPart.Text = "Delete";
             this.btnDeleteAssemblyPart.UseVisualStyleBackColor = true;
@@ -391,12 +411,14 @@
             this.dgvAssemblyParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAssemblyParts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1});
-            this.dgvAssemblyParts.Location = new System.Drawing.Point(3, 171);
+            this.dgvAssemblyParts.Location = new System.Drawing.Point(4, 210);
+            this.dgvAssemblyParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAssemblyParts.MultiSelect = false;
             this.dgvAssemblyParts.Name = "dgvAssemblyParts";
             this.dgvAssemblyParts.RowHeadersVisible = false;
+            this.dgvAssemblyParts.RowHeadersWidth = 51;
             this.dgvAssemblyParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAssemblyParts.Size = new System.Drawing.Size(373, 404);
+            this.dgvAssemblyParts.Size = new System.Drawing.Size(498, 499);
             this.dgvAssemblyParts.TabIndex = 2;
             this.dgvAssemblyParts.DataSourceChanged += new System.EventHandler(this.DgvAssemblyParts_DataSourceChanged);
             this.dgvAssemblyParts.SelectionChanged += new System.EventHandler(this.DgvAssemblyParts_SelectionChanged);
@@ -405,13 +427,15 @@
             // 
             this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewCheckBoxColumn1.HeaderText = "";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
             // btnViewAssemblyParts
             // 
-            this.btnViewAssemblyParts.Location = new System.Drawing.Point(91, 130);
+            this.btnViewAssemblyParts.Location = new System.Drawing.Point(121, 160);
+            this.btnViewAssemblyParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewAssemblyParts.Name = "btnViewAssemblyParts";
-            this.btnViewAssemblyParts.Size = new System.Drawing.Size(158, 35);
+            this.btnViewAssemblyParts.Size = new System.Drawing.Size(211, 43);
             this.btnViewAssemblyParts.TabIndex = 1;
             this.btnViewAssemblyParts.Text = "View Assembly Parts";
             this.btnViewAssemblyParts.UseVisualStyleBackColor = true;
@@ -427,17 +451,20 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(382, 124);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(510, 153);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Assembly Part Number";
             // 
             // btnAddAssembly
             // 
-            this.btnAddAssembly.Location = new System.Drawing.Point(91, 83);
+            this.btnAddAssembly.Location = new System.Drawing.Point(121, 102);
+            this.btnAddAssembly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddAssembly.Name = "btnAddAssembly";
-            this.btnAddAssembly.Size = new System.Drawing.Size(158, 33);
+            this.btnAddAssembly.Size = new System.Drawing.Size(211, 41);
             this.btnAddAssembly.TabIndex = 2;
             this.btnAddAssembly.Text = "Add Part Number";
             this.btnAddAssembly.UseVisualStyleBackColor = true;
@@ -445,34 +472,38 @@
             // 
             // tbAssemblyDesc
             // 
-            this.tbAssemblyDesc.Location = new System.Drawing.Point(91, 54);
+            this.tbAssemblyDesc.Location = new System.Drawing.Point(121, 66);
+            this.tbAssemblyDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbAssemblyDesc.Name = "tbAssemblyDesc";
-            this.tbAssemblyDesc.Size = new System.Drawing.Size(285, 23);
+            this.tbAssemblyDesc.Size = new System.Drawing.Size(379, 26);
             this.tbAssemblyDesc.TabIndex = 1;
             this.tbAssemblyDesc.TextChanged += new System.EventHandler(this.TbAssemblyDesc_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 57);
+            this.label2.Location = new System.Drawing.Point(8, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 17);
+            this.label2.Size = new System.Drawing.Size(95, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Description";
             // 
             // tbAssemblyPartNumber
             // 
-            this.tbAssemblyPartNumber.Location = new System.Drawing.Point(164, 25);
+            this.tbAssemblyPartNumber.Location = new System.Drawing.Point(219, 31);
+            this.tbAssemblyPartNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbAssemblyPartNumber.Name = "tbAssemblyPartNumber";
-            this.tbAssemblyPartNumber.Size = new System.Drawing.Size(212, 23);
+            this.tbAssemblyPartNumber.Size = new System.Drawing.Size(281, 26);
             this.tbAssemblyPartNumber.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 28);
+            this.label1.Location = new System.Drawing.Point(8, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 17);
+            this.label1.Size = new System.Drawing.Size(182, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Assembly Part Number";
             // 
@@ -483,27 +514,30 @@
             this.panel4.Controls.Add(this.dgvChildPartsFromAssembly);
             this.panel4.Controls.Add(this.groupBox2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(391, 3);
+            this.panel4.Location = new System.Drawing.Point(522, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(576, 617);
+            this.panel4.Size = new System.Drawing.Size(770, 761);
             this.panel4.TabIndex = 1;
             // 
             // lblAssemChildRowCount
             // 
             this.lblAssemChildRowCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAssemChildRowCount.AutoSize = true;
-            this.lblAssemChildRowCount.Location = new System.Drawing.Point(132, 589);
+            this.lblAssemChildRowCount.Location = new System.Drawing.Point(176, 727);
+            this.lblAssemChildRowCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAssemChildRowCount.Name = "lblAssemChildRowCount";
-            this.lblAssemChildRowCount.Size = new System.Drawing.Size(92, 17);
+            this.lblAssemChildRowCount.Size = new System.Drawing.Size(110, 20);
             this.lblAssemChildRowCount.TabIndex = 3;
             this.lblAssemChildRowCount.Text = "Row Count: 0";
             // 
             // btnRemoveChildParts
             // 
             this.btnRemoveChildParts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemoveChildParts.Location = new System.Drawing.Point(9, 581);
+            this.btnRemoveChildParts.Location = new System.Drawing.Point(12, 717);
+            this.btnRemoveChildParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemoveChildParts.Name = "btnRemoveChildParts";
-            this.btnRemoveChildParts.Size = new System.Drawing.Size(86, 33);
+            this.btnRemoveChildParts.Size = new System.Drawing.Size(115, 41);
             this.btnRemoveChildParts.TabIndex = 2;
             this.btnRemoveChildParts.Text = "Remove";
             this.btnRemoveChildParts.UseVisualStyleBackColor = true;
@@ -522,12 +556,14 @@
             this.dgvChildPartsFromAssembly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChildPartsFromAssembly.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn2});
-            this.dgvChildPartsFromAssembly.Location = new System.Drawing.Point(9, 171);
+            this.dgvChildPartsFromAssembly.Location = new System.Drawing.Point(12, 210);
+            this.dgvChildPartsFromAssembly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvChildPartsFromAssembly.MultiSelect = false;
             this.dgvChildPartsFromAssembly.Name = "dgvChildPartsFromAssembly";
             this.dgvChildPartsFromAssembly.RowHeadersVisible = false;
+            this.dgvChildPartsFromAssembly.RowHeadersWidth = 51;
             this.dgvChildPartsFromAssembly.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChildPartsFromAssembly.Size = new System.Drawing.Size(564, 404);
+            this.dgvChildPartsFromAssembly.Size = new System.Drawing.Size(754, 499);
             this.dgvChildPartsFromAssembly.TabIndex = 1;
             this.dgvChildPartsFromAssembly.DataSourceChanged += new System.EventHandler(this.DgvChildPartsFromAssembly_DataSourceChanged);
             // 
@@ -535,6 +571,7 @@
             // 
             this.dataGridViewCheckBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewCheckBoxColumn2.HeaderText = "";
+            this.dataGridViewCheckBoxColumn2.MinimumWidth = 6;
             this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
             // 
             // groupBox2
@@ -556,8 +593,10 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(576, 165);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(770, 203);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add Child Part Number";
@@ -565,9 +604,10 @@
             // tbSNo
             // 
             this.tbSNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbSNo.Location = new System.Drawing.Point(213, 83);
+            this.tbSNo.Location = new System.Drawing.Point(284, 102);
+            this.tbSNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbSNo.Name = "tbSNo";
-            this.tbSNo.Size = new System.Drawing.Size(83, 23);
+            this.tbSNo.Size = new System.Drawing.Size(109, 26);
             this.tbSNo.TabIndex = 3;
             this.tbSNo.TextChanged += new System.EventHandler(this.TbSNo_TextChanged);
             this.tbSNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbSNo_KeyPress);
@@ -575,17 +615,19 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(164, 86);
+            this.label9.Location = new System.Drawing.Point(219, 106);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 17);
+            this.label9.Size = new System.Drawing.Size(50, 20);
             this.label9.TabIndex = 16;
             this.label9.Text = "S. No";
             // 
             // tbNoOfQty
             // 
-            this.tbNoOfQty.Location = new System.Drawing.Point(80, 83);
+            this.tbNoOfQty.Location = new System.Drawing.Point(107, 102);
+            this.tbNoOfQty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNoOfQty.Name = "tbNoOfQty";
-            this.tbNoOfQty.Size = new System.Drawing.Size(69, 23);
+            this.tbNoOfQty.Size = new System.Drawing.Size(91, 26);
             this.tbNoOfQty.TabIndex = 2;
             this.tbNoOfQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbNoOfQty_KeyDown);
             this.tbNoOfQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbNoOfQty_KeyPress);
@@ -593,54 +635,60 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 86);
+            this.label8.Location = new System.Drawing.Point(8, 106);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 17);
+            this.label8.Size = new System.Drawing.Size(80, 20);
             this.label8.TabIndex = 14;
             this.label8.Text = "No of Qty";
             // 
             // tbTolerance
             // 
-            this.tbTolerance.Location = new System.Drawing.Point(467, 54);
+            this.tbTolerance.Location = new System.Drawing.Point(623, 66);
+            this.tbTolerance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbTolerance.Name = "tbTolerance";
             this.tbTolerance.ReadOnly = true;
-            this.tbTolerance.Size = new System.Drawing.Size(80, 23);
+            this.tbTolerance.Size = new System.Drawing.Size(105, 26);
             this.tbTolerance.TabIndex = 11;
             this.tbTolerance.TabStop = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(370, 57);
+            this.label7.Location = new System.Drawing.Point(493, 70);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 17);
+            this.label7.Size = new System.Drawing.Size(103, 20);
             this.label7.TabIndex = 12;
             this.label7.Text = "Tolerance %";
             // 
             // tbWeight
             // 
-            this.tbWeight.Location = new System.Drawing.Point(467, 22);
+            this.tbWeight.Location = new System.Drawing.Point(623, 27);
+            this.tbWeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbWeight.Name = "tbWeight";
             this.tbWeight.ReadOnly = true;
-            this.tbWeight.Size = new System.Drawing.Size(80, 23);
+            this.tbWeight.Size = new System.Drawing.Size(105, 26);
             this.tbWeight.TabIndex = 9;
             this.tbWeight.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(371, 28);
+            this.label6.Location = new System.Drawing.Point(495, 34);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 17);
+            this.label6.Size = new System.Drawing.Size(97, 20);
             this.label6.TabIndex = 10;
             this.label6.Text = "Part Weight";
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(290, 25);
+            this.btnSearch.Location = new System.Drawing.Point(387, 31);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(71, 23);
+            this.btnSearch.Size = new System.Drawing.Size(95, 28);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -648,9 +696,10 @@
             // 
             // btnAddChildPartToAssembly
             // 
-            this.btnAddChildPartToAssembly.Location = new System.Drawing.Point(9, 130);
+            this.btnAddChildPartToAssembly.Location = new System.Drawing.Point(12, 160);
+            this.btnAddChildPartToAssembly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddChildPartToAssembly.Name = "btnAddChildPartToAssembly";
-            this.btnAddChildPartToAssembly.Size = new System.Drawing.Size(205, 35);
+            this.btnAddChildPartToAssembly.Size = new System.Drawing.Size(273, 43);
             this.btnAddChildPartToAssembly.TabIndex = 4;
             this.btnAddChildPartToAssembly.Text = "Add Child Part To Assembly";
             this.btnAddChildPartToAssembly.UseVisualStyleBackColor = true;
@@ -658,46 +707,51 @@
             // 
             // tbChildPartDesc
             // 
-            this.tbChildPartDesc.Location = new System.Drawing.Point(104, 54);
+            this.tbChildPartDesc.Location = new System.Drawing.Point(139, 66);
+            this.tbChildPartDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbChildPartDesc.Name = "tbChildPartDesc";
             this.tbChildPartDesc.ReadOnly = true;
-            this.tbChildPartDesc.Size = new System.Drawing.Size(257, 23);
+            this.tbChildPartDesc.Size = new System.Drawing.Size(341, 26);
             this.tbChildPartDesc.TabIndex = 3;
             this.tbChildPartDesc.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 57);
+            this.label3.Location = new System.Drawing.Point(8, 70);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 17);
+            this.label3.Size = new System.Drawing.Size(95, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Description";
             // 
             // tbChildPart
             // 
-            this.tbChildPart.Location = new System.Drawing.Point(135, 25);
+            this.tbChildPart.Location = new System.Drawing.Point(180, 31);
+            this.tbChildPart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbChildPart.Name = "tbChildPart";
-            this.tbChildPart.Size = new System.Drawing.Size(149, 23);
+            this.tbChildPart.Size = new System.Drawing.Size(197, 26);
             this.tbChildPart.TabIndex = 0;
             this.tbChildPart.TextChanged += new System.EventHandler(this.TbChildPart_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 28);
+            this.label4.Location = new System.Drawing.Point(8, 34);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 17);
+            this.label4.Size = new System.Drawing.Size(147, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Child Part Number";
             // 
             // tpChangePassword
             // 
             this.tpChangePassword.Controls.Add(this.panel5);
-            this.tpChangePassword.Location = new System.Drawing.Point(4, 29);
+            this.tpChangePassword.Location = new System.Drawing.Point(4, 34);
+            this.tpChangePassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpChangePassword.Name = "tpChangePassword";
-            this.tpChangePassword.Padding = new System.Windows.Forms.Padding(3);
-            this.tpChangePassword.Size = new System.Drawing.Size(976, 629);
+            this.tpChangePassword.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpChangePassword.Size = new System.Drawing.Size(1304, 777);
             this.tpChangePassword.TabIndex = 2;
             this.tpChangePassword.Text = "Change Password";
             this.tpChangePassword.UseVisualStyleBackColor = true;
@@ -710,17 +764,19 @@
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Location = new System.Drawing.Point(4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(970, 623);
+            this.panel5.Size = new System.Drawing.Size(1296, 769);
             this.panel5.TabIndex = 0;
             // 
             // btnChangePassword
             // 
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.Location = new System.Drawing.Point(251, 97);
+            this.btnChangePassword.Location = new System.Drawing.Point(335, 119);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(184, 35);
+            this.btnChangePassword.Size = new System.Drawing.Size(245, 43);
             this.btnChangePassword.TabIndex = 2;
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.UseVisualStyleBackColor = true;
@@ -729,27 +785,30 @@
             // tbNewPassword
             // 
             this.tbNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNewPassword.Location = new System.Drawing.Point(251, 62);
+            this.tbNewPassword.Location = new System.Drawing.Point(335, 76);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.Size = new System.Drawing.Size(184, 29);
+            this.tbNewPassword.Size = new System.Drawing.Size(244, 34);
             this.tbNewPassword.TabIndex = 1;
             // 
             // tbOldPassword
             // 
             this.tbOldPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbOldPassword.Location = new System.Drawing.Point(251, 24);
+            this.tbOldPassword.Location = new System.Drawing.Point(335, 30);
+            this.tbOldPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbOldPassword.Name = "tbOldPassword";
             this.tbOldPassword.PasswordChar = '*';
-            this.tbOldPassword.Size = new System.Drawing.Size(184, 29);
+            this.tbOldPassword.Size = new System.Drawing.Size(244, 34);
             this.tbOldPassword.TabIndex = 0;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(38, 65);
+            this.label11.Location = new System.Drawing.Point(51, 80);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(186, 24);
+            this.label11.Size = new System.Drawing.Size(239, 29);
             this.label11.TabIndex = 1;
             this.label11.Text = "Enter New Password";
             // 
@@ -757,19 +816,21 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(38, 24);
+            this.label10.Location = new System.Drawing.Point(51, 30);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(177, 24);
+            this.label10.Size = new System.Drawing.Size(228, 29);
             this.label10.TabIndex = 0;
             this.label10.Text = "Enter Old Password";
             // 
             // tpViewPrintingHistory
             // 
             this.tpViewPrintingHistory.Controls.Add(this.panel6);
-            this.tpViewPrintingHistory.Location = new System.Drawing.Point(4, 29);
+            this.tpViewPrintingHistory.Location = new System.Drawing.Point(4, 34);
+            this.tpViewPrintingHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpViewPrintingHistory.Name = "tpViewPrintingHistory";
-            this.tpViewPrintingHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpViewPrintingHistory.Size = new System.Drawing.Size(976, 629);
+            this.tpViewPrintingHistory.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpViewPrintingHistory.Size = new System.Drawing.Size(1304, 777);
             this.tpViewPrintingHistory.TabIndex = 3;
             this.tpViewPrintingHistory.Text = "View Printed History";
             this.tpViewPrintingHistory.UseVisualStyleBackColor = true;
@@ -778,9 +839,10 @@
             // 
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Location = new System.Drawing.Point(4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(970, 623);
+            this.panel6.Size = new System.Drawing.Size(1296, 769);
             this.panel6.TabIndex = 0;
             // 
             // tabControl1
@@ -789,18 +851,20 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(970, 623);
+            this.tabControl1.Size = new System.Drawing.Size(1296, 769);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel7);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(962, 590);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1288, 731);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Child Parts Printed History";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -816,18 +880,20 @@
             this.panel7.Controls.Add(this.label12);
             this.panel7.Controls.Add(this.dtpChildFromDate);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Location = new System.Drawing.Point(4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(956, 584);
+            this.panel7.Size = new System.Drawing.Size(1280, 723);
             this.panel7.TabIndex = 0;
             // 
             // lblChildHistoryRowCount
             // 
             this.lblChildHistoryRowCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblChildHistoryRowCount.AutoSize = true;
-            this.lblChildHistoryRowCount.Location = new System.Drawing.Point(223, 553);
+            this.lblChildHistoryRowCount.Location = new System.Drawing.Point(297, 684);
+            this.lblChildHistoryRowCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChildHistoryRowCount.Name = "lblChildHistoryRowCount";
-            this.lblChildHistoryRowCount.Size = new System.Drawing.Size(105, 20);
+            this.lblChildHistoryRowCount.Size = new System.Drawing.Size(130, 25);
             this.lblChildHistoryRowCount.TabIndex = 7;
             this.lblChildHistoryRowCount.Text = "Row Count: 0";
             // 
@@ -835,9 +901,10 @@
             // 
             this.btnChildExportToExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnChildExportToExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChildExportToExcel.Location = new System.Drawing.Point(64, 547);
+            this.btnChildExportToExcel.Location = new System.Drawing.Point(85, 677);
+            this.btnChildExportToExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChildExportToExcel.Name = "btnChildExportToExcel";
-            this.btnChildExportToExcel.Size = new System.Drawing.Size(130, 33);
+            this.btnChildExportToExcel.Size = new System.Drawing.Size(173, 41);
             this.btnChildExportToExcel.TabIndex = 6;
             this.btnChildExportToExcel.Text = "Export To Excel";
             this.btnChildExportToExcel.UseVisualStyleBackColor = true;
@@ -856,12 +923,14 @@
             this.dgvChildPartsHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChildPartsHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn3});
-            this.dgvChildPartsHistory.Location = new System.Drawing.Point(3, 46);
+            this.dgvChildPartsHistory.Location = new System.Drawing.Point(4, 57);
+            this.dgvChildPartsHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvChildPartsHistory.MultiSelect = false;
             this.dgvChildPartsHistory.Name = "dgvChildPartsHistory";
             this.dgvChildPartsHistory.RowHeadersVisible = false;
+            this.dgvChildPartsHistory.RowHeadersWidth = 51;
             this.dgvChildPartsHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChildPartsHistory.Size = new System.Drawing.Size(950, 495);
+            this.dgvChildPartsHistory.Size = new System.Drawing.Size(1272, 613);
             this.dgvChildPartsHistory.TabIndex = 5;
             this.dgvChildPartsHistory.DataSourceChanged += new System.EventHandler(this.DgvChildPartsHistory_DataSourceChanged);
             // 
@@ -869,14 +938,16 @@
             // 
             this.dataGridViewCheckBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewCheckBoxColumn3.HeaderText = "";
+            this.dataGridViewCheckBoxColumn3.MinimumWidth = 6;
             this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
             // 
             // btnChildSubmit
             // 
             this.btnChildSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChildSubmit.Location = new System.Drawing.Point(425, 7);
+            this.btnChildSubmit.Location = new System.Drawing.Point(567, 9);
+            this.btnChildSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChildSubmit.Name = "btnChildSubmit";
-            this.btnChildSubmit.Size = new System.Drawing.Size(110, 33);
+            this.btnChildSubmit.Size = new System.Drawing.Size(147, 41);
             this.btnChildSubmit.TabIndex = 4;
             this.btnChildSubmit.Text = "Submit";
             this.btnChildSubmit.UseVisualStyleBackColor = true;
@@ -885,9 +956,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(263, 13);
+            this.label13.Location = new System.Drawing.Point(351, 16);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(27, 20);
+            this.label13.Size = new System.Drawing.Size(36, 25);
             this.label13.TabIndex = 3;
             this.label13.Text = "To";
             // 
@@ -895,17 +967,19 @@
             // 
             this.dtpChildToDate.CustomFormat = "dd/MM/yyyy";
             this.dtpChildToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpChildToDate.Location = new System.Drawing.Point(296, 11);
+            this.dtpChildToDate.Location = new System.Drawing.Point(395, 14);
+            this.dtpChildToDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpChildToDate.Name = "dtpChildToDate";
-            this.dtpChildToDate.Size = new System.Drawing.Size(123, 26);
+            this.dtpChildToDate.Size = new System.Drawing.Size(163, 30);
             this.dtpChildToDate.TabIndex = 2;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(60, 13);
+            this.label12.Location = new System.Drawing.Point(80, 16);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 20);
+            this.label12.Size = new System.Drawing.Size(57, 25);
             this.label12.TabIndex = 1;
             this.label12.Text = "From";
             // 
@@ -913,18 +987,20 @@
             // 
             this.dtpChildFromDate.CustomFormat = "dd/MM/yyyy";
             this.dtpChildFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpChildFromDate.Location = new System.Drawing.Point(112, 11);
+            this.dtpChildFromDate.Location = new System.Drawing.Point(149, 14);
+            this.dtpChildFromDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpChildFromDate.Name = "dtpChildFromDate";
-            this.dtpChildFromDate.Size = new System.Drawing.Size(123, 26);
+            this.dtpChildFromDate.Size = new System.Drawing.Size(163, 30);
             this.dtpChildFromDate.TabIndex = 0;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.panel8);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(962, 590);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1285, 729);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Assembly Parts Printed History";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -933,9 +1009,10 @@
             // 
             this.panel8.Controls.Add(this.tableLayoutPanel3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Location = new System.Drawing.Point(4, 4);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(956, 584);
+            this.panel8.Size = new System.Drawing.Size(1277, 721);
             this.panel8.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -947,13 +1024,14 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(956, 584);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1277, 721);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel9
@@ -964,17 +1042,19 @@
             this.panel9.Controls.Add(this.label15);
             this.panel9.Controls.Add(this.dtpAssemFromDate);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(3, 3);
+            this.panel9.Location = new System.Drawing.Point(4, 4);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(950, 44);
+            this.panel9.Size = new System.Drawing.Size(1269, 54);
             this.panel9.TabIndex = 0;
             // 
             // btnAssemSubmit
             // 
             this.btnAssemSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssemSubmit.Location = new System.Drawing.Point(422, 4);
+            this.btnAssemSubmit.Location = new System.Drawing.Point(563, 5);
+            this.btnAssemSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAssemSubmit.Name = "btnAssemSubmit";
-            this.btnAssemSubmit.Size = new System.Drawing.Size(110, 33);
+            this.btnAssemSubmit.Size = new System.Drawing.Size(147, 41);
             this.btnAssemSubmit.TabIndex = 9;
             this.btnAssemSubmit.Text = "Submit";
             this.btnAssemSubmit.UseVisualStyleBackColor = true;
@@ -983,9 +1063,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(260, 10);
+            this.label14.Location = new System.Drawing.Point(347, 12);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(27, 20);
+            this.label14.Size = new System.Drawing.Size(36, 25);
             this.label14.TabIndex = 8;
             this.label14.Text = "To";
             // 
@@ -993,17 +1074,19 @@
             // 
             this.dtpAssemToDate.CustomFormat = "dd/MM/yyyy";
             this.dtpAssemToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAssemToDate.Location = new System.Drawing.Point(293, 8);
+            this.dtpAssemToDate.Location = new System.Drawing.Point(391, 10);
+            this.dtpAssemToDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpAssemToDate.Name = "dtpAssemToDate";
-            this.dtpAssemToDate.Size = new System.Drawing.Size(123, 26);
+            this.dtpAssemToDate.Size = new System.Drawing.Size(163, 30);
             this.dtpAssemToDate.TabIndex = 7;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(57, 10);
+            this.label15.Location = new System.Drawing.Point(76, 12);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 20);
+            this.label15.Size = new System.Drawing.Size(57, 25);
             this.label15.TabIndex = 6;
             this.label15.Text = "From";
             // 
@@ -1011,9 +1094,10 @@
             // 
             this.dtpAssemFromDate.CustomFormat = "dd/MM/yyyy";
             this.dtpAssemFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAssemFromDate.Location = new System.Drawing.Point(109, 8);
+            this.dtpAssemFromDate.Location = new System.Drawing.Point(145, 10);
+            this.dtpAssemFromDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpAssemFromDate.Name = "dtpAssemFromDate";
-            this.dtpAssemFromDate.Size = new System.Drawing.Size(123, 26);
+            this.dtpAssemFromDate.Size = new System.Drawing.Size(163, 30);
             this.dtpAssemFromDate.TabIndex = 5;
             // 
             // panel10
@@ -1021,18 +1105,20 @@
             this.panel10.Controls.Add(this.lblAssemHistoryRowCount);
             this.panel10.Controls.Add(this.btnAssemExportToExcel);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 546);
+            this.panel10.Location = new System.Drawing.Point(4, 675);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(950, 35);
+            this.panel10.Size = new System.Drawing.Size(1269, 42);
             this.panel10.TabIndex = 1;
             // 
             // lblAssemHistoryRowCount
             // 
             this.lblAssemHistoryRowCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAssemHistoryRowCount.AutoSize = true;
-            this.lblAssemHistoryRowCount.Location = new System.Drawing.Point(220, 7);
+            this.lblAssemHistoryRowCount.Location = new System.Drawing.Point(293, 8);
+            this.lblAssemHistoryRowCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAssemHistoryRowCount.Name = "lblAssemHistoryRowCount";
-            this.lblAssemHistoryRowCount.Size = new System.Drawing.Size(105, 20);
+            this.lblAssemHistoryRowCount.Size = new System.Drawing.Size(130, 25);
             this.lblAssemHistoryRowCount.TabIndex = 9;
             this.lblAssemHistoryRowCount.Text = "Row Count: 0";
             // 
@@ -1040,9 +1126,10 @@
             // 
             this.btnAssemExportToExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAssemExportToExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssemExportToExcel.Location = new System.Drawing.Point(61, 1);
+            this.btnAssemExportToExcel.Location = new System.Drawing.Point(81, 0);
+            this.btnAssemExportToExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAssemExportToExcel.Name = "btnAssemExportToExcel";
-            this.btnAssemExportToExcel.Size = new System.Drawing.Size(130, 33);
+            this.btnAssemExportToExcel.Size = new System.Drawing.Size(173, 41);
             this.btnAssemExportToExcel.TabIndex = 8;
             this.btnAssemExportToExcel.Text = "Export To Excel";
             this.btnAssemExportToExcel.UseVisualStyleBackColor = true;
@@ -1056,11 +1143,12 @@
             this.tableLayoutPanel4.Controls.Add(this.dgvAssemChildPartsHistory, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.dgvAssemPartsHistory, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 53);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 66);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(950, 487);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1269, 601);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // dgvAssemChildPartsHistory
@@ -1074,12 +1162,14 @@
             this.dgvAssemChildPartsHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAssemChildPartsHistory.BackgroundColor = System.Drawing.SystemColors.Info;
             this.dgvAssemChildPartsHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAssemChildPartsHistory.Location = new System.Drawing.Point(478, 3);
+            this.dgvAssemChildPartsHistory.Location = new System.Drawing.Point(638, 4);
+            this.dgvAssemChildPartsHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAssemChildPartsHistory.MultiSelect = false;
             this.dgvAssemChildPartsHistory.Name = "dgvAssemChildPartsHistory";
             this.dgvAssemChildPartsHistory.RowHeadersVisible = false;
+            this.dgvAssemChildPartsHistory.RowHeadersWidth = 51;
             this.dgvAssemChildPartsHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAssemChildPartsHistory.Size = new System.Drawing.Size(469, 481);
+            this.dgvAssemChildPartsHistory.Size = new System.Drawing.Size(627, 593);
             this.dgvAssemChildPartsHistory.TabIndex = 7;
             // 
             // dgvAssemPartsHistory
@@ -1093,28 +1183,31 @@
             this.dgvAssemPartsHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAssemPartsHistory.BackgroundColor = System.Drawing.SystemColors.Info;
             this.dgvAssemPartsHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAssemPartsHistory.Location = new System.Drawing.Point(3, 3);
+            this.dgvAssemPartsHistory.Location = new System.Drawing.Point(4, 4);
+            this.dgvAssemPartsHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAssemPartsHistory.MultiSelect = false;
             this.dgvAssemPartsHistory.Name = "dgvAssemPartsHistory";
             this.dgvAssemPartsHistory.RowHeadersVisible = false;
+            this.dgvAssemPartsHistory.RowHeadersWidth = 51;
             this.dgvAssemPartsHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAssemPartsHistory.Size = new System.Drawing.Size(469, 481);
+            this.dgvAssemPartsHistory.Size = new System.Drawing.Size(626, 593);
             this.dgvAssemPartsHistory.TabIndex = 6;
             this.dgvAssemPartsHistory.DataSourceChanged += new System.EventHandler(this.DgvAssemPartsHistory_DataSourceChanged);
             this.dgvAssemPartsHistory.SelectionChanged += new System.EventHandler(this.DgvAssemPartsHistory_SelectionChanged);
             // 
             // MasterDataForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.ClientSize = new System.Drawing.Size(984, 662);
+            this.ClientSize = new System.Drawing.Size(1312, 815);
             this.Controls.Add(this.tcMasterData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1000, 700);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1327, 851);
             this.Name = "MasterDataForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Auto Weighing and Printing - Master Data";
+            this.Text = "Auto Weighing and Printing V3 - Master Data";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MasterDataForm_Load);
             this.tcMasterData.ResumeLayout(false);

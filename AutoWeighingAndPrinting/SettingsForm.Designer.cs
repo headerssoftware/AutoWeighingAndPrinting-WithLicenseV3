@@ -69,16 +69,18 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(616, 378);
+            this.panel1.Size = new System.Drawing.Size(821, 465);
             this.panel1.TabIndex = 0;
             // 
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.Location = new System.Drawing.Point(131, 306);
+            this.btnBrowse.Location = new System.Drawing.Point(175, 377);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(105, 30);
+            this.btnBrowse.Size = new System.Drawing.Size(140, 37);
             this.btnBrowse.TabIndex = 13;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -87,10 +89,11 @@
             // tbSQLiteDBPath
             // 
             this.tbSQLiteDBPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSQLiteDBPath.Location = new System.Drawing.Point(16, 342);
+            this.tbSQLiteDBPath.Location = new System.Drawing.Point(21, 421);
+            this.tbSQLiteDBPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbSQLiteDBPath.Name = "tbSQLiteDBPath";
             this.tbSQLiteDBPath.ReadOnly = true;
-            this.tbSQLiteDBPath.Size = new System.Drawing.Size(588, 29);
+            this.tbSQLiteDBPath.Size = new System.Drawing.Size(783, 34);
             this.tbSQLiteDBPath.TabIndex = 12;
             this.tbSQLiteDBPath.TabStop = false;
             // 
@@ -98,18 +101,20 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 308);
+            this.label10.Location = new System.Drawing.Point(16, 379);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(113, 24);
+            this.label10.Size = new System.Drawing.Size(147, 29);
             this.label10.TabIndex = 11;
             this.label10.Text = "DB File Path";
             // 
             // btnConnect
             // 
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnect.Location = new System.Drawing.Point(345, 123);
+            this.btnConnect.Location = new System.Drawing.Point(460, 151);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(143, 41);
+            this.btnConnect.Size = new System.Drawing.Size(191, 50);
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -120,9 +125,10 @@
             this.lblWeight.AutoSize = true;
             this.lblWeight.BackColor = System.Drawing.Color.Red;
             this.lblWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWeight.Location = new System.Drawing.Point(348, 76);
+            this.lblWeight.Location = new System.Drawing.Point(464, 94);
+            this.lblWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(208, 36);
+            this.lblWeight.Size = new System.Drawing.Size(258, 42);
             this.lblWeight.TabIndex = 10;
             this.lblWeight.Text = "Disconnected";
             // 
@@ -143,9 +149,11 @@
             this.gbPortSettings.Controls.Add(this.label2);
             this.gbPortSettings.Controls.Add(this.label1);
             this.gbPortSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPortSettings.Location = new System.Drawing.Point(0, 11);
+            this.gbPortSettings.Location = new System.Drawing.Point(0, 14);
+            this.gbPortSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbPortSettings.Name = "gbPortSettings";
-            this.gbPortSettings.Size = new System.Drawing.Size(326, 294);
+            this.gbPortSettings.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbPortSettings.Size = new System.Drawing.Size(435, 362);
             this.gbPortSettings.TabIndex = 0;
             this.gbPortSettings.TabStop = false;
             this.gbPortSettings.Text = "Port Settings";
@@ -153,61 +161,68 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(30, 254);
+            this.label9.Location = new System.Drawing.Point(40, 313);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 24);
+            this.label9.Size = new System.Drawing.Size(148, 29);
             this.label9.TabIndex = 9;
             this.label9.Text = "Divide Value";
             // 
             // tbDivide
             // 
-            this.tbDivide.Location = new System.Drawing.Point(161, 251);
+            this.tbDivide.Location = new System.Drawing.Point(215, 309);
+            this.tbDivide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDivide.Name = "tbDivide";
-            this.tbDivide.Size = new System.Drawing.Size(143, 29);
+            this.tbDivide.Size = new System.Drawing.Size(189, 34);
             this.tbDivide.TabIndex = 7;
             this.tbDivide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbDivide_KeyPress);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 219);
+            this.label6.Location = new System.Drawing.Point(40, 270);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 24);
+            this.label6.Size = new System.Drawing.Size(115, 29);
             this.label6.TabIndex = 7;
             this.label6.Text = "New Line";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 184);
+            this.label5.Location = new System.Drawing.Point(40, 226);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 24);
+            this.label5.Size = new System.Drawing.Size(109, 29);
             this.label5.TabIndex = 7;
             this.label5.Text = "Stop Bits";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 149);
+            this.label4.Location = new System.Drawing.Point(40, 183);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 24);
+            this.label4.Size = new System.Drawing.Size(108, 29);
             this.label4.TabIndex = 6;
             this.label4.Text = "Data Bits";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 114);
+            this.label3.Location = new System.Drawing.Point(40, 140);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 24);
+            this.label3.Size = new System.Drawing.Size(73, 29);
             this.label3.TabIndex = 5;
             this.label3.Text = "Parity";
             // 
             // tbNewLine
             // 
-            this.tbNewLine.Location = new System.Drawing.Point(161, 216);
+            this.tbNewLine.Location = new System.Drawing.Point(215, 266);
+            this.tbNewLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNewLine.Name = "tbNewLine";
-            this.tbNewLine.Size = new System.Drawing.Size(143, 29);
+            this.tbNewLine.Size = new System.Drawing.Size(189, 34);
             this.tbNewLine.TabIndex = 5;
             // 
             // cbStopBits
@@ -217,9 +232,10 @@
             "One",
             "OnePointFive",
             "Two"});
-            this.cbStopBits.Location = new System.Drawing.Point(161, 181);
+            this.cbStopBits.Location = new System.Drawing.Point(215, 223);
+            this.cbStopBits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbStopBits.Name = "cbStopBits";
-            this.cbStopBits.Size = new System.Drawing.Size(143, 32);
+            this.cbStopBits.Size = new System.Drawing.Size(189, 37);
             this.cbStopBits.TabIndex = 4;
             // 
             // cbDataBits
@@ -230,9 +246,10 @@
             "6",
             "7",
             "8"});
-            this.cbDataBits.Location = new System.Drawing.Point(161, 146);
+            this.cbDataBits.Location = new System.Drawing.Point(215, 180);
+            this.cbDataBits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbDataBits.Name = "cbDataBits";
-            this.cbDataBits.Size = new System.Drawing.Size(143, 32);
+            this.cbDataBits.Size = new System.Drawing.Size(189, 37);
             this.cbDataBits.TabIndex = 3;
             // 
             // cbParity
@@ -244,9 +261,10 @@
             "None",
             "Mark",
             "Space"});
-            this.cbParity.Location = new System.Drawing.Point(161, 111);
+            this.cbParity.Location = new System.Drawing.Point(215, 137);
+            this.cbParity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbParity.Name = "cbParity";
-            this.cbParity.Size = new System.Drawing.Size(143, 32);
+            this.cbParity.Size = new System.Drawing.Size(189, 37);
             this.cbParity.TabIndex = 2;
             // 
             // cbBaudRate
@@ -267,34 +285,38 @@
             "115200",
             "128000",
             "256000"});
-            this.cbBaudRate.Location = new System.Drawing.Point(161, 76);
+            this.cbBaudRate.Location = new System.Drawing.Point(215, 94);
+            this.cbBaudRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbBaudRate.Name = "cbBaudRate";
-            this.cbBaudRate.Size = new System.Drawing.Size(143, 32);
+            this.cbBaudRate.Size = new System.Drawing.Size(189, 37);
             this.cbBaudRate.TabIndex = 1;
             // 
             // tbPortName
             // 
             this.tbPortName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbPortName.Location = new System.Drawing.Point(161, 41);
+            this.tbPortName.Location = new System.Drawing.Point(215, 50);
+            this.tbPortName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPortName.Name = "tbPortName";
-            this.tbPortName.Size = new System.Drawing.Size(143, 29);
+            this.tbPortName.Size = new System.Drawing.Size(189, 34);
             this.tbPortName.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 79);
+            this.label2.Location = new System.Drawing.Point(40, 97);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 24);
+            this.label2.Size = new System.Drawing.Size(125, 29);
             this.label2.TabIndex = 0;
             this.label2.Text = "Baud Rate";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 44);
+            this.label1.Location = new System.Drawing.Point(40, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 24);
+            this.label1.Size = new System.Drawing.Size(128, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Port Name";
             // 
@@ -302,9 +324,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(341, 41);
+            this.label8.Location = new System.Drawing.Point(455, 50);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(269, 24);
+            this.label8.Size = new System.Drawing.Size(342, 29);
             this.label8.TabIndex = 9;
             this.label8.Text = "Reading From Weighing Scale";
             // 
@@ -318,14 +341,15 @@
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 378);
+            this.ClientSize = new System.Drawing.Size(821, 465);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Auto Weighing and Printing - PORT Settings";
+            this.Text = "Auto Weighing and Printing V3 - PORT Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.panel1.ResumeLayout(false);

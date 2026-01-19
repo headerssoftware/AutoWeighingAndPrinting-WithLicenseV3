@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerSelectionForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSelectedSize = new System.Windows.Forms.Label();
             this.lbCustomer = new System.Windows.Forms.ListBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
-            this.lblSelectedSize = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,16 +51,26 @@
             this.panel1.Size = new System.Drawing.Size(392, 581);
             this.panel1.TabIndex = 0;
             // 
+            // lblSelectedSize
+            // 
+            this.lblSelectedSize.AutoSize = true;
+            this.lblSelectedSize.Location = new System.Drawing.Point(15, 16);
+            this.lblSelectedSize.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblSelectedSize.Name = "lblSelectedSize";
+            this.lblSelectedSize.Size = new System.Drawing.Size(21, 29);
+            this.lblSelectedSize.TabIndex = 14;
+            this.lblSelectedSize.Text = "-";
+            // 
             // lbCustomer
             // 
             this.lbCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbCustomer.FormattingEnabled = true;
-            this.lbCustomer.ItemHeight = 24;
+            this.lbCustomer.ItemHeight = 29;
             this.lbCustomer.Location = new System.Drawing.Point(11, 105);
             this.lbCustomer.Name = "lbCustomer";
-            this.lbCustomer.Size = new System.Drawing.Size(369, 436);
+            this.lbCustomer.Size = new System.Drawing.Size(369, 410);
             this.lbCustomer.TabIndex = 13;
             this.lbCustomer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LbCustomer_KeyDown);
             // 
@@ -83,23 +93,13 @@
             this.label26.Location = new System.Drawing.Point(15, 73);
             this.label26.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(179, 24);
+            this.label26.Size = new System.Drawing.Size(230, 29);
             this.label26.TabIndex = 11;
             this.label26.Text = "Select the Customer";
             // 
-            // lblSelectedSize
-            // 
-            this.lblSelectedSize.AutoSize = true;
-            this.lblSelectedSize.Location = new System.Drawing.Point(15, 16);
-            this.lblSelectedSize.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblSelectedSize.Name = "lblSelectedSize";
-            this.lblSelectedSize.Size = new System.Drawing.Size(16, 24);
-            this.lblSelectedSize.TabIndex = 14;
-            this.lblSelectedSize.Text = "-";
-            // 
             // CustomerSelectionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 581);
             this.Controls.Add(this.panel1);
@@ -109,7 +109,7 @@
             this.MinimumSize = new System.Drawing.Size(408, 362);
             this.Name = "CustomerSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Auto Weighing and Printing - Customer Selection";
+            this.Text = "Auto Weighing and Printing V3 - Customer Selection";
             this.Load += new System.EventHandler(this.CustomerSelectionForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

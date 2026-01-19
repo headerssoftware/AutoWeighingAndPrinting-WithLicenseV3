@@ -55,10 +55,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbLabelSize.FormattingEnabled = true;
-            this.lbLabelSize.ItemHeight = 24;
+            this.lbLabelSize.ItemHeight = 29;
             this.lbLabelSize.Location = new System.Drawing.Point(11, 57);
             this.lbLabelSize.Name = "lbLabelSize";
-            this.lbLabelSize.Size = new System.Drawing.Size(369, 484);
+            this.lbLabelSize.Size = new System.Drawing.Size(369, 468);
             this.lbLabelSize.TabIndex = 13;
             this.lbLabelSize.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbLabelSize_KeyDown);
             // 
@@ -81,13 +81,13 @@
             this.label26.Location = new System.Drawing.Point(7, 18);
             this.label26.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(185, 24);
+            this.label26.Size = new System.Drawing.Size(239, 29);
             this.label26.TabIndex = 11;
             this.label26.Text = "Select the Label Size";
             // 
             // SizeSelectionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 581);
             this.Controls.Add(this.panel1);
@@ -97,7 +97,7 @@
             this.MinimumSize = new System.Drawing.Size(408, 362);
             this.Name = "SizeSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Auto Weighing and Printing - Label Size Selection";
+            this.Text = "Auto Weighing and Printing V3 - Label Size Selection";
             this.Load += new System.EventHandler(this.SizeSelectionForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
