@@ -1,6 +1,5 @@
 ﻿using AutoWeighingAndPrinting.Helpers;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace AutoWeighingAndPrinting

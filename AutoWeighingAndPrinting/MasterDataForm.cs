@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
-using PS = AutoWeighingAndPrinting.Properties.Settings;
 
 //For excel sheet
 using ClosedXML.Excel;

@@ -191,6 +191,12 @@
     <Compile Include="SizeSelectionForm.Designer.cs">
       <DependentUpon>SizeSelectionForm.cs</DependentUpon>
     </Compile>
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="CustomerSelectionForm.resx">
       <DependentUpon>CustomerSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,7 +258,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Software Protector.exe" />
-    <Content Include="weight.db" />
+    <Content Include="weight.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

@@ -2,8 +2,6 @@
 using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
-using PS = AutoWeighingAndPrinting.Properties.Settings;
-
 
 namespace AutoWeighingAndPrinting
 {

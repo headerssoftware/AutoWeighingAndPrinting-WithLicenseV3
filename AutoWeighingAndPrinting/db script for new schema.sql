@@ -15,6 +15,7 @@ CREATE TABLE "1.childpart_new" (
 	"image"	BLOB,
 	"expiry_days"	INTEGER NOT NULL,
 	"batch_no"	TEXT,
+	"side_info" TEXT,
 	PRIMARY KEY("childpart_id" AUTOINCREMENT)
 );
 
@@ -82,7 +83,8 @@ CREATE TABLE "4.childpart_history_new" (
 	"positive_tol_percent"	TEXT NOT NULL,
 	"positive_tol_part_weight"	TEXT NOT NULL,
 	"expiry_days"	INTEGER NOT NULL,
-	"expiry_date"	TEXT NOT NULL
+	"expiry_date"	TEXT NOT NULL,
+		"side_info" TEXT
 );
 
 DROP TABLE "4.childpart_history";
