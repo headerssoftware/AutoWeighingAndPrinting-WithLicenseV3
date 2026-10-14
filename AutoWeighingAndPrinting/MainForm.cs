@@ -1409,6 +1409,8 @@ namespace AutoWeighingAndPrinting
 
                         string customerName = appSettings.PrintingFileName;
                         string date = DateTime.Now.ToString("dd/MMM/yyyy");
+                        string time24 = DateTime.Now.ToString("HH:mm");
+                        string time12 = DateTime.Now.ToString("hh:mm tt");
                         string palletWeight = txtChildPalletWeight.Text;
                         REPEAT_ChildPalletWeight = txtChildPalletWeight.Text;
                         string grossWeight = lblChildGrossWeight.Text;
@@ -1459,6 +1461,8 @@ namespace AutoWeighingAndPrinting
                             text = text.Replace("{PALLETWEIGHT}", palletWeight);
                             text = text.Replace("{GROSSWEIGHT}", grossWeight);
                             text = text.Replace("{DATE}", date);
+                            text = text.Replace("{TIME24}", time24);
+                            text = text.Replace("{TIME12}", time12);
                             text = text.Replace("{BOXNO}", (i + 1).ToString());
                             text = text.Replace("{TOTALBOXCOUNT}", totalBoxCount);
                             text = text.Replace("{BATCHNO}", batchNo);
