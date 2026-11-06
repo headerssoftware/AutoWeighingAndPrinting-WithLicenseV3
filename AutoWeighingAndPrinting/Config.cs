@@ -79,6 +79,11 @@ namespace AutoWeighingAndPrinting
                 appSettings = GetDefaultSettings();
             }
 
+            if (appSettings == null)
+            {
+                appSettings = GetDefaultSettings();
+            }
+
             return appSettings;
         }
 
