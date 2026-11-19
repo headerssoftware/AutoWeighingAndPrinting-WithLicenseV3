@@ -117,4 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAD//3n///95////ef///3n///95////ef///3n///95////ef///3n///95////ef///3n///95////
+        ef///3n///95////ef///3n///95////ef///3n///95////ef///3n///95////ef///3n///95////
+        ef///3n///95////ef///3n///95/wAAAP///3n///95////ef///3n///95////ef///3n/fn48/4GB
+        Pf///3n///95////ef///3n/fn48/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA////ef///3n///95////ef///3n/AAAA////ef///3n///95////ef///3n///95////
+        ef///3n///95////ef///3n///95////ef///3n///95/wAAAP9+fjz///95////ef9+fjz/fn48/8HB
+        W////3n/QEAe/35+PP///3n///95////ef///3n///95////ef8AAAD/vb1a/39/PP99fTv/f388/35+
+        PP+9vVr/f388/35+PP9+fjz///95////ef///3n///95////ef///3n/AAAA////ef+AgD3/v79b/7+/
+        W/9+fjz///95////ef9+fjz/fn48/35+PP8+Ph7///95////ef///3n///95/wAAAP///3n/vb1a/z8/
+        Hv///3n/fn48////ef///3n/fn48/35+PP+BgT3/QEAe////ef///3n///95////ef8AAAD///95////
+        ef///3n///95////ef///3n///95////ef///3n///95////ef///3n///95////ef///3n/AAAA////
+        ef///3n///95////ef///3n///95////ef///3n///95////ef///3n///95//7+ef+BgT3/gYE9/wAA
+        AP+BgT3/gYE9////ef///3n///95////ef///3n///95////ef///3n///95////ef///3n/AAAA/35+
+        PP9+fjz/fn48/wAAAP///3n///95////ef///3n///95////ef///3n///95////ef///3n///95/wAA
+        AP+BgT3/gYE9/4GBPf8AAAD///95////ef///3n///95////ef///3n///95////ef///3n///95////
+        ef9+fjz/fn48/35+PP9+fjz/fn48////ef///3n///95////ef///3n///95////ef///3n///95////
+        ef///3n///95////ef///3n///95////ef///3n///95////ef///3n///95////ef///3n///95////
+        ef///3n/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

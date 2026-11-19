@@ -209,9 +209,9 @@
     <Compile Include="SizeSelectionForm.Designer.cs">
       <DependentUpon>SizeSelectionForm.cs</DependentUpon>
     </Compile>
-    <Content Include="x64\SQLite.Interop.dll">
+    <None Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="x86\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -267,7 +267,7 @@
     </Compile>
     <None Include="Resources\16x16.ico" />
     <None Include="Resources\32x32.ico" />
-    <Content Include="db script for new schema.sql">
+    <Content Include="db migration script for V3 Schema.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="LINCENSE.txt" />

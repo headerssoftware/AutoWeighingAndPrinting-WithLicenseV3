@@ -468,8 +468,8 @@
             this.tbReferenceNumber.Name = "tbReferenceNumber";
             this.tbReferenceNumber.Size = new System.Drawing.Size(193, 22);
             this.tbReferenceNumber.TabIndex = 0;
-            this.tbReferenceNumber.TextChanged += new System.EventHandler(this.tbReferenceNumber_TextChanged);
-            this.tbReferenceNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbReferenceNumber_KeyDown);
+            this.tbReferenceNumber.TextChanged += new System.EventHandler(this.TbReferenceNumber_TextChanged);
+            this.tbReferenceNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbReferenceNumber_KeyDown);
             // 
             // label20
             // 
@@ -1371,9 +1371,9 @@
             this.pbLicenseinfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLicenseinfo.TabIndex = 13;
             this.pbLicenseinfo.TabStop = false;
-            this.pbLicenseinfo.Click += new System.EventHandler(this.pbLicenseinfo_Click);
-            this.pbLicenseinfo.MouseLeave += new System.EventHandler(this.pbLicenseinfo_MouseLeave);
-            this.pbLicenseinfo.MouseHover += new System.EventHandler(this.pbLicenseinfo_MouseHover);
+            this.pbLicenseinfo.Click += new System.EventHandler(this.PbLicenseinfo_Click);
+            this.pbLicenseinfo.MouseLeave += new System.EventHandler(this.PbLicenseinfo_MouseLeave);
+            this.pbLicenseinfo.MouseHover += new System.EventHandler(this.PbLicenseinfo_MouseHover);
             // 
             // lblLicenseExpirationInfo
             // 

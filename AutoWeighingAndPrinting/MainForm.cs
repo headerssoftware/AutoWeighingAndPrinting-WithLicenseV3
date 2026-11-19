@@ -170,27 +170,27 @@ namespace AutoWeighingAndPrinting
             if (daysLeft == 0)
             {
                 lblLicenseExpirationInfo.ForeColor = Color.Red;
-                lblLicenseExpirationInfo.Text = $"Your License will expire today ({ExpiryDate.ToString("dd-MM-yyyy")}) ";
+                lblLicenseExpirationInfo.Text = $"Your License will expire today ({ExpiryDate:dd-MM-yyyy}) ";
                 lblLicenseExpirationInfo.Visible = true;
             }
             else if (daysLeft == 1)
             {
                 lblLicenseExpirationInfo.ForeColor = Color.Red;
-                lblLicenseExpirationInfo.Text = $"Your License will expire in {daysLeft} day ({ExpiryDate.ToString("dd-MM-yyyy")}) ";
+                lblLicenseExpirationInfo.Text = $"Your License will expire in {daysLeft} day ({ExpiryDate:dd-MM-yyyy}) ";
                 lblLicenseExpirationInfo.Visible = true;
 
             }
             else if (daysLeft <= 15)
             {
                 lblLicenseExpirationInfo.ForeColor = Color.DarkOrange;
-                lblLicenseExpirationInfo.Text = $"Your License will expire in {daysLeft} days ({ExpiryDate.ToString("dd-MM-yyyy")}) ";
+                lblLicenseExpirationInfo.Text = $"Your License will expire in {daysLeft} days ({ExpiryDate:dd-MM-yyyy}) ";
                 lblLicenseExpirationInfo.Visible = true;
 
             }
             else
             {
                 lblLicenseExpirationInfo.ForeColor = Color.Black;
-                lblLicenseExpirationInfo.Text = $"Your License is valid till {ExpiryDate.ToString("dd-MM-yyyy")} ";
+                lblLicenseExpirationInfo.Text = $"Your License is valid till {ExpiryDate:dd-MM-yyyy} ";
                 lblLicenseExpirationInfo.Visible = true;
             }
 
@@ -233,6 +233,9 @@ namespace AutoWeighingAndPrinting
 
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.ShowDialog();
+
+            appSettings = config.ReadSettings();
+            connectionString = @"DataSource=" + appSettings.DBFilePath + ";foreign keys=true;";
         }
 
         private void BtnConnect_Click(object sender, EventArgs e)
@@ -400,6 +403,8 @@ namespace AutoWeighingAndPrinting
 
         private void BtnChildPartSubmit_Click(object sender, EventArgs e)
         {
+            appSettings = config.ReadSettings();
+
             enableChildPartsWeighing = false;
             if (tbReferenceNumber.Text == string.Empty || tbRequiredQty.Text == string.Empty)
             {
@@ -490,7 +495,7 @@ namespace AutoWeighingAndPrinting
 
         }
 
-        private void tbReferenceNumber_KeyDown(object sender, KeyEventArgs e)
+        private void TbReferenceNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter || e.KeyData == Keys.Return)
             {
@@ -530,7 +535,7 @@ namespace AutoWeighingAndPrinting
                 btnSendToPrint.BackColor = Color.Red;
             }
         }
-        private void tbReferenceNumber_TextChanged(object sender, EventArgs e)
+        private void TbReferenceNumber_TextChanged(object sender, EventArgs e)
         {
             ResetChildPartsWeighing();
             tbRequiredQty.Text = "";
@@ -1995,18 +2000,18 @@ namespace AutoWeighingAndPrinting
 
         }
 
-        private void pbLicenseinfo_MouseHover(object sender, EventArgs e)
+        private void PbLicenseinfo_MouseHover(object sender, EventArgs e)
         {
             pbLicenseinfo.BorderStyle = BorderStyle.FixedSingle;
             new ToolTip().SetToolTip(pbLicenseinfo, "License Info");
         }
 
-        private void pbLicenseinfo_MouseLeave(object sender, EventArgs e)
+        private void PbLicenseinfo_MouseLeave(object sender, EventArgs e)
         {
             pbLicenseinfo.BorderStyle = BorderStyle.None;
         }
 
-        private void pbLicenseinfo_Click(object sender, EventArgs e)
+        private void PbLicenseinfo_Click(object sender, EventArgs e)
         {
             try
             {

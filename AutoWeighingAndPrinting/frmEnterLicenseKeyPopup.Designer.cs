@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEnterLicenseKeyPopup));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbCurrentLicense = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -41,7 +43,6 @@
             this.tbLicenseKey = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbCurrentLicense = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(645, 364);
             this.panel1.TabIndex = 2;
+            // 
+            // tbCurrentLicense
+            // 
+            this.tbCurrentLicense.BackColor = System.Drawing.SystemColors.Control;
+            this.tbCurrentLicense.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCurrentLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCurrentLicense.Location = new System.Drawing.Point(16, 132);
+            this.tbCurrentLicense.Multiline = true;
+            this.tbCurrentLicense.Name = "tbCurrentLicense";
+            this.tbCurrentLicense.ReadOnly = true;
+            this.tbCurrentLicense.Size = new System.Drawing.Size(356, 20);
+            this.tbCurrentLicense.TabIndex = 9;
+            this.tbCurrentLicense.Text = "-";
             // 
             // groupBox1
             // 
@@ -199,25 +213,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter License Key";
             // 
-            // tbCurrentLicense
-            // 
-            this.tbCurrentLicense.BackColor = System.Drawing.SystemColors.Control;
-            this.tbCurrentLicense.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbCurrentLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCurrentLicense.Location = new System.Drawing.Point(16, 132);
-            this.tbCurrentLicense.Multiline = true;
-            this.tbCurrentLicense.Name = "tbCurrentLicense";
-            this.tbCurrentLicense.ReadOnly = true;
-            this.tbCurrentLicense.Size = new System.Drawing.Size(356, 20);
-            this.tbCurrentLicense.TabIndex = 9;
-            this.tbCurrentLicense.Text = "-";
-            // 
             // frmEnterLicenseKeyPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 364);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEnterLicenseKeyPopup";

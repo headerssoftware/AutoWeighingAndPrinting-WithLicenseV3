@@ -294,8 +294,6 @@ namespace AutoWeighingAndPrinting
                 tbSQLiteDBPath.Text = open.FileName;
                 appSettings.DBFilePath = open.FileName;
                 config.WriteSettings(appSettings);
-
-
             }
         }
     }
