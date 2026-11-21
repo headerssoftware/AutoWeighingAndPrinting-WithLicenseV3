@@ -1,12 +1,11 @@
-﻿using System;
+﻿//For excel sheet
+using ClosedXML.Excel;
+using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
-//For excel sheet
-using ClosedXML.Excel;
 
 
 namespace AutoWeighingAndPrinting
@@ -1020,7 +1019,7 @@ namespace AutoWeighingAndPrinting
         private void MasterDataForm_Load(object sender, EventArgs e)
         {
             bool enablePrintingHistory = appSettings.EnablePrintingHistory;
-            if(!enablePrintingHistory)
+            if (!enablePrintingHistory)
             {
                 tcMasterData.TabPages.Remove(tpViewPrintingHistory);
             }
@@ -1080,7 +1079,7 @@ namespace AutoWeighingAndPrinting
 
         private void DgvChildPartsHistory_DataSourceChanged(object sender, EventArgs e)
         {
-            if(dgvChildPartsHistory.DataSource==null)
+            if (dgvChildPartsHistory.DataSource == null)
             {
                 lblChildHistoryRowCount.Text = "Row Count: 0";
             }
@@ -1093,7 +1092,7 @@ namespace AutoWeighingAndPrinting
         [Obsolete]
         private void BtnChildExportToExcel_Click(object sender, EventArgs e)
         {
-            if(dtViewChildPartsHistory == null || dtViewChildPartsHistory.Rows.Count <= 0)
+            if (dtViewChildPartsHistory == null || dtViewChildPartsHistory.Rows.Count <= 0)
             {
                 MessageBox.Show("Report is empty. Export To Excel is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1295,7 +1294,7 @@ namespace AutoWeighingAndPrinting
                     for (int j = 0; j < dtAssemChildPartHistory.Rows.Count; j++)
                     {
                         DataRow dr = dtAssemblyPartsHistory.NewRow();
-                        if(j==0)
+                        if (j == 0)
                         {
                             dr["DateAndTime"] = dgvAssemPartsHistory.Rows[i].Cells["DateAndTime"].Value.ToString();
                             dr["CustomerName"] = dgvAssemPartsHistory.Rows[i].Cells["CustomerName"].Value.ToString();
@@ -1347,7 +1346,7 @@ namespace AutoWeighingAndPrinting
                 Cursor = Cursors.Default;
 
                 MessageBox.Show("Exported in [Desktop/AutoWeighing ExcelReport] folder");
-                
+
             }
         }
     }

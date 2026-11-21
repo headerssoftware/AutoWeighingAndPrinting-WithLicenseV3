@@ -34,12 +34,14 @@
             this.lbCustomer = new System.Windows.Forms.ListBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
+            this.btnBackToSize = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.btnBackToSize);
             this.panel1.Controls.Add(this.lblSelectedSize);
             this.panel1.Controls.Add(this.lbCustomer);
             this.panel1.Controls.Add(this.btnPrint);
@@ -57,7 +59,7 @@
             this.lblSelectedSize.Location = new System.Drawing.Point(15, 16);
             this.lblSelectedSize.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblSelectedSize.Name = "lblSelectedSize";
-            this.lblSelectedSize.Size = new System.Drawing.Size(21, 29);
+            this.lblSelectedSize.Size = new System.Drawing.Size(16, 24);
             this.lblSelectedSize.TabIndex = 14;
             this.lblSelectedSize.Text = "-";
             // 
@@ -67,23 +69,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbCustomer.FormattingEnabled = true;
-            this.lbCustomer.ItemHeight = 29;
+            this.lbCustomer.ItemHeight = 24;
             this.lbCustomer.Location = new System.Drawing.Point(11, 105);
             this.lbCustomer.Name = "lbCustomer";
-            this.lbCustomer.Size = new System.Drawing.Size(369, 410);
+            this.lbCustomer.Size = new System.Drawing.Size(369, 388);
             this.lbCustomer.TabIndex = 13;
             this.lbCustomer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LbCustomer_KeyDown);
             // 
             // btnPrint
             // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(11, 546);
+            this.btnPrint.Location = new System.Drawing.Point(296, 537);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(6);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(84, 29);
             this.btnPrint.TabIndex = 12;
-            this.btnPrint.Text = "Print";
+            this.btnPrint.Text = "Select";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
@@ -93,13 +95,26 @@
             this.label26.Location = new System.Drawing.Point(15, 73);
             this.label26.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(230, 29);
+            this.label26.Size = new System.Drawing.Size(179, 24);
             this.label26.TabIndex = 11;
             this.label26.Text = "Select the Customer";
             // 
+            // btnBackToSize
+            // 
+            this.btnBackToSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBackToSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackToSize.Location = new System.Drawing.Point(11, 537);
+            this.btnBackToSize.Margin = new System.Windows.Forms.Padding(6);
+            this.btnBackToSize.Name = "btnBackToSize";
+            this.btnBackToSize.Size = new System.Drawing.Size(138, 29);
+            this.btnBackToSize.TabIndex = 16;
+            this.btnBackToSize.Text = "Back to Size";
+            this.btnBackToSize.UseVisualStyleBackColor = true;
+            this.btnBackToSize.Click += new System.EventHandler(this.btnBackToSize_Click);
+            // 
             // CustomerSelectionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 581);
             this.Controls.Add(this.panel1);
@@ -124,5 +139,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ListBox lbCustomer;
         private System.Windows.Forms.Label lblSelectedSize;
+        private System.Windows.Forms.Button btnBackToSize;
     }
 }

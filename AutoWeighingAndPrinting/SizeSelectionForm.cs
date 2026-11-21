@@ -21,7 +21,7 @@ namespace AutoWeighingAndPrinting
 
         private void SizeSelectionForm_Load(object sender, System.EventArgs e)
         {
-           
+
             prnRootPath = PrnHelper.PrnRootPath;
 
             if (!Directory.Exists(prnRootPath))
@@ -67,10 +67,21 @@ namespace AutoWeighingAndPrinting
 
             using (CustomerSelectionForm customerForm = new CustomerSelectionForm())
             {
-                customerForm.ShowDialog();
-            }
+                DialogResult result = customerForm.ShowDialog(this);
 
-            Close();
+                if (result == DialogResult.OK)
+                {
+                    // Customer successfully selected.
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else if (result == DialogResult.Retry)
+                {
+                    // Back button clicked.
+                    // Keep this form open.
+                    this.Activate();
+                }
+            }
         }
 
         private void lbLabelSize_KeyDown(object sender, KeyEventArgs e)

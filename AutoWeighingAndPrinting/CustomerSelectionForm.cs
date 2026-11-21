@@ -10,7 +10,7 @@ namespace AutoWeighingAndPrinting
     {
         readonly Config config;
         readonly AppSettings appSettings;
-
+        public bool GoBackToSizeSelection { get; private set; }
         public CustomerSelectionForm()
         {
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace AutoWeighingAndPrinting
                 appSettings.LastCustomerSelected = lbCustomer.SelectedItem.ToString();
                 appSettings.PrintingFileName = lbCustomer.SelectedItem.ToString();
                 config.WriteSettings(appSettings);
+                this.DialogResult = DialogResult.OK;
 
                 this.Close();
             }
@@ -99,6 +100,15 @@ namespace AutoWeighingAndPrinting
                 e.SuppressKeyPress = true;
                 BtnPrint_Click(sender, e);
             }
+        }
+
+        private void btnBackToSize_Click(object sender, EventArgs e)
+        {
+            GoBackToSizeSelection = true;
+
+            this.DialogResult = DialogResult.Retry;
+
+            this.Close();
         }
     }
 }

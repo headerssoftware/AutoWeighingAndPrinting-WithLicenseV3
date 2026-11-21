@@ -37,46 +37,48 @@
             this.tpChildPartWeighing = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.lblRequiredWeight = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.lblChildTotalNetWeight = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txtChildPalletWeight = new System.Windows.Forms.TextBox();
-            this.btnChildPalletWeight = new System.Windows.Forms.Button();
-            this.dgvChildPartsPrinting = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnSendToPrint = new System.Windows.Forms.Button();
-            this.lblMaximumWeight = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblMinimumWeight = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.tbSideInfo = new System.Windows.Forms.TextBox();
+            this.lblRequiredWeight = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.tbExpiryDays = new System.Windows.Forms.TextBox();
+            this.lblChildTotalNetWeight = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.tbReferenceNumber = new System.Windows.Forms.TextBox();
+            this.txtChildPalletWeight = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.tbPositiveTolPartWeight = new System.Windows.Forms.TextBox();
+            this.btnChildPalletWeight = new System.Windows.Forms.Button();
             this.tbPositiveTolPercent = new System.Windows.Forms.TextBox();
+            this.dgvChildPartsPrinting = new System.Windows.Forms.DataGridView();
             this.label30 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tbTolPartWeight = new System.Windows.Forms.TextBox();
+            this.btnSendToPrint = new System.Windows.Forms.Button();
             this.tbTolPercent = new System.Windows.Forms.TextBox();
+            this.lblMaximumWeight = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.tbNegativeTolPartWeight = new System.Windows.Forms.TextBox();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblMinimumWeight = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbNegativeTolPercent = new System.Windows.Forms.TextBox();
+            this.tbChildPartNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbDBPartWeight = new System.Windows.Forms.TextBox();
+            this.tbRequiredQty = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnChildPartSubmit = new System.Windows.Forms.Button();
             this.tbChildPartDesc = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbRequiredQty = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbChildPartNumber = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblChildGrossWeight = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -143,6 +145,18 @@
             this.btnMasterData = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
             this._serialPort = new System.IO.Ports.SerialPort(this.components);
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txtSelectedLabelSize = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.btnSelectCustomer = new System.Windows.Forms.Button();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.btnSelectPrinter = new System.Windows.Forms.Button();
+            this.txtPrinterName = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tcMainForm.SuspendLayout();
             this.tpChildPartWeighing.SuspendLayout();
@@ -150,6 +164,8 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChildPartsPrinting)).BeginInit();
             this.panel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.panel3.SuspendLayout();
             this.tpAssemblyPartsWeighing.SuspendLayout();
@@ -161,6 +177,10 @@
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLicenseinfo)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -171,7 +191,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1034, 749);
+            this.panel1.Size = new System.Drawing.Size(1034, 835);
             this.panel1.TabIndex = 0;
             // 
             // tcMainForm
@@ -180,10 +200,10 @@
             this.tcMainForm.Controls.Add(this.tpAssemblyPartsWeighing);
             this.tcMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMainForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcMainForm.Location = new System.Drawing.Point(0, 50);
+            this.tcMainForm.Location = new System.Drawing.Point(0, 94);
             this.tcMainForm.Name = "tcMainForm";
             this.tcMainForm.SelectedIndex = 0;
-            this.tcMainForm.Size = new System.Drawing.Size(1034, 699);
+            this.tcMainForm.Size = new System.Drawing.Size(1034, 741);
             this.tcMainForm.TabIndex = 1;
             this.tcMainForm.SelectedIndexChanged += new System.EventHandler(this.TcMainForm_SelectedIndexChanged);
             // 
@@ -194,7 +214,7 @@
             this.tpChildPartWeighing.Location = new System.Drawing.Point(4, 29);
             this.tpChildPartWeighing.Name = "tpChildPartWeighing";
             this.tpChildPartWeighing.Padding = new System.Windows.Forms.Padding(3);
-            this.tpChildPartWeighing.Size = new System.Drawing.Size(1026, 666);
+            this.tpChildPartWeighing.Size = new System.Drawing.Size(1026, 708);
             this.tpChildPartWeighing.TabIndex = 0;
             this.tpChildPartWeighing.Text = "Child Parts Weighing";
             this.tpChildPartWeighing.UseVisualStyleBackColor = true;
@@ -202,7 +222,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 431F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 450F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
@@ -211,7 +231,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1020, 619);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1020, 661);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel5
@@ -230,10 +250,20 @@
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.lblMinimumWeight);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(434, 3);
+            this.panel5.Location = new System.Drawing.Point(453, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(583, 613);
+            this.panel5.Size = new System.Drawing.Size(564, 655);
             this.panel5.TabIndex = 1;
+            // 
+            // tbSideInfo
+            // 
+            this.tbSideInfo.BackColor = System.Drawing.Color.LightGray;
+            this.tbSideInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSideInfo.Location = new System.Drawing.Point(268, 116);
+            this.tbSideInfo.Name = "tbSideInfo";
+            this.tbSideInfo.ReadOnly = true;
+            this.tbSideInfo.Size = new System.Drawing.Size(137, 23);
+            this.tbSideInfo.TabIndex = 26;
             // 
             // lblRequiredWeight
             // 
@@ -246,6 +276,16 @@
             this.lblRequiredWeight.TabIndex = 20;
             this.lblRequiredWeight.Text = "0.0000";
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(199, 119);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(63, 17);
+            this.label38.TabIndex = 27;
+            this.label38.Text = "Side Info";
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -257,6 +297,16 @@
             this.label33.TabIndex = 19;
             this.label33.Text = "Required Wt (KG)";
             // 
+            // tbExpiryDays
+            // 
+            this.tbExpiryDays.BackColor = System.Drawing.Color.LightGray;
+            this.tbExpiryDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbExpiryDays.Location = new System.Drawing.Point(130, 116);
+            this.tbExpiryDays.Name = "tbExpiryDays";
+            this.tbExpiryDays.ReadOnly = true;
+            this.tbExpiryDays.Size = new System.Drawing.Size(63, 23);
+            this.tbExpiryDays.TabIndex = 5;
+            // 
             // lblChildTotalNetWeight
             // 
             this.lblChildTotalNetWeight.AutoSize = true;
@@ -267,6 +317,16 @@
             this.lblChildTotalNetWeight.TabIndex = 18;
             this.lblChildTotalNetWeight.Text = "0.0000";
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(6, 119);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(82, 17);
+            this.label36.TabIndex = 25;
+            this.label36.Text = "Expiry Days";
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -276,6 +336,16 @@
             this.label29.Size = new System.Drawing.Size(192, 24);
             this.label29.TabIndex = 17;
             this.label29.Text = "Total Net Weight (KG)";
+            // 
+            // tbReferenceNumber
+            // 
+            this.tbReferenceNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbReferenceNumber.Location = new System.Drawing.Point(130, 3);
+            this.tbReferenceNumber.Name = "tbReferenceNumber";
+            this.tbReferenceNumber.Size = new System.Drawing.Size(193, 22);
+            this.tbReferenceNumber.TabIndex = 0;
+            this.tbReferenceNumber.TextChanged += new System.EventHandler(this.TbReferenceNumber_TextChanged);
+            this.tbReferenceNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbReferenceNumber_KeyDown);
             // 
             // txtChildPalletWeight
             // 
@@ -290,6 +360,26 @@
             this.txtChildPalletWeight.TextChanged += new System.EventHandler(this.TxtChildPalletWeight_TextChanged);
             this.txtChildPalletWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtChildPalletWeight_KeyPress);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(3, 6);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(121, 16);
+            this.label20.TabIndex = 24;
+            this.label20.Text = "Reference Number";
+            // 
+            // tbPositiveTolPartWeight
+            // 
+            this.tbPositiveTolPartWeight.BackColor = System.Drawing.Color.LightGray;
+            this.tbPositiveTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPositiveTolPartWeight.Location = new System.Drawing.Point(313, 229);
+            this.tbPositiveTolPartWeight.Name = "tbPositiveTolPartWeight";
+            this.tbPositiveTolPartWeight.ReadOnly = true;
+            this.tbPositiveTolPartWeight.Size = new System.Drawing.Size(98, 23);
+            this.tbPositiveTolPartWeight.TabIndex = 12;
+            // 
             // btnChildPalletWeight
             // 
             this.btnChildPalletWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,6 +390,16 @@
             this.btnChildPalletWeight.Text = "Pallet Weight in KG (F12)";
             this.btnChildPalletWeight.UseVisualStyleBackColor = true;
             this.btnChildPalletWeight.Click += new System.EventHandler(this.BtnChildPalletWeight_Click);
+            // 
+            // tbPositiveTolPercent
+            // 
+            this.tbPositiveTolPercent.BackColor = System.Drawing.Color.LightGray;
+            this.tbPositiveTolPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPositiveTolPercent.Location = new System.Drawing.Point(312, 200);
+            this.tbPositiveTolPercent.Name = "tbPositiveTolPercent";
+            this.tbPositiveTolPercent.ReadOnly = true;
+            this.tbPositiveTolPercent.Size = new System.Drawing.Size(98, 23);
+            this.tbPositiveTolPercent.TabIndex = 11;
             // 
             // dgvChildPartsPrinting
             // 
@@ -315,8 +415,18 @@
             this.dgvChildPartsPrinting.Location = new System.Drawing.Point(17, 218);
             this.dgvChildPartsPrinting.Name = "dgvChildPartsPrinting";
             this.dgvChildPartsPrinting.RowHeadersVisible = false;
-            this.dgvChildPartsPrinting.Size = new System.Drawing.Size(544, 390);
+            this.dgvChildPartsPrinting.Size = new System.Drawing.Size(544, 432);
             this.dgvChildPartsPrinting.TabIndex = 14;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(320, 180);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(81, 17);
+            this.label30.TabIndex = 20;
+            this.label30.Text = "Positive Tol";
             // 
             // label9
             // 
@@ -328,13 +438,23 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Printing Data";
             // 
+            // tbTolPartWeight
+            // 
+            this.tbTolPartWeight.BackColor = System.Drawing.Color.LightGray;
+            this.tbTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTolPartWeight.Location = new System.Drawing.Point(163, 229);
+            this.tbTolPartWeight.Name = "tbTolPartWeight";
+            this.tbTolPartWeight.ReadOnly = true;
+            this.tbTolPartWeight.Size = new System.Drawing.Size(98, 23);
+            this.tbTolPartWeight.TabIndex = 10;
+            // 
             // btnSendToPrint
             // 
             this.btnSendToPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSendToPrint.BackColor = System.Drawing.Color.Red;
             this.btnSendToPrint.Enabled = false;
             this.btnSendToPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendToPrint.Location = new System.Drawing.Point(436, 39);
+            this.btnSendToPrint.Location = new System.Drawing.Point(417, 44);
             this.btnSendToPrint.Name = "btnSendToPrint";
             this.btnSendToPrint.Size = new System.Drawing.Size(144, 94);
             this.btnSendToPrint.TabIndex = 2;
@@ -342,6 +462,16 @@
             this.btnSendToPrint.UseVisualStyleBackColor = false;
             this.btnSendToPrint.EnabledChanged += new System.EventHandler(this.BtnSendToPrint_EnabledChanged);
             this.btnSendToPrint.Click += new System.EventHandler(this.BtnSendToPrint_Click);
+            // 
+            // tbTolPercent
+            // 
+            this.tbTolPercent.BackColor = System.Drawing.Color.LightGray;
+            this.tbTolPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTolPercent.Location = new System.Drawing.Point(162, 200);
+            this.tbTolPercent.Name = "tbTolPercent";
+            this.tbTolPercent.ReadOnly = true;
+            this.tbTolPercent.Size = new System.Drawing.Size(98, 23);
+            this.tbTolPercent.TabIndex = 9;
             // 
             // lblMaximumWeight
             // 
@@ -354,6 +484,16 @@
             this.lblMaximumWeight.TabIndex = 11;
             this.lblMaximumWeight.Text = "0.0000";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(175, 180);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 17);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Tolerance";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -364,6 +504,16 @@
             this.label11.Size = new System.Drawing.Size(257, 36);
             this.label11.TabIndex = 10;
             this.label11.Text = "Maximum Wt (KG)";
+            // 
+            // tbNegativeTolPartWeight
+            // 
+            this.tbNegativeTolPartWeight.BackColor = System.Drawing.Color.LightGray;
+            this.tbNegativeTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNegativeTolPartWeight.Location = new System.Drawing.Point(13, 229);
+            this.tbNegativeTolPartWeight.Name = "tbNegativeTolPartWeight";
+            this.tbNegativeTolPartWeight.ReadOnly = true;
+            this.tbNegativeTolPartWeight.Size = new System.Drawing.Size(98, 23);
+            this.tbNegativeTolPartWeight.TabIndex = 8;
             // 
             // label10
             // 
@@ -387,233 +537,100 @@
             this.lblMinimumWeight.TabIndex = 7;
             this.lblMinimumWeight.Text = "0.0000";
             // 
-            // panel4
+            // label1
             // 
-            this.panel4.Controls.Add(this.tbSideInfo);
-            this.panel4.Controls.Add(this.label38);
-            this.panel4.Controls.Add(this.tbExpiryDays);
-            this.panel4.Controls.Add(this.label36);
-            this.panel4.Controls.Add(this.tbReferenceNumber);
-            this.panel4.Controls.Add(this.label20);
-            this.panel4.Controls.Add(this.tbPositiveTolPartWeight);
-            this.panel4.Controls.Add(this.tbPositiveTolPercent);
-            this.panel4.Controls.Add(this.label30);
-            this.panel4.Controls.Add(this.tbTolPartWeight);
-            this.panel4.Controls.Add(this.tbTolPercent);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.tbNegativeTolPartWeight);
-            this.panel4.Controls.Add(this.pbImage);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.tbNegativeTolPercent);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.tbDBPartWeight);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.btnChildPartSubmit);
-            this.panel4.Controls.Add(this.tbChildPartDesc);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.tbRequiredQty);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.tbChildPartNumber);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(425, 613);
-            this.panel4.TabIndex = 0;
-            // 
-            // tbSideInfo
-            // 
-            this.tbSideInfo.BackColor = System.Drawing.Color.LightGray;
-            this.tbSideInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSideInfo.Location = new System.Drawing.Point(275, 122);
-            this.tbSideInfo.Name = "tbSideInfo";
-            this.tbSideInfo.ReadOnly = true;
-            this.tbSideInfo.Size = new System.Drawing.Size(137, 23);
-            this.tbSideInfo.TabIndex = 26;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(206, 125);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(63, 17);
-            this.label38.TabIndex = 27;
-            this.label38.Text = "Side Info";
-            // 
-            // tbExpiryDays
-            // 
-            this.tbExpiryDays.BackColor = System.Drawing.Color.LightGray;
-            this.tbExpiryDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbExpiryDays.Location = new System.Drawing.Point(137, 122);
-            this.tbExpiryDays.Name = "tbExpiryDays";
-            this.tbExpiryDays.ReadOnly = true;
-            this.tbExpiryDays.Size = new System.Drawing.Size(63, 23);
-            this.tbExpiryDays.TabIndex = 5;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(13, 125);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(82, 17);
-            this.label36.TabIndex = 25;
-            this.label36.Text = "Expiry Days";
-            // 
-            // tbReferenceNumber
-            // 
-            this.tbReferenceNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReferenceNumber.Location = new System.Drawing.Point(137, 9);
-            this.tbReferenceNumber.Name = "tbReferenceNumber";
-            this.tbReferenceNumber.Size = new System.Drawing.Size(193, 22);
-            this.tbReferenceNumber.TabIndex = 0;
-            this.tbReferenceNumber.TextChanged += new System.EventHandler(this.TbReferenceNumber_TextChanged);
-            this.tbReferenceNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbReferenceNumber_KeyDown);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(10, 12);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(121, 16);
-            this.label20.TabIndex = 24;
-            this.label20.Text = "Reference Number";
-            // 
-            // tbPositiveTolPartWeight
-            // 
-            this.tbPositiveTolPartWeight.BackColor = System.Drawing.Color.LightGray;
-            this.tbPositiveTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPositiveTolPartWeight.Location = new System.Drawing.Point(320, 235);
-            this.tbPositiveTolPartWeight.Name = "tbPositiveTolPartWeight";
-            this.tbPositiveTolPartWeight.ReadOnly = true;
-            this.tbPositiveTolPartWeight.Size = new System.Drawing.Size(98, 23);
-            this.tbPositiveTolPartWeight.TabIndex = 12;
-            // 
-            // tbPositiveTolPercent
-            // 
-            this.tbPositiveTolPercent.BackColor = System.Drawing.Color.LightGray;
-            this.tbPositiveTolPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPositiveTolPercent.Location = new System.Drawing.Point(319, 206);
-            this.tbPositiveTolPercent.Name = "tbPositiveTolPercent";
-            this.tbPositiveTolPercent.ReadOnly = true;
-            this.tbPositiveTolPercent.Size = new System.Drawing.Size(98, 23);
-            this.tbPositiveTolPercent.TabIndex = 11;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(327, 186);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(81, 17);
-            this.label30.TabIndex = 20;
-            this.label30.Text = "Positive Tol";
-            // 
-            // tbTolPartWeight
-            // 
-            this.tbTolPartWeight.BackColor = System.Drawing.Color.LightGray;
-            this.tbTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTolPartWeight.Location = new System.Drawing.Point(170, 235);
-            this.tbTolPartWeight.Name = "tbTolPartWeight";
-            this.tbTolPartWeight.ReadOnly = true;
-            this.tbTolPartWeight.Size = new System.Drawing.Size(98, 23);
-            this.tbTolPartWeight.TabIndex = 10;
-            // 
-            // tbTolPercent
-            // 
-            this.tbTolPercent.BackColor = System.Drawing.Color.LightGray;
-            this.tbTolPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTolPercent.Location = new System.Drawing.Point(169, 206);
-            this.tbTolPercent.Name = "tbTolPercent";
-            this.tbTolPercent.ReadOnly = true;
-            this.tbTolPercent.Size = new System.Drawing.Size(98, 23);
-            this.tbTolPercent.TabIndex = 9;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(182, 186);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 17);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Tolerance";
-            // 
-            // tbNegativeTolPartWeight
-            // 
-            this.tbNegativeTolPartWeight.BackColor = System.Drawing.Color.LightGray;
-            this.tbNegativeTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNegativeTolPartWeight.Location = new System.Drawing.Point(20, 235);
-            this.tbNegativeTolPartWeight.Name = "tbNegativeTolPartWeight";
-            this.tbNegativeTolPartWeight.ReadOnly = true;
-            this.tbNegativeTolPartWeight.Size = new System.Drawing.Size(98, 23);
-            this.tbNegativeTolPartWeight.TabIndex = 8;
-            // 
-            // pbImage
-            // 
-            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage.Location = new System.Drawing.Point(14, 285);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(400, 340);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 15;
-            this.pbImage.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 263);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 20);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Image";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Part Number";
             // 
             // tbNegativeTolPercent
             // 
             this.tbNegativeTolPercent.BackColor = System.Drawing.Color.LightGray;
             this.tbNegativeTolPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNegativeTolPercent.Location = new System.Drawing.Point(19, 206);
+            this.tbNegativeTolPercent.Location = new System.Drawing.Point(12, 200);
             this.tbNegativeTolPercent.Name = "tbNegativeTolPercent";
             this.tbNegativeTolPercent.ReadOnly = true;
             this.tbNegativeTolPercent.Size = new System.Drawing.Size(98, 23);
             this.tbNegativeTolPercent.TabIndex = 7;
             // 
+            // tbChildPartNumber
+            // 
+            this.tbChildPartNumber.BackColor = System.Drawing.Color.LightGray;
+            this.tbChildPartNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbChildPartNumber.Location = new System.Drawing.Point(130, 59);
+            this.tbChildPartNumber.Name = "tbChildPartNumber";
+            this.tbChildPartNumber.ReadOnly = true;
+            this.tbChildPartNumber.Size = new System.Drawing.Size(193, 22);
+            this.tbChildPartNumber.TabIndex = 3;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 186);
+            this.label4.Location = new System.Drawing.Point(18, 180);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 17);
             this.label4.TabIndex = 12;
             this.label4.Text = "Negative Tol";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(4, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Required Qty";
+            // 
             // tbDBPartWeight
             // 
             this.tbDBPartWeight.BackColor = System.Drawing.Color.LightGray;
             this.tbDBPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDBPartWeight.Location = new System.Drawing.Point(137, 151);
+            this.tbDBPartWeight.Location = new System.Drawing.Point(130, 145);
             this.tbDBPartWeight.Name = "tbDBPartWeight";
             this.tbDBPartWeight.ReadOnly = true;
             this.tbDBPartWeight.Size = new System.Drawing.Size(275, 23);
             this.tbDBPartWeight.TabIndex = 6;
             // 
+            // tbRequiredQty
+            // 
+            this.tbRequiredQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRequiredQty.Location = new System.Drawing.Point(130, 31);
+            this.tbRequiredQty.Name = "tbRequiredQty";
+            this.tbRequiredQty.Size = new System.Drawing.Size(193, 22);
+            this.tbRequiredQty.TabIndex = 1;
+            this.tbRequiredQty.TextChanged += new System.EventHandler(this.TbRequiredQty_TextChanged);
+            this.tbRequiredQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbRequiredQty_KeyPress);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 154);
+            this.label5.Location = new System.Drawing.Point(4, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "DB Part Weight";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(4, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Description";
+            // 
             // btnChildPartSubmit
             // 
             this.btnChildPartSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChildPartSubmit.Location = new System.Drawing.Point(336, 34);
+            this.btnChildPartSubmit.Location = new System.Drawing.Point(329, 28);
             this.btnChildPartSubmit.Name = "btnChildPartSubmit";
             this.btnChildPartSubmit.Size = new System.Drawing.Size(76, 28);
             this.btnChildPartSubmit.TabIndex = 2;
@@ -625,61 +642,64 @@
             // 
             this.tbChildPartDesc.BackColor = System.Drawing.Color.LightGray;
             this.tbChildPartDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbChildPartDesc.Location = new System.Drawing.Point(137, 93);
+            this.tbChildPartDesc.Location = new System.Drawing.Point(130, 87);
             this.tbChildPartDesc.Name = "tbChildPartDesc";
             this.tbChildPartDesc.ReadOnly = true;
             this.tbChildPartDesc.Size = new System.Drawing.Size(275, 23);
             this.tbChildPartDesc.TabIndex = 4;
             // 
-            // label3
+            // panel4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Description";
+            this.panel4.Controls.Add(this.tableLayoutPanel3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(444, 655);
+            this.panel4.TabIndex = 0;
             // 
-            // tbRequiredQty
+            // tableLayoutPanel3
             // 
-            this.tbRequiredQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRequiredQty.Location = new System.Drawing.Point(137, 37);
-            this.tbRequiredQty.Name = "tbRequiredQty";
-            this.tbRequiredQty.Size = new System.Drawing.Size(193, 22);
-            this.tbRequiredQty.TabIndex = 1;
-            this.tbRequiredQty.TextChanged += new System.EventHandler(this.TbRequiredQty_TextChanged);
-            this.tbRequiredQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbRequiredQty_KeyPress);
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.panel10, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel9, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 380F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(444, 655);
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // label2
+            // panel9
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Required Qty";
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Controls.Add(this.pbImage);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(3, 278);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(438, 374);
+            this.panel9.TabIndex = 15;
             // 
-            // tbChildPartNumber
+            // label6
             // 
-            this.tbChildPartNumber.BackColor = System.Drawing.Color.LightGray;
-            this.tbChildPartNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbChildPartNumber.Location = new System.Drawing.Point(137, 65);
-            this.tbChildPartNumber.Name = "tbChildPartNumber";
-            this.tbChildPartNumber.ReadOnly = true;
-            this.tbChildPartNumber.Size = new System.Drawing.Size(193, 22);
-            this.tbChildPartNumber.TabIndex = 3;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Image";
             // 
-            // label1
+            // pbImage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 68);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Part Number";
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImage.Location = new System.Drawing.Point(11, 29);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(400, 340);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 15;
+            this.pbImage.TabStop = false;
             // 
             // panel3
             // 
@@ -690,7 +710,7 @@
             this.panel3.Controls.Add(this.btnClearPrinting);
             this.panel3.Controls.Add(this.btnPrintChildPart);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 622);
+            this.panel3.Location = new System.Drawing.Point(3, 664);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1020, 41);
             this.panel3.TabIndex = 0;
@@ -765,7 +785,7 @@
             this.tpAssemblyPartsWeighing.Location = new System.Drawing.Point(4, 29);
             this.tpAssemblyPartsWeighing.Name = "tpAssemblyPartsWeighing";
             this.tpAssemblyPartsWeighing.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAssemblyPartsWeighing.Size = new System.Drawing.Size(1026, 666);
+            this.tpAssemblyPartsWeighing.Size = new System.Drawing.Size(1026, 708);
             this.tpAssemblyPartsWeighing.TabIndex = 1;
             this.tpAssemblyPartsWeighing.Text = "Assembly Parts Weighing";
             this.tpAssemblyPartsWeighing.UseVisualStyleBackColor = true;
@@ -773,7 +793,7 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 431F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 450F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel8, 0, 0);
@@ -782,7 +802,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1020, 619);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1020, 661);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // panel7
@@ -801,9 +821,9 @@
             this.panel7.Controls.Add(this.label18);
             this.panel7.Controls.Add(this.lblAssemMinimumWeight);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(434, 3);
+            this.panel7.Location = new System.Drawing.Point(453, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(583, 613);
+            this.panel7.Size = new System.Drawing.Size(564, 655);
             this.panel7.TabIndex = 1;
             // 
             // lblAssemRequiredWeight
@@ -895,7 +915,7 @@
             this.dgvAssemChildPartsList.Name = "dgvAssemChildPartsList";
             this.dgvAssemChildPartsList.ReadOnly = true;
             this.dgvAssemChildPartsList.RowHeadersVisible = false;
-            this.dgvAssemChildPartsList.Size = new System.Drawing.Size(544, 387);
+            this.dgvAssemChildPartsList.Size = new System.Drawing.Size(544, 429);
             this.dgvAssemChildPartsList.TabIndex = 14;
             this.dgvAssemChildPartsList.DataSourceChanged += new System.EventHandler(this.DgvAssemChildPartsList_DataSourceChanged);
             // 
@@ -911,10 +931,11 @@
             // 
             // btnAssemSendToPrint
             // 
+            this.btnAssemSendToPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAssemSendToPrint.BackColor = System.Drawing.Color.Red;
             this.btnAssemSendToPrint.Enabled = false;
             this.btnAssemSendToPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssemSendToPrint.Location = new System.Drawing.Point(436, 39);
+            this.btnAssemSendToPrint.Location = new System.Drawing.Point(417, 44);
             this.btnAssemSendToPrint.Name = "btnAssemSendToPrint";
             this.btnAssemSendToPrint.Size = new System.Drawing.Size(144, 94);
             this.btnAssemSendToPrint.TabIndex = 12;
@@ -969,45 +990,18 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.tbCurrentSerialNo);
-            this.panel8.Controls.Add(this.tbAssemPositiveTolPartWeight);
-            this.panel8.Controls.Add(this.tbAssemPositiveTolPercent);
-            this.panel8.Controls.Add(this.label34);
-            this.panel8.Controls.Add(this.tbAssemTolPartWeight);
-            this.panel8.Controls.Add(this.tbAssemTolPercent);
-            this.panel8.Controls.Add(this.label35);
-            this.panel8.Controls.Add(this.tbAssemNegativeTolPartWeight);
-            this.panel8.Controls.Add(this.tbAssemNegativeTolPercent);
-            this.panel8.Controls.Add(this.label23);
-            this.panel8.Controls.Add(this.tbAssemDBPartWeight);
-            this.panel8.Controls.Add(this.label22);
-            this.panel8.Controls.Add(this.tbAssemblyChildPartQty);
-            this.panel8.Controls.Add(this.label16);
-            this.panel8.Controls.Add(this.tbAssemblyDesc);
-            this.panel8.Controls.Add(this.label28);
-            this.panel8.Controls.Add(this.btnSerialNo);
-            this.panel8.Controls.Add(this.tbAssemblyChildPart);
-            this.panel8.Controls.Add(this.label27);
-            this.panel8.Controls.Add(this.pbAssemChildPartImage);
-            this.panel8.Controls.Add(this.label21);
-            this.panel8.Controls.Add(this.btnAssemblyPartSubmit);
-            this.panel8.Controls.Add(this.tbAssemChildPartDesc);
-            this.panel8.Controls.Add(this.label24);
-            this.panel8.Controls.Add(this.tbSerialNo);
-            this.panel8.Controls.Add(this.label25);
-            this.panel8.Controls.Add(this.tbAssemblyPartNumber);
-            this.panel8.Controls.Add(this.label26);
+            this.panel8.Controls.Add(this.tableLayoutPanel4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(425, 613);
+            this.panel8.Size = new System.Drawing.Size(444, 655);
             this.panel8.TabIndex = 0;
             // 
             // tbCurrentSerialNo
             // 
             this.tbCurrentSerialNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbCurrentSerialNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCurrentSerialNo.Location = new System.Drawing.Point(186, 67);
+            this.tbCurrentSerialNo.Location = new System.Drawing.Point(183, 63);
             this.tbCurrentSerialNo.Name = "tbCurrentSerialNo";
             this.tbCurrentSerialNo.ReadOnly = true;
             this.tbCurrentSerialNo.Size = new System.Drawing.Size(65, 23);
@@ -1018,7 +1012,7 @@
             // 
             this.tbAssemPositiveTolPartWeight.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemPositiveTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemPositiveTolPartWeight.Location = new System.Drawing.Point(316, 233);
+            this.tbAssemPositiveTolPartWeight.Location = new System.Drawing.Point(313, 229);
             this.tbAssemPositiveTolPartWeight.Name = "tbAssemPositiveTolPartWeight";
             this.tbAssemPositiveTolPartWeight.ReadOnly = true;
             this.tbAssemPositiveTolPartWeight.Size = new System.Drawing.Size(98, 23);
@@ -1028,7 +1022,7 @@
             // 
             this.tbAssemPositiveTolPercent.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemPositiveTolPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemPositiveTolPercent.Location = new System.Drawing.Point(315, 204);
+            this.tbAssemPositiveTolPercent.Location = new System.Drawing.Point(312, 200);
             this.tbAssemPositiveTolPercent.Name = "tbAssemPositiveTolPercent";
             this.tbAssemPositiveTolPercent.ReadOnly = true;
             this.tbAssemPositiveTolPercent.Size = new System.Drawing.Size(98, 23);
@@ -1038,7 +1032,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(324, 184);
+            this.label34.Location = new System.Drawing.Point(321, 180);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(81, 17);
             this.label34.TabIndex = 31;
@@ -1048,7 +1042,7 @@
             // 
             this.tbAssemTolPartWeight.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemTolPartWeight.Location = new System.Drawing.Point(164, 233);
+            this.tbAssemTolPartWeight.Location = new System.Drawing.Point(161, 229);
             this.tbAssemTolPartWeight.Name = "tbAssemTolPartWeight";
             this.tbAssemTolPartWeight.ReadOnly = true;
             this.tbAssemTolPartWeight.Size = new System.Drawing.Size(98, 23);
@@ -1058,7 +1052,7 @@
             // 
             this.tbAssemTolPercent.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemTolPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemTolPercent.Location = new System.Drawing.Point(163, 204);
+            this.tbAssemTolPercent.Location = new System.Drawing.Point(160, 200);
             this.tbAssemTolPercent.Name = "tbAssemTolPercent";
             this.tbAssemTolPercent.ReadOnly = true;
             this.tbAssemTolPercent.Size = new System.Drawing.Size(98, 23);
@@ -1068,7 +1062,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(179, 184);
+            this.label35.Location = new System.Drawing.Point(176, 180);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(72, 17);
             this.label35.TabIndex = 28;
@@ -1078,7 +1072,7 @@
             // 
             this.tbAssemNegativeTolPartWeight.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemNegativeTolPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemNegativeTolPartWeight.Location = new System.Drawing.Point(12, 233);
+            this.tbAssemNegativeTolPartWeight.Location = new System.Drawing.Point(9, 229);
             this.tbAssemNegativeTolPartWeight.Name = "tbAssemNegativeTolPartWeight";
             this.tbAssemNegativeTolPartWeight.ReadOnly = true;
             this.tbAssemNegativeTolPartWeight.Size = new System.Drawing.Size(98, 23);
@@ -1088,7 +1082,7 @@
             // 
             this.tbAssemNegativeTolPercent.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemNegativeTolPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemNegativeTolPercent.Location = new System.Drawing.Point(11, 204);
+            this.tbAssemNegativeTolPercent.Location = new System.Drawing.Point(8, 200);
             this.tbAssemNegativeTolPercent.Name = "tbAssemNegativeTolPercent";
             this.tbAssemNegativeTolPercent.ReadOnly = true;
             this.tbAssemNegativeTolPercent.Size = new System.Drawing.Size(98, 23);
@@ -1098,7 +1092,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(17, 184);
+            this.label23.Location = new System.Drawing.Point(14, 180);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(88, 17);
             this.label23.TabIndex = 25;
@@ -1108,7 +1102,7 @@
             // 
             this.tbAssemDBPartWeight.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemDBPartWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemDBPartWeight.Location = new System.Drawing.Point(124, 154);
+            this.tbAssemDBPartWeight.Location = new System.Drawing.Point(121, 150);
             this.tbAssemDBPartWeight.Name = "tbAssemDBPartWeight";
             this.tbAssemDBPartWeight.ReadOnly = true;
             this.tbAssemDBPartWeight.Size = new System.Drawing.Size(290, 23);
@@ -1118,7 +1112,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(13, 157);
+            this.label22.Location = new System.Drawing.Point(10, 153);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(105, 17);
             this.label22.TabIndex = 24;
@@ -1128,7 +1122,7 @@
             // 
             this.tbAssemblyChildPartQty.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemblyChildPartQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemblyChildPartQty.Location = new System.Drawing.Point(322, 96);
+            this.tbAssemblyChildPartQty.Location = new System.Drawing.Point(319, 92);
             this.tbAssemblyChildPartQty.Name = "tbAssemblyChildPartQty";
             this.tbAssemblyChildPartQty.ReadOnly = true;
             this.tbAssemblyChildPartQty.Size = new System.Drawing.Size(92, 23);
@@ -1138,7 +1132,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(286, 99);
+            this.label16.Location = new System.Drawing.Point(283, 95);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(30, 17);
             this.label16.TabIndex = 21;
@@ -1147,7 +1141,7 @@
             // tbAssemblyDesc
             // 
             this.tbAssemblyDesc.BackColor = System.Drawing.Color.LightGray;
-            this.tbAssemblyDesc.Location = new System.Drawing.Point(186, 38);
+            this.tbAssemblyDesc.Location = new System.Drawing.Point(183, 34);
             this.tbAssemblyDesc.Name = "tbAssemblyDesc";
             this.tbAssemblyDesc.ReadOnly = true;
             this.tbAssemblyDesc.Size = new System.Drawing.Size(228, 26);
@@ -1156,7 +1150,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(11, 41);
+            this.label28.Location = new System.Drawing.Point(8, 37);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(161, 20);
             this.label28.TabIndex = 19;
@@ -1165,7 +1159,7 @@
             // btnSerialNo
             // 
             this.btnSerialNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSerialNo.Location = new System.Drawing.Point(338, 65);
+            this.btnSerialNo.Location = new System.Drawing.Point(335, 61);
             this.btnSerialNo.Name = "btnSerialNo";
             this.btnSerialNo.Size = new System.Drawing.Size(76, 26);
             this.btnSerialNo.TabIndex = 18;
@@ -1177,7 +1171,7 @@
             // 
             this.tbAssemblyChildPart.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemblyChildPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemblyChildPart.Location = new System.Drawing.Point(142, 96);
+            this.tbAssemblyChildPart.Location = new System.Drawing.Point(139, 92);
             this.tbAssemblyChildPart.Name = "tbAssemblyChildPart";
             this.tbAssemblyChildPart.ReadOnly = true;
             this.tbAssemblyChildPart.Size = new System.Drawing.Size(125, 23);
@@ -1187,7 +1181,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(13, 99);
+            this.label27.Location = new System.Drawing.Point(10, 95);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(123, 17);
             this.label27.TabIndex = 16;
@@ -1196,9 +1190,9 @@
             // pbAssemChildPartImage
             // 
             this.pbAssemChildPartImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAssemChildPartImage.Location = new System.Drawing.Point(14, 280);
+            this.pbAssemChildPartImage.Location = new System.Drawing.Point(11, 28);
             this.pbAssemChildPartImage.Name = "pbAssemChildPartImage";
-            this.pbAssemChildPartImage.Size = new System.Drawing.Size(400, 400);
+            this.pbAssemChildPartImage.Size = new System.Drawing.Size(400, 340);
             this.pbAssemChildPartImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAssemChildPartImage.TabIndex = 15;
             this.pbAssemChildPartImage.TabStop = false;
@@ -1206,7 +1200,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(10, 257);
+            this.label21.Location = new System.Drawing.Point(7, 5);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(54, 20);
             this.label21.TabIndex = 14;
@@ -1215,7 +1209,7 @@
             // btnAssemblyPartSubmit
             // 
             this.btnAssemblyPartSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssemblyPartSubmit.Location = new System.Drawing.Point(338, 6);
+            this.btnAssemblyPartSubmit.Location = new System.Drawing.Point(335, 2);
             this.btnAssemblyPartSubmit.Name = "btnAssemblyPartSubmit";
             this.btnAssemblyPartSubmit.Size = new System.Drawing.Size(76, 26);
             this.btnAssemblyPartSubmit.TabIndex = 9;
@@ -1227,7 +1221,7 @@
             // 
             this.tbAssemChildPartDesc.BackColor = System.Drawing.Color.LightGray;
             this.tbAssemChildPartDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAssemChildPartDesc.Location = new System.Drawing.Point(124, 125);
+            this.tbAssemChildPartDesc.Location = new System.Drawing.Point(121, 121);
             this.tbAssemChildPartDesc.Name = "tbAssemChildPartDesc";
             this.tbAssemChildPartDesc.ReadOnly = true;
             this.tbAssemChildPartDesc.Size = new System.Drawing.Size(290, 23);
@@ -1237,7 +1231,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(13, 128);
+            this.label24.Location = new System.Drawing.Point(10, 124);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(79, 17);
             this.label24.TabIndex = 7;
@@ -1247,7 +1241,7 @@
             // 
             this.tbSerialNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbSerialNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSerialNo.Location = new System.Drawing.Point(268, 67);
+            this.tbSerialNo.Location = new System.Drawing.Point(265, 63);
             this.tbSerialNo.Name = "tbSerialNo";
             this.tbSerialNo.Size = new System.Drawing.Size(65, 23);
             this.tbSerialNo.TabIndex = 6;
@@ -1258,7 +1252,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(79, 70);
+            this.label25.Location = new System.Drawing.Point(76, 66);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(101, 17);
             this.label25.TabIndex = 5;
@@ -1266,7 +1260,7 @@
             // 
             // tbAssemblyPartNumber
             // 
-            this.tbAssemblyPartNumber.Location = new System.Drawing.Point(186, 6);
+            this.tbAssemblyPartNumber.Location = new System.Drawing.Point(183, 2);
             this.tbAssemblyPartNumber.Name = "tbAssemblyPartNumber";
             this.tbAssemblyPartNumber.Size = new System.Drawing.Size(146, 26);
             this.tbAssemblyPartNumber.TabIndex = 3;
@@ -1275,7 +1269,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(10, 9);
+            this.label26.Location = new System.Drawing.Point(7, 5);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(170, 20);
             this.label26.TabIndex = 4;
@@ -1289,7 +1283,7 @@
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.btnPrintAssembly);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 622);
+            this.panel6.Location = new System.Drawing.Point(3, 664);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1020, 41);
             this.panel6.TabIndex = 1;
@@ -1348,16 +1342,24 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtSelectedLabelSize);
             this.panel2.Controls.Add(this.pbLicenseinfo);
+            this.panel2.Controls.Add(this.label39);
             this.panel2.Controls.Add(this.lblLicenseExpirationInfo);
+            this.panel2.Controls.Add(this.btnSelectCustomer);
             this.panel2.Controls.Add(this.lblWeight);
+            this.panel2.Controls.Add(this.txtCustomerName);
             this.panel2.Controls.Add(this.btnSettings);
+            this.panel2.Controls.Add(this.label40);
             this.panel2.Controls.Add(this.btnMasterData);
+            this.panel2.Controls.Add(this.btnSelectPrinter);
             this.panel2.Controls.Add(this.btnConnect);
+            this.panel2.Controls.Add(this.txtPrinterName);
+            this.panel2.Controls.Add(this.label41);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1034, 50);
+            this.panel2.Size = new System.Drawing.Size(1034, 94);
             this.panel2.TabIndex = 0;
             // 
             // pbLicenseinfo
@@ -1442,11 +1444,183 @@
             this._serialPort.DtrEnable = true;
             this._serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.SerialPort_DataReceived);
             // 
+            // panel10
+            // 
+            this.panel10.AutoScroll = true;
+            this.panel10.Controls.Add(this.tbSideInfo);
+            this.panel10.Controls.Add(this.label2);
+            this.panel10.Controls.Add(this.tbChildPartDesc);
+            this.panel10.Controls.Add(this.label38);
+            this.panel10.Controls.Add(this.btnChildPartSubmit);
+            this.panel10.Controls.Add(this.label3);
+            this.panel10.Controls.Add(this.tbExpiryDays);
+            this.panel10.Controls.Add(this.label5);
+            this.panel10.Controls.Add(this.tbRequiredQty);
+            this.panel10.Controls.Add(this.label36);
+            this.panel10.Controls.Add(this.tbDBPartWeight);
+            this.panel10.Controls.Add(this.label4);
+            this.panel10.Controls.Add(this.tbReferenceNumber);
+            this.panel10.Controls.Add(this.tbChildPartNumber);
+            this.panel10.Controls.Add(this.tbNegativeTolPercent);
+            this.panel10.Controls.Add(this.label20);
+            this.panel10.Controls.Add(this.label1);
+            this.panel10.Controls.Add(this.tbPositiveTolPartWeight);
+            this.panel10.Controls.Add(this.tbNegativeTolPartWeight);
+            this.panel10.Controls.Add(this.label7);
+            this.panel10.Controls.Add(this.tbPositiveTolPercent);
+            this.panel10.Controls.Add(this.tbTolPercent);
+            this.panel10.Controls.Add(this.tbTolPartWeight);
+            this.panel10.Controls.Add(this.label30);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(3, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(438, 269);
+            this.panel10.TabIndex = 1;
+            // 
+            // txtSelectedLabelSize
+            // 
+            this.txtSelectedLabelSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSelectedLabelSize.Location = new System.Drawing.Point(514, 62);
+            this.txtSelectedLabelSize.Name = "txtSelectedLabelSize";
+            this.txtSelectedLabelSize.ReadOnly = true;
+            this.txtSelectedLabelSize.Size = new System.Drawing.Size(109, 22);
+            this.txtSelectedLabelSize.TabIndex = 42;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(428, 65);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(80, 16);
+            this.label39.TabIndex = 43;
+            this.label39.Text = "Label Size";
+            // 
+            // btnSelectCustomer
+            // 
+            this.btnSelectCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectCustomer.Location = new System.Drawing.Point(333, 59);
+            this.btnSelectCustomer.Name = "btnSelectCustomer";
+            this.btnSelectCustomer.Size = new System.Drawing.Size(76, 28);
+            this.btnSelectCustomer.TabIndex = 41;
+            this.btnSelectCustomer.Text = "Change";
+            this.btnSelectCustomer.UseVisualStyleBackColor = true;
+            this.btnSelectCustomer.Click += new System.EventHandler(this.btnSelectCustomer_Click);
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerName.Location = new System.Drawing.Point(134, 62);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.ReadOnly = true;
+            this.txtCustomerName.Size = new System.Drawing.Size(193, 22);
+            this.txtCustomerName.TabIndex = 39;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(12, 65);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(117, 16);
+            this.label40.TabIndex = 40;
+            this.label40.Text = "Customer Name";
+            // 
+            // btnSelectPrinter
+            // 
+            this.btnSelectPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectPrinter.Location = new System.Drawing.Point(948, 59);
+            this.btnSelectPrinter.Name = "btnSelectPrinter";
+            this.btnSelectPrinter.Size = new System.Drawing.Size(76, 28);
+            this.btnSelectPrinter.TabIndex = 38;
+            this.btnSelectPrinter.Text = "Change";
+            this.btnSelectPrinter.UseVisualStyleBackColor = true;
+            this.btnSelectPrinter.Click += new System.EventHandler(this.btnSelectPrinter_Click);
+            // 
+            // txtPrinterName
+            // 
+            this.txtPrinterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrinterName.Location = new System.Drawing.Point(752, 62);
+            this.txtPrinterName.Name = "txtPrinterName";
+            this.txtPrinterName.ReadOnly = true;
+            this.txtPrinterName.Size = new System.Drawing.Size(193, 22);
+            this.txtPrinterName.TabIndex = 36;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(653, 65);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(97, 16);
+            this.label41.TabIndex = 37;
+            this.label41.Text = "Printer Name";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.panel11, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel12, 0, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 380F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(444, 655);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // panel11
+            // 
+            this.panel11.AutoScroll = true;
+            this.panel11.Controls.Add(this.tbCurrentSerialNo);
+            this.panel11.Controls.Add(this.label27);
+            this.panel11.Controls.Add(this.btnAssemblyPartSubmit);
+            this.panel11.Controls.Add(this.tbAssemPositiveTolPartWeight);
+            this.panel11.Controls.Add(this.tbAssemChildPartDesc);
+            this.panel11.Controls.Add(this.label24);
+            this.panel11.Controls.Add(this.tbAssemPositiveTolPercent);
+            this.panel11.Controls.Add(this.tbAssemblyChildPart);
+            this.panel11.Controls.Add(this.tbSerialNo);
+            this.panel11.Controls.Add(this.label34);
+            this.panel11.Controls.Add(this.btnSerialNo);
+            this.panel11.Controls.Add(this.label25);
+            this.panel11.Controls.Add(this.tbAssemTolPartWeight);
+            this.panel11.Controls.Add(this.label28);
+            this.panel11.Controls.Add(this.tbAssemblyPartNumber);
+            this.panel11.Controls.Add(this.tbAssemTolPercent);
+            this.panel11.Controls.Add(this.tbAssemblyDesc);
+            this.panel11.Controls.Add(this.label26);
+            this.panel11.Controls.Add(this.label35);
+            this.panel11.Controls.Add(this.label16);
+            this.panel11.Controls.Add(this.tbAssemblyChildPartQty);
+            this.panel11.Controls.Add(this.tbAssemNegativeTolPartWeight);
+            this.panel11.Controls.Add(this.label22);
+            this.panel11.Controls.Add(this.tbAssemDBPartWeight);
+            this.panel11.Controls.Add(this.tbAssemNegativeTolPercent);
+            this.panel11.Controls.Add(this.label23);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(438, 269);
+            this.panel11.TabIndex = 0;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.pbAssemChildPartImage);
+            this.panel12.Controls.Add(this.label21);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(3, 278);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(438, 374);
+            this.panel12.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 749);
+            this.ClientSize = new System.Drawing.Size(1034, 835);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1467,7 +1641,9 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChildPartsPrinting)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1477,13 +1653,19 @@
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssemChildPartsList)).EndInit();
             this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAssemChildPartImage)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLicenseinfo)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1601,6 +1783,20 @@
         private System.Windows.Forms.PictureBox pbLicenseinfo;
         private System.Windows.Forms.TextBox tbSideInfo;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox txtSelectedLabelSize;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button btnSelectCustomer;
+        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Button btnSelectPrinter;
+        private System.Windows.Forms.TextBox txtPrinterName;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
     }
 }
 

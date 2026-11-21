@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.IO.Ports;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -50,11 +51,18 @@ namespace AutoWeighingAndPrinting
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            this.Text = $"Auto Weighing and Printing - {version}";
+
+
             if (!CheckAppLicense())
             {
                 this.Dispose();
                 return;
             }
+
+
+            LoadPrinterAndCustomer();
 
             DateTime historyDeletedDate = appSettings.HistoryDeletedDate;
             if (historyDeletedDate.Date >= DateTime.Now.Date)
@@ -403,7 +411,11 @@ namespace AutoWeighingAndPrinting
 
         private void BtnChildPartSubmit_Click(object sender, EventArgs e)
         {
-            appSettings = config.ReadSettings();
+
+            if (!AllowtoProceedWeighing())
+            {
+                return;
+            }
 
             enableChildPartsWeighing = false;
             if (tbReferenceNumber.Text == string.Empty || tbRequiredQty.Text == string.Empty)
@@ -882,6 +894,7 @@ namespace AutoWeighingAndPrinting
                     tbReferenceNumber.Text = "";
                     tbRequiredQty.Text = "";
                     ResetChildPartsWeighing();
+                    panel10.AutoScrollPosition = new Point(0, 0);
                     tbReferenceNumber.Focus();
                 }
 
@@ -889,7 +902,9 @@ namespace AutoWeighingAndPrinting
                 {
                     tbAssemblyPartNumber.Text = "";
                     ResetAssemblyPartsWeighing();
+                    panel11.AutoScrollPosition = new Point(0, 0);
                     tbAssemblyPartNumber.Focus();
+
                 }
             }
 
@@ -987,6 +1002,12 @@ namespace AutoWeighingAndPrinting
 
         private void BtnAssemblyPartSubmit_Click(object sender, EventArgs e)
         {
+
+            if (!AllowtoProceedWeighing())
+            {
+                return;
+            }
+
             if (tbAssemblyPartNumber.Text == string.Empty)
             {
                 MessageBox.Show("Enter the part number", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1117,8 +1138,14 @@ namespace AutoWeighingAndPrinting
             this.AcceptButton = btnSerialNo;
         }
 
+
         private void BtnSerialNo_Click(object sender, EventArgs e)
         {
+            if (!AllowtoProceedWeighing())
+            {
+                return;
+            }
+
             enableAssemblyPartsWeighing = false;
             if (tbSerialNo.Text == string.Empty)
             {
@@ -1318,297 +1345,252 @@ namespace AutoWeighingAndPrinting
             if (dgvChildPartsPrinting.Rows.Count > 0)
             {
 
-                var sizeFolders = PrnHelper.GetSizeFolders();
-
-                if (sizeFolders.Length == 0)
-                {
-                    MessageBox.Show("No PRN size folders found", "ERROR");
-                    return;
-                }
-
-                // ONLY ONE SIZE THEN AUTO SELECT
-                if (sizeFolders.Length == 1)
-                {
-                    string singleSize = Path.GetFileName(sizeFolders[0]);
-                    appSettings.SelectedSize = singleSize;
-                    config.WriteSettings(appSettings);
-
-                    CustomerSelectionForm customerForm = new CustomerSelectionForm();
-                    customerForm.ShowDialog();
-
-                }
-                else
-                {
-                    SizeSelectionForm sizeForm = new SizeSelectionForm();
-                    sizeForm.ShowDialog();
-                }
-
-
-
                 appSettings = config.ReadSettings();
-                if (appSettings.PrintingFileName == "" || appSettings.SelectedSize == "")
-                    return;
 
+                string outputFile = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N") + ".prn");
                 try
                 {
-                    string outputSourcePath = Path.Combine(PrnHelper.PrnRootPath, appSettings.SelectedSize);
-                    string outputFileName = appSettings.PrintingFileName + ".prn";
-                    string outputTargetPath = Path.GetTempPath();
+                    this.Cursor = Cursors.WaitCursor;
 
-                    // Use Path class to manipulate file and directory paths.
-                    string outputSourceFile = Path.Combine(outputSourcePath, outputFileName);
-                    string outputDestFile = Path.Combine(outputTargetPath, outputFileName);
+                    if (!IsPrinterInstalled(appSettings.PrinterName))
+                        throw new Exception("Selected printer is not installed.");
 
-                    PrintDialog pd = new PrintDialog
+                    if (string.IsNullOrWhiteSpace(appSettings.PrintingFileName) ||
+                        string.IsNullOrWhiteSpace(appSettings.SelectedSize))
                     {
-                        PrinterSettings = new PrinterSettings(),
-                        UseEXDialog = appSettings.IsUseExDialog
-                    };
-
-
-                    string savedPrinter = appSettings.PrinterName;
-
-                    foreach (string printerName in PrinterSettings.InstalledPrinters)
-                    {
-                        if (savedPrinter == printerName)
-                        {
-                            pd.PrinterSettings.PrinterName = savedPrinter;
-                        }
+                        throw new Exception("Customer or label size is not selected.");
                     }
 
-                    if (DialogResult.OK == pd.ShowDialog(this))
-                    {
-                        this.Cursor = Cursors.WaitCursor;
-                        appSettings.PrinterName = pd.PrinterSettings.PrinterName;
-                        config.WriteSettings(appSettings);
+                    string sourceFolder = Path.Combine(PrnHelper.PrnRootPath, appSettings.SelectedSize);
 
-                        DataTable dtChildPartsPrinting = new DataTable();
-                        bool enableSavePrintingHistory = appSettings.EnablePrintingHistory;
+                    string sourceFile = Path.Combine(sourceFolder, appSettings.PrintingFileName + ".prn");
+
+                    if (!File.Exists(sourceFile))
+                        throw new FileNotFoundException("PRN template not found.", sourceFile);
+
+
+                    DataTable dtChildPartsPrinting = new DataTable();
+                    bool enableSavePrintingHistory = appSettings.EnablePrintingHistory;
+
+                    if (enableSavePrintingHistory)
+                    {
+                        //Create a datatable column matching with sqlite database
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("date_time", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("customer_name", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("reference_number", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("child_part_number", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("child_part_description", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("quantity", typeof(Int32)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("part_weight", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("net_weight", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("pallet_weight", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("gross_weight", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("batch_no", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("other_info", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("no_of_packet", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("negative_tol_percent", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("negative_tol_part_weight", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("db_part_weight", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("positive_tol_percent", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("positive_tol_part_weight", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("expiry_days", typeof(Int32)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("expiry_date", typeof(string)));
+                        dtChildPartsPrinting.Columns.Add(new DataColumn("side_info", typeof(string)));
+                    }
+
+
+                    string customerName = appSettings.PrintingFileName;
+                    string date = DateTime.Now.ToString("dd/MMM/yyyy");
+                    string time24 = DateTime.Now.ToString("HH:mm");
+                    string time12 = DateTime.Now.ToString("hh:mm tt");
+                    string palletWeight = txtChildPalletWeight.Text;
+                    REPEAT_ChildPalletWeight = txtChildPalletWeight.Text;
+                    string grossWeight = lblChildGrossWeight.Text;
+                    string totalBoxCount = dgvChildPartsPrinting.Rows.Count.ToString();
+
+                    for (int i = 0; i < dgvChildPartsPrinting.Rows.Count; i++)
+                    {
+                        string referenceNumber = dgvChildPartsPrinting.Rows[i].Cells["ReferenceNumber"].Value.ToString();
+                        string partNo = dgvChildPartsPrinting.Rows[i].Cells["PartNumber"].Value.ToString();
+                        string partName = dgvChildPartsPrinting.Rows[i].Cells["Description"].Value.ToString();
+                        string quantity = dgvChildPartsPrinting.Rows[i].Cells["Quantity"].Value.ToString();
+                        string partWeight = dgvChildPartsPrinting.Rows[i].Cells["PartWeight"].Value.ToString();
+                        string partInfo = "Weight Per Part";
+                        string partInfoValue = partWeight;
+                        string netWeight = dgvChildPartsPrinting.Rows[i].Cells["NetWeight"].Value.ToString();
+                        string batchNo = dgvChildPartsPrinting.Rows[i].Cells["BatchNo"].Value.ToString();
+                        string otherInfo = dgvChildPartsPrinting.Rows[i].Cells["OtherInfo"].Value.ToString();
+                        string negativeTolPercent = dgvChildPartsPrinting.Rows[i].Cells["NegativeTolPercent"].Value.ToString();
+                        string negativeTolPartWeight = dgvChildPartsPrinting.Rows[i].Cells["NegativeTolPartWeight"].Value.ToString();
+
+                        string DBPartWeight = dgvChildPartsPrinting.Rows[i].Cells["DBPartWeight"].Value.ToString();
+
+                        string positiveTolPercent = dgvChildPartsPrinting.Rows[i].Cells["PositiveTolPercent"].Value.ToString();
+                        string positiveTolPartWeight = dgvChildPartsPrinting.Rows[i].Cells["PositiveTolPartWeight"].Value.ToString();
+                        int expiryDays = Convert.ToInt32(dgvChildPartsPrinting.Rows[i].Cells["ExpiryDays"].Value);
+                        string expiryDate = dgvChildPartsPrinting.Rows[i].Cells["ExpiryDate"].Value.ToString();
+                        string sideInfo = dgvChildPartsPrinting.Rows[i].Cells["SideInfo"].Value.ToString();
+
+
+
+
+                        File.Copy(sourceFile, outputFile, true);
+
+                        string text = File.ReadAllText(outputFile);
+                        text = text.Replace("{CUSTOMERNAME}", customerName);
+                        text = text.Replace("{PARTNO}", partNo);
+                        text = text.Replace("{PARTNAME}", partName);
+                        text = text.Replace("{QUANTITY}", quantity);
+                        text = text.Replace("{PARTINFO}", partInfo);
+                        text = text.Replace("{PARTINFOVALUE}", partInfoValue);
+                        text = text.Replace("{NETWEIGHT}", netWeight);
+                        text = text.Replace("{PALLETWEIGHT}", palletWeight);
+                        text = text.Replace("{GROSSWEIGHT}", grossWeight);
+                        text = text.Replace("{DATE}", date);
+                        text = text.Replace("{TIME24}", time24);
+                        text = text.Replace("{TIME12}", time12);
+                        text = text.Replace("{BOXNO}", (i + 1).ToString());
+                        text = text.Replace("{TOTALBOXCOUNT}", totalBoxCount);
+                        text = text.Replace("{BATCHNO}", batchNo);
+                        text = text.Replace("{OTHERINFO}", otherInfo);
+                        text = text.Replace("{NEGATIVETOLPERCENT}", negativeTolPercent);
+                        text = text.Replace("{NEGATIVETOLPARTWEIGHT}", negativeTolPartWeight);
+                        text = text.Replace("{DBPARTWEIGHT}", DBPartWeight);
+                        text = text.Replace("{POSITIVETOLPERCENT}", positiveTolPercent);
+                        text = text.Replace("{POSITIVETOLPARTWEIGHT}", positiveTolPartWeight);
+
+                        //New columns on printing labels
+                        text = text.Replace("{REFERENCENUMBER}", referenceNumber);
+                        text = text.Replace("{EXPIRYDAYS}", expiryDays.ToString());
+                        text = text.Replace("{EXPIRYDATE}", DateTime.Now.AddDays(expiryDays).ToString("dd/MMM/yyyy"));
+
+                        text = text.Replace("{SIDEINFO}", sideInfo);
+
+                        File.WriteAllText(outputFile, text, Encoding.Default);
+
+                        bool sent = SendTextFileToPrinter(outputFile, appSettings.PrinterName);
+
+                        if (!sent)
+                            throw new Exception("Printer rejected the print request.");
+
 
                         if (enableSavePrintingHistory)
                         {
-                            //Create a datatable column matching with sqlite database
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("date_time", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("customer_name", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("reference_number", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("child_part_number", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("child_part_description", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("quantity", typeof(Int32)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("part_weight", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("net_weight", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("pallet_weight", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("gross_weight", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("batch_no", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("other_info", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("no_of_packet", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("negative_tol_percent", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("negative_tol_part_weight", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("db_part_weight", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("positive_tol_percent", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("positive_tol_part_weight", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("expiry_days", typeof(Int32)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("expiry_date", typeof(string)));
-                            dtChildPartsPrinting.Columns.Add(new DataColumn("side_info", typeof(string)));
+                            //Add rows to datatable and assign the value for each column
+                            DataRow row = dtChildPartsPrinting.NewRow();
+                            row["date_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            row["customer_name"] = customerName;
+                            row["reference_number"] = referenceNumber;
+                            row["child_part_number"] = partNo;
+                            row["child_part_description"] = partName;
+                            row["quantity"] = quantity;
+                            row["part_weight"] = partWeight;
+                            row["net_weight"] = netWeight;
+                            row["pallet_weight"] = palletWeight;
+                            row["gross_weight"] = grossWeight;
+                            row["batch_no"] = batchNo;
+                            row["other_info"] = otherInfo;
+                            row["no_of_packet"] = (i + 1).ToString() + "/" + totalBoxCount;
+                            row["negative_tol_percent"] = negativeTolPercent;
+                            row["negative_tol_part_weight"] = negativeTolPartWeight;
+                            row["db_part_weight"] = DBPartWeight;
+                            row["positive_tol_percent"] = positiveTolPercent;
+                            row["positive_tol_part_weight"] = positiveTolPartWeight;
+                            row["expiry_days"] = expiryDays;
+                            row["expiry_date"] = expiryDate;
+                            row["side_info"] = sideInfo;
+                            dtChildPartsPrinting.Rows.Add(row);
                         }
+                    }
 
+                    //Update the batch number to the childpart master
+                    if (dtChildPartsPrinting.Rows.Count > 0)
+                    {
+                        string commandText_ = "",
+                            refernceNumber_ = "",
+                            batchNumber_;
 
-                        string customerName = appSettings.PrintingFileName;
-                        string date = DateTime.Now.ToString("dd/MMM/yyyy");
-                        string time24 = DateTime.Now.ToString("HH:mm");
-                        string time12 = DateTime.Now.ToString("hh:mm tt");
-                        string palletWeight = txtChildPalletWeight.Text;
-                        REPEAT_ChildPalletWeight = txtChildPalletWeight.Text;
-                        string grossWeight = lblChildGrossWeight.Text;
-                        string totalBoxCount = dgvChildPartsPrinting.Rows.Count.ToString();
-
-                        for (int i = 0; i < dgvChildPartsPrinting.Rows.Count; i++)
+                        for (var i = 0; i < dtChildPartsPrinting.Rows.Count; i++)
                         {
-                            string referenceNumber = dgvChildPartsPrinting.Rows[i].Cells["ReferenceNumber"].Value.ToString();
-                            string partNo = dgvChildPartsPrinting.Rows[i].Cells["PartNumber"].Value.ToString();
-                            string partName = dgvChildPartsPrinting.Rows[i].Cells["Description"].Value.ToString();
-                            string quantity = dgvChildPartsPrinting.Rows[i].Cells["Quantity"].Value.ToString();
-                            string partWeight = dgvChildPartsPrinting.Rows[i].Cells["PartWeight"].Value.ToString();
-                            string partInfo = "Weight Per Part";
-                            string partInfoValue = partWeight;
-                            string netWeight = dgvChildPartsPrinting.Rows[i].Cells["NetWeight"].Value.ToString();
-                            string batchNo = dgvChildPartsPrinting.Rows[i].Cells["BatchNo"].Value.ToString();
-                            string otherInfo = dgvChildPartsPrinting.Rows[i].Cells["OtherInfo"].Value.ToString();
-                            string negativeTolPercent = dgvChildPartsPrinting.Rows[i].Cells["NegativeTolPercent"].Value.ToString();
-                            string negativeTolPartWeight = dgvChildPartsPrinting.Rows[i].Cells["NegativeTolPartWeight"].Value.ToString();
+                            refernceNumber_ = dtChildPartsPrinting.Rows[i]["reference_number"].ToString();
 
-                            string DBPartWeight = dgvChildPartsPrinting.Rows[i].Cells["DBPartWeight"].Value.ToString();
+                            batchNumber_ = dtChildPartsPrinting.Rows[i]["batch_no"].ToString() ?? "";
 
-                            string positiveTolPercent = dgvChildPartsPrinting.Rows[i].Cells["PositiveTolPercent"].Value.ToString();
-                            string positiveTolPartWeight = dgvChildPartsPrinting.Rows[i].Cells["PositiveTolPartWeight"].Value.ToString();
-                            int expiryDays = Convert.ToInt32(dgvChildPartsPrinting.Rows[i].Cells["ExpiryDays"].Value);
-                            string expiryDate = dgvChildPartsPrinting.Rows[i].Cells["ExpiryDate"].Value.ToString();
-                            string sideInfo = dgvChildPartsPrinting.Rows[i].Cells["SideInfo"].Value.ToString();
+                            commandText_ = @"UPDATE [1.childpart] SET batch_no = @BATCHNUMBER WHERE reference_number=@REFERENCENUMBER";
 
-                            // To copy a folder's contents to a new location:
-                            // Create a new target folder, if necessary.
-                            if (!System.IO.Directory.Exists(outputTargetPath))
-                            {
-                                System.IO.Directory.CreateDirectory(outputTargetPath);
-                            }
-                            // To copy a file to another location and 
-                            // overwrite the destination file if it already exists.
-                            System.IO.File.Copy(outputSourceFile, outputDestFile, true);
+                            SQLiteParameter[] parameters_ = new SQLiteParameter[2];
+                            parameters_[0] = new SQLiteParameter("@BATCHNUMBER", batchNumber_);
+                            parameters_[1] = new SQLiteParameter("@REFERENCENUMBER", refernceNumber_);
 
-                            //Replace the code with data
-                            string text = File.ReadAllText(outputDestFile);
-                            text = text.Replace("{CUSTOMERNAME}", customerName);
-                            text = text.Replace("{PARTNO}", partNo);
-                            text = text.Replace("{PARTNAME}", partName);
-                            text = text.Replace("{QUANTITY}", quantity);
-                            text = text.Replace("{PARTINFO}", partInfo);
-                            text = text.Replace("{PARTINFOVALUE}", partInfoValue);
-                            text = text.Replace("{NETWEIGHT}", netWeight);
-                            text = text.Replace("{PALLETWEIGHT}", palletWeight);
-                            text = text.Replace("{GROSSWEIGHT}", grossWeight);
-                            text = text.Replace("{DATE}", date);
-                            text = text.Replace("{TIME24}", time24);
-                            text = text.Replace("{TIME12}", time12);
-                            text = text.Replace("{BOXNO}", (i + 1).ToString());
-                            text = text.Replace("{TOTALBOXCOUNT}", totalBoxCount);
-                            text = text.Replace("{BATCHNO}", batchNo);
-                            text = text.Replace("{OTHERINFO}", otherInfo);
-                            text = text.Replace("{NEGATIVETOLPERCENT}", negativeTolPercent);
-                            text = text.Replace("{NEGATIVETOLPARTWEIGHT}", negativeTolPartWeight);
-                            text = text.Replace("{DBPARTWEIGHT}", DBPartWeight);
-                            text = text.Replace("{POSITIVETOLPERCENT}", positiveTolPercent);
-                            text = text.Replace("{POSITIVETOLPARTWEIGHT}", positiveTolPartWeight);
-
-                            //New columns on printing labels
-                            text = text.Replace("{REFERENCENUMBER}", referenceNumber);
-                            text = text.Replace("{EXPIRYDAYS}", expiryDays.ToString());
-                            text = text.Replace("{EXPIRYDATE}", DateTime.Now.AddDays(expiryDays).ToString("dd/MMM/yyyy"));
-
-                            text = text.Replace("{SIDEINFO}", sideInfo);
-
-                            File.WriteAllText(outputDestFile, text);
-
-                            SendTextFileToPrinter(outputDestFile, pd.PrinterSettings.PrinterName);
-
-                            File.Delete(outputDestFile);
-
-                            if (enableSavePrintingHistory)
-                            {
-                                //Add rows to datatable and assign the value for each column
-                                DataRow row = dtChildPartsPrinting.NewRow();
-                                row["date_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                                row["customer_name"] = customerName;
-                                row["reference_number"] = referenceNumber;
-                                row["child_part_number"] = partNo;
-                                row["child_part_description"] = partName;
-                                row["quantity"] = quantity;
-                                row["part_weight"] = partWeight;
-                                row["net_weight"] = netWeight;
-                                row["pallet_weight"] = palletWeight;
-                                row["gross_weight"] = grossWeight;
-                                row["batch_no"] = batchNo;
-                                row["other_info"] = otherInfo;
-                                row["no_of_packet"] = (i + 1).ToString() + "/" + totalBoxCount;
-                                row["negative_tol_percent"] = negativeTolPercent;
-                                row["negative_tol_part_weight"] = negativeTolPartWeight;
-                                row["db_part_weight"] = DBPartWeight;
-                                row["positive_tol_percent"] = positiveTolPercent;
-                                row["positive_tol_part_weight"] = positiveTolPartWeight;
-                                row["expiry_days"] = expiryDays;
-                                row["expiry_date"] = expiryDate;
-                                row["side_info"] = sideInfo;
-                                dtChildPartsPrinting.Rows.Add(row);
-                            }
+                            SqlLiteHelper.ExecuteNonQuery(connectionString, commandText_, parameters_);
                         }
+                    }
 
-                        //Update the batch number to the childpart master
-                        if (dtChildPartsPrinting.Rows.Count > 0)
+                    if (enableSavePrintingHistory && dtChildPartsPrinting.Rows.Count > 0)
+                    {
+                        //Bulk insert datatable in sqlite db
+                        using (var conn = new SQLiteConnection(connectionString, true))
                         {
-                            string commandText_ = "",
-                                refernceNumber_ = "",
-                                batchNumber_;
+                            // Be sure you already created the Person Table!
 
-                            for (var i = 0; i < dtChildPartsPrinting.Rows.Count; i++)
+                            conn.Open();
+
+                            using (var cmd = new SQLiteCommand(conn))
                             {
-                                refernceNumber_ = dtChildPartsPrinting.Rows[i]["reference_number"].ToString();
-
-                                batchNumber_ = dtChildPartsPrinting.Rows[i]["batch_no"].ToString() ?? "";
-
-                                commandText_ = @"UPDATE [1.childpart] SET batch_no = @BATCHNUMBER WHERE reference_number=@REFERENCENUMBER";
-
-                                SQLiteParameter[] parameters_ = new SQLiteParameter[2];
-                                parameters_[0] = new SQLiteParameter("@BATCHNUMBER", batchNumber_);
-                                parameters_[1] = new SQLiteParameter("@REFERENCENUMBER", refernceNumber_);
-
-                                SqlLiteHelper.ExecuteNonQuery(connectionString, commandText_, parameters_);
-                            }
-                        }
-
-                        if (enableSavePrintingHistory && dtChildPartsPrinting.Rows.Count > 0)
-                        {
-                            //Bulk insert datatable in sqlite db
-                            using (var conn = new SQLiteConnection(connectionString, true))
-                            {
-                                // Be sure you already created the Person Table!
-
-                                conn.Open();
-
-                                using (var cmd = new SQLiteCommand(conn))
+                                using (var transaction = conn.BeginTransaction())
                                 {
-                                    using (var transaction = conn.BeginTransaction())
+                                    for (var i = 0; i < dtChildPartsPrinting.Rows.Count; i++)
                                     {
-                                        for (var i = 0; i < dtChildPartsPrinting.Rows.Count; i++)
-                                        {
-                                            cmd.CommandText =
-                                                @"INSERT INTO [4.childpart_history] (date_time, customer_name, reference_number , child_part_number, child_part_description,
+                                        cmd.CommandText =
+                                            @"INSERT INTO [4.childpart_history] (date_time, customer_name, reference_number , child_part_number, child_part_description,
                                                 quantity, part_weight, net_weight, pallet_weight, gross_weight, batch_no, other_info, no_of_packet,
                                                 negative_tol_percent, negative_tol_part_weight, db_part_weight, positive_tol_percent, positive_tol_part_weight, expiry_days, expiry_date,side_info)" +
-                                                @" VALUES (@date_time, @customer_name, @reference_number, @child_part_number, @child_part_description,
+                                            @" VALUES (@date_time, @customer_name, @reference_number, @child_part_number, @child_part_description,
                                                 @quantity, @part_weight, @net_weight, @pallet_weight, @gross_weight, @batch_no, @other_info, @no_of_packet,
                                                 @negative_tol_percent, @negative_tol_part_weight, @db_part_weight, @positive_tol_percent, @positive_tol_part_weight, @expiry_days, @expiry_date,@side_info);";
-                                            cmd.Parameters.AddWithValue("@date_time", dtChildPartsPrinting.Rows[i]["date_time"].ToString());
-                                            cmd.Parameters.AddWithValue("@customer_name", dtChildPartsPrinting.Rows[i]["customer_name"].ToString());
-                                            cmd.Parameters.AddWithValue("@reference_number", dtChildPartsPrinting.Rows[i]["reference_number"].ToString());
-                                            cmd.Parameters.AddWithValue("@child_part_number", dtChildPartsPrinting.Rows[i]["child_part_number"].ToString());
-                                            cmd.Parameters.AddWithValue("@child_part_description", dtChildPartsPrinting.Rows[i]["child_part_description"].ToString());
-                                            cmd.Parameters.AddWithValue("@quantity", dtChildPartsPrinting.Rows[i]["quantity"].ToString());
-                                            cmd.Parameters.AddWithValue("@part_weight", dtChildPartsPrinting.Rows[i]["part_weight"].ToString());
-                                            cmd.Parameters.AddWithValue("@net_weight", dtChildPartsPrinting.Rows[i]["net_weight"].ToString());
-                                            cmd.Parameters.AddWithValue("@pallet_weight", dtChildPartsPrinting.Rows[i]["pallet_weight"].ToString() + " KG");
-                                            cmd.Parameters.AddWithValue("@gross_weight", dtChildPartsPrinting.Rows[i]["gross_weight"].ToString() + " KG");
-                                            cmd.Parameters.AddWithValue("@batch_no", dtChildPartsPrinting.Rows[i]["batch_no"].ToString());
-                                            cmd.Parameters.AddWithValue("@other_info", dtChildPartsPrinting.Rows[i]["other_info"].ToString());
-                                            cmd.Parameters.AddWithValue("@no_of_packet", dtChildPartsPrinting.Rows[i]["no_of_packet"].ToString());
-                                            cmd.Parameters.AddWithValue("@negative_tol_percent", dtChildPartsPrinting.Rows[i]["negative_tol_percent"].ToString());
-                                            cmd.Parameters.AddWithValue("@negative_tol_part_weight", dtChildPartsPrinting.Rows[i]["negative_tol_part_weight"].ToString() + " KG");
-                                            cmd.Parameters.AddWithValue("@db_part_weight", dtChildPartsPrinting.Rows[i]["db_part_weight"].ToString() + " KG");
-                                            cmd.Parameters.AddWithValue("@positive_tol_percent", dtChildPartsPrinting.Rows[i]["positive_tol_percent"].ToString());
-                                            cmd.Parameters.AddWithValue("@positive_tol_part_weight", dtChildPartsPrinting.Rows[i]["positive_tol_part_weight"].ToString() + " KG");
-                                            cmd.Parameters.AddWithValue("@expiry_days", dtChildPartsPrinting.Rows[i]["expiry_days"].ToString());
-                                            cmd.Parameters.AddWithValue("@expiry_date", dtChildPartsPrinting.Rows[i]["expiry_date"].ToString());
-                                            cmd.Parameters.AddWithValue("@side_info", dtChildPartsPrinting.Rows[i]["side_info"].ToString());
-                                            cmd.ExecuteNonQuery();
-                                        }
-
-                                        transaction.Commit();
+                                        cmd.Parameters.AddWithValue("@date_time", dtChildPartsPrinting.Rows[i]["date_time"].ToString());
+                                        cmd.Parameters.AddWithValue("@customer_name", dtChildPartsPrinting.Rows[i]["customer_name"].ToString());
+                                        cmd.Parameters.AddWithValue("@reference_number", dtChildPartsPrinting.Rows[i]["reference_number"].ToString());
+                                        cmd.Parameters.AddWithValue("@child_part_number", dtChildPartsPrinting.Rows[i]["child_part_number"].ToString());
+                                        cmd.Parameters.AddWithValue("@child_part_description", dtChildPartsPrinting.Rows[i]["child_part_description"].ToString());
+                                        cmd.Parameters.AddWithValue("@quantity", dtChildPartsPrinting.Rows[i]["quantity"].ToString());
+                                        cmd.Parameters.AddWithValue("@part_weight", dtChildPartsPrinting.Rows[i]["part_weight"].ToString());
+                                        cmd.Parameters.AddWithValue("@net_weight", dtChildPartsPrinting.Rows[i]["net_weight"].ToString());
+                                        cmd.Parameters.AddWithValue("@pallet_weight", dtChildPartsPrinting.Rows[i]["pallet_weight"].ToString() + " KG");
+                                        cmd.Parameters.AddWithValue("@gross_weight", dtChildPartsPrinting.Rows[i]["gross_weight"].ToString() + " KG");
+                                        cmd.Parameters.AddWithValue("@batch_no", dtChildPartsPrinting.Rows[i]["batch_no"].ToString());
+                                        cmd.Parameters.AddWithValue("@other_info", dtChildPartsPrinting.Rows[i]["other_info"].ToString());
+                                        cmd.Parameters.AddWithValue("@no_of_packet", dtChildPartsPrinting.Rows[i]["no_of_packet"].ToString());
+                                        cmd.Parameters.AddWithValue("@negative_tol_percent", dtChildPartsPrinting.Rows[i]["negative_tol_percent"].ToString());
+                                        cmd.Parameters.AddWithValue("@negative_tol_part_weight", dtChildPartsPrinting.Rows[i]["negative_tol_part_weight"].ToString() + " KG");
+                                        cmd.Parameters.AddWithValue("@db_part_weight", dtChildPartsPrinting.Rows[i]["db_part_weight"].ToString() + " KG");
+                                        cmd.Parameters.AddWithValue("@positive_tol_percent", dtChildPartsPrinting.Rows[i]["positive_tol_percent"].ToString());
+                                        cmd.Parameters.AddWithValue("@positive_tol_part_weight", dtChildPartsPrinting.Rows[i]["positive_tol_part_weight"].ToString() + " KG");
+                                        cmd.Parameters.AddWithValue("@expiry_days", dtChildPartsPrinting.Rows[i]["expiry_days"].ToString());
+                                        cmd.Parameters.AddWithValue("@expiry_date", dtChildPartsPrinting.Rows[i]["expiry_date"].ToString());
+                                        cmd.Parameters.AddWithValue("@side_info", dtChildPartsPrinting.Rows[i]["side_info"].ToString());
+                                        cmd.ExecuteNonQuery();
                                     }
+
+                                    transaction.Commit();
                                 }
-
-
-                                conn.Close();
                             }
-                            MessageBox.Show("Data saved successfully in database", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+
+                            conn.Close();
                         }
-                        //Clear all entries
-
-                        txtChildPalletWeight.Text = lblChildTotalNetWeight.Text = lblChildGrossWeight.Text = "0.0000";
-                        tbReferenceNumber.Text = "";
-                        tbRequiredQty.Text = "";
-                        ResetChildPartsWeighing();
-                        BtnClearPrinting_Click(sender, e);
-                        tbReferenceNumber.Focus();
-
-                        this.Cursor = Cursors.Default;
+                        MessageBox.Show("Data saved successfully in database", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
+                    //Clear all entries
+
+                    txtChildPalletWeight.Text = lblChildTotalNetWeight.Text = lblChildGrossWeight.Text = "0.0000";
+                    tbReferenceNumber.Text = "";
+                    tbRequiredQty.Text = "";
+                    ResetChildPartsWeighing();
+                    BtnClearPrinting_Click(sender, e);
+                    tbReferenceNumber.Focus();
+
+                    this.Cursor = Cursors.Default;
 
 
                 }
@@ -1617,6 +1599,12 @@ namespace AutoWeighingAndPrinting
                     this.Cursor = Cursors.Default;
 
                     MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
+                    if (File.Exists(outputFile))
+                        File.Delete(outputFile);
                 }
 
 
@@ -1643,215 +1631,188 @@ namespace AutoWeighingAndPrinting
                     return;
                 }
 
-                CustomerSelectionForm customerForm = new CustomerSelectionForm();
-                customerForm.ShowDialog();
-
-                if (appSettings.PrintingFileName == "")
-                    return;
-
+                string outputFile = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N") + ".prn");
                 try
                 {
-                    string outputSourcePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-                    string outputFileName = appSettings.PrintingFileName + ".prn";
-                    string outputTargetPath = Path.GetTempPath();
+                    this.Cursor = Cursors.WaitCursor;
 
-                    // Use Path class to manipulate file and directory paths.
-                    string outputSourceFile = Path.Combine(outputSourcePath, outputFileName);
-                    string outputDestFile = Path.Combine(outputTargetPath, outputFileName);
+                    if (!IsPrinterInstalled(appSettings.PrinterName))
+                        throw new Exception("Selected printer is not installed.");
 
-                    PrintDialog pd = new PrintDialog
+                    if (string.IsNullOrWhiteSpace(appSettings.PrintingFileName) ||
+                        string.IsNullOrWhiteSpace(appSettings.SelectedSize))
                     {
-                        PrinterSettings = new PrinterSettings(),
-                        UseEXDialog = true
-                    };
-
-
-                    string savedPrinter = appSettings.PrinterName;
-
-                    foreach (string printerName in PrinterSettings.InstalledPrinters)
-                    {
-                        if (savedPrinter == printerName)
-                        {
-                            pd.PrinterSettings.PrinterName = savedPrinter;
-                        }
+                        throw new Exception("Customer or label size is not selected.");
                     }
 
-                    if (DialogResult.OK == pd.ShowDialog(this))
+                    string sourceFolder = Path.Combine(PrnHelper.PrnRootPath, appSettings.SelectedSize);
+
+                    string sourceFile = Path.Combine(sourceFolder, appSettings.PrintingFileName + ".prn");
+
+                    if (!File.Exists(sourceFile))
+                        throw new FileNotFoundException("PRN template not found.", sourceFile);
+
+
+                    string customerName = appSettings.PrintingFileName;
+                    string date = DateTime.Now.ToString("dd/MMM/yyyy");
+                    string palletWeight = txtAssemPalletWeight.Text + " KG";
+                    REPEAT_AssemPalletWeight = txtAssemPalletWeight.Text;
+                    string grossWeight = lblAssemGrossWeight.Text + " KG";
+
+                    string partNo = tbAssemblyPartNumber.Text;
+                    string partName = tbAssemblyDesc.Text;
+                    string quantity = "1";
+                    string netWeight = lblAssemTotalNetWeight.Text + " KG";
+                    string partInfo = "Childparts Count";
+                    string partInfoValue = dgvAssemChildPartsList.Rows.Count.ToString();
+
+                    File.Copy(sourceFile, outputFile, true);
+
+                    string text = File.ReadAllText(outputFile);
+                    text = text.Replace("{CUSTOMERNAME}", customerName);
+                    text = text.Replace("{PARTNO}", partNo);
+                    text = text.Replace("{PARTNAME}", partName);
+                    text = text.Replace("{QUANTITY}", quantity);
+                    text = text.Replace("{PARTINFO}", partInfo);
+                    text = text.Replace("{PARTINFOVALUE}", partInfoValue);
+                    text = text.Replace("{NETWEIGHT}", netWeight);
+                    text = text.Replace("{DATE}", date);
+                    text = text.Replace("{BATCHNO}", "");
+                    text = text.Replace("{OTHERINFO}", "");
+                    text = text.Replace("{BOXNO}", "1");
+                    text = text.Replace("{TOTALBOXCOUNT}", "1");
+                    text = text.Replace("{PALLETWEIGHT}", palletWeight);
+                    text = text.Replace("{GROSSWEIGHT}", grossWeight);
+                    text = text.Replace("{NEGATIVETOLPERCENT}", "");
+                    text = text.Replace("{NEGATIVETOLPARTWEIGHT}", "");
+                    text = text.Replace("{DBPARTWEIGHT}", "");
+                    text = text.Replace("{POSITIVETOLPERCENT}", "");
+                    text = text.Replace("{POSITIVETOLPARTWEIGHT}", "");
+
+
+                    File.WriteAllText(outputFile, text, Encoding.Default);
+
+                    bool sent = SendTextFileToPrinter(outputFile, appSettings.PrinterName);
+
+                    if (!sent)
+                        throw new Exception("Printer rejected the print request.");
+
+
+                    if (appSettings.EnablePrintingHistory)
                     {
-                        this.Cursor = Cursors.WaitCursor;
-                        appSettings.PrinterName = pd.PrinterSettings.PrinterName;
-                        config.WriteSettings(appSettings);
-
-                        string customerName = appSettings.PrintingFileName;
-                        string date = DateTime.Now.ToString("dd/MMM/yyyy");
-                        string palletWeight = txtAssemPalletWeight.Text + " KG";
-                        REPEAT_AssemPalletWeight = txtAssemPalletWeight.Text;
-                        string grossWeight = lblAssemGrossWeight.Text + " KG";
-
-                        string partNo = tbAssemblyPartNumber.Text;
-                        string partName = tbAssemblyDesc.Text;
-                        string quantity = "1";
-                        string netWeight = lblAssemTotalNetWeight.Text + " KG";
-                        string partInfo = "Childparts Count";
-                        string partInfoValue = dgvAssemChildPartsList.Rows.Count.ToString();
-
-
-                        // To copy a folder's contents to a new location:
-                        // Create a new target folder, if necessary.
-                        if (!System.IO.Directory.Exists(outputTargetPath))
+                        //Insert the assembly part number and get the ID
+                        using (var conn = new SQLiteConnection(connectionString, true))
                         {
-                            System.IO.Directory.CreateDirectory(outputTargetPath);
-                        }
-                        // To copy a file to another location and 
-                        // overwrite the destination file if it already exists.
-                        System.IO.File.Copy(outputSourceFile, outputDestFile, true);
-
-                        //Replace the code with data
-                        string text = File.ReadAllText(outputDestFile);
-                        text = text.Replace("{CUSTOMERNAME}", customerName);
-                        text = text.Replace("{PARTNO}", partNo);
-                        text = text.Replace("{PARTNAME}", partName);
-                        text = text.Replace("{QUANTITY}", quantity);
-                        text = text.Replace("{PARTINFO}", partInfo);
-                        text = text.Replace("{PARTINFOVALUE}", partInfoValue);
-                        text = text.Replace("{NETWEIGHT}", netWeight);
-                        text = text.Replace("{DATE}", date);
-                        text = text.Replace("{BATCHNO}", "");
-                        text = text.Replace("{OTHERINFO}", "");
-                        text = text.Replace("{BOXNO}", "1");
-                        text = text.Replace("{TOTALBOXCOUNT}", "1");
-                        text = text.Replace("{PALLETWEIGHT}", palletWeight);
-                        text = text.Replace("{GROSSWEIGHT}", grossWeight);
-                        text = text.Replace("{NEGATIVETOLPERCENT}", "");
-                        text = text.Replace("{NEGATIVETOLPARTWEIGHT}", "");
-                        text = text.Replace("{DBPARTWEIGHT}", "");
-                        text = text.Replace("{POSITIVETOLPERCENT}", "");
-                        text = text.Replace("{POSITIVETOLPARTWEIGHT}", "");
-
-
-                        File.WriteAllText(outputDestFile, text);
-
-                        SendTextFileToPrinter(outputDestFile, pd.PrinterSettings.PrinterName);
-
-                        File.Delete(outputDestFile);
-
-
-
-                        if (appSettings.EnablePrintingHistory)
-                        {
-                            //Insert the assembly part number and get the ID
-                            using (var conn = new SQLiteConnection(connectionString, true))
+                            // Be sure you already created the Person Table!
+                            conn.Open();
+                            using (var cmd = new SQLiteCommand(conn))
                             {
-                                // Be sure you already created the Person Table!
-                                conn.Open();
-                                using (var cmd = new SQLiteCommand(conn))
+                                using (var transaction = conn.BeginTransaction())
                                 {
-                                    using (var transaction = conn.BeginTransaction())
+                                    cmd.CommandText =
+                                        @"INSERT INTO [5.assembly_history] (date_time,customer_name, assembly_part_number, assembly_description,pallet_weight,gross_weight)" +
+                                        @" VALUES (@date_time, @customer_name, @assembly_part_number, @assembly_description,@pallet_weight,@gross_weight);";
+                                    cmd.Parameters.AddWithValue("@date_time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                                    cmd.Parameters.AddWithValue("@customer_name", customerName);
+                                    cmd.Parameters.AddWithValue("@assembly_part_number", partNo);
+                                    cmd.Parameters.AddWithValue("@assembly_description", partName);
+                                    cmd.Parameters.AddWithValue("@pallet_weight", palletWeight + " KG");
+                                    cmd.Parameters.AddWithValue("@gross_weight", grossWeight + " KG");
+
+                                    cmd.ExecuteNonQuery();
+
+                                    transaction.Commit();
+                                }
+                            }
+                            conn.Close();
+                        }
+
+
+                        int lastInsertRowID = 0;
+                        //Insert the assembly part number and get the ID
+                        using (var conn = new SQLiteConnection(connectionString, true))
+                        {
+                            // Be sure you already created the Person Table!
+
+                            conn.Open();
+
+                            using (var cmd = new SQLiteCommand(conn))
+                            {
+                                using (var transaction = conn.BeginTransaction())
+                                {
+                                    cmd.CommandText = @"select seq from sqlite_sequence where name='5.assembly_history'; ";
+                                    lastInsertRowID = Convert.ToInt32(cmd.ExecuteScalar());
+                                    transaction.Commit();
+                                }
+                            }
+                            conn.Close();
+                        }
+
+                        DataTable dtAssemChildPartsHistory = new DataTable();
+                        dtAssemChildPartsHistory.Columns.Add(new DataColumn("assembly_history_id", typeof(Int32)));
+                        dtAssemChildPartsHistory.Columns.Add(new DataColumn("s_no", typeof(Int32)));
+                        dtAssemChildPartsHistory.Columns.Add(new DataColumn("child_part_number", typeof(string)));
+                        dtAssemChildPartsHistory.Columns.Add(new DataColumn("child_part_description", typeof(string)));
+                        dtAssemChildPartsHistory.Columns.Add(new DataColumn("quantity", typeof(Int32)));
+                        dtAssemChildPartsHistory.Columns.Add(new DataColumn("part_weight", typeof(string)));
+                        dtAssemChildPartsHistory.Columns.Add(new DataColumn("net_weight", typeof(string)));
+
+                        for (int i = 0; i < dgvAssemChildPartsList.Rows.Count; i++)
+                        {
+                            DataRow dr = dtAssemChildPartsHistory.NewRow();
+                            dr["assembly_history_id"] = lastInsertRowID;
+                            dr["s_no"] = dgvAssemChildPartsList.Rows[i].Cells["S.No"].Value.ToString();
+                            dr["child_part_number"] = dgvAssemChildPartsList.Rows[i].Cells["PartNumber"].Value.ToString();
+                            dr["child_part_description"] = dgvAssemChildPartsList.Rows[i].Cells["Description"].Value.ToString();
+                            dr["quantity"] = dgvAssemChildPartsList.Rows[i].Cells["NoOfQty"].Value.ToString();
+                            dr["part_weight"] = dgvAssemChildPartsList.Rows[i].Cells["PartWeight"].Value.ToString() + " KG";
+                            dr["net_weight"] = dgvAssemChildPartsList.Rows[i].Cells["NetWeight"].Value.ToString() + " KG";
+                            dtAssemChildPartsHistory.Rows.Add(dr);
+                        }
+
+                        //Bulk insert datatable in sqlite db
+                        using (var conn = new SQLiteConnection(connectionString, true))
+                        {
+                            conn.Open();
+
+                            using (var cmd = new SQLiteCommand(conn))
+                            {
+                                using (var transaction = conn.BeginTransaction())
+                                {
+                                    for (var i = 0; i < dtAssemChildPartsHistory.Rows.Count; i++)
                                     {
                                         cmd.CommandText =
-                                            @"INSERT INTO [5.assembly_history] (date_time,customer_name, assembly_part_number, assembly_description,pallet_weight,gross_weight)" +
-                                            @" VALUES (@date_time, @customer_name, @assembly_part_number, @assembly_description,@pallet_weight,@gross_weight);";
-                                        cmd.Parameters.AddWithValue("@date_time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                                        cmd.Parameters.AddWithValue("@customer_name", customerName);
-                                        cmd.Parameters.AddWithValue("@assembly_part_number", partNo);
-                                        cmd.Parameters.AddWithValue("@assembly_description", partName);
-                                        cmd.Parameters.AddWithValue("@pallet_weight", palletWeight + " KG");
-                                        cmd.Parameters.AddWithValue("@gross_weight", grossWeight + " KG");
-
+                                            @"INSERT INTO [6.assembly_childpart_history] (assembly_history_id, s_no, child_part_number, child_part_description,quantity, part_weight, net_weight)" +
+                                            @" VALUES (@assembly_history_id, @s_no, @child_part_number, @child_part_description,@quantity, @part_weight, @net_weight);";
+                                        cmd.Parameters.AddWithValue("@assembly_history_id", dtAssemChildPartsHistory.Rows[i]["assembly_history_id"].ToString());
+                                        cmd.Parameters.AddWithValue("@s_no", dtAssemChildPartsHistory.Rows[i]["s_no"].ToString());
+                                        cmd.Parameters.AddWithValue("@child_part_number", dtAssemChildPartsHistory.Rows[i]["child_part_number"].ToString());
+                                        cmd.Parameters.AddWithValue("@child_part_description", dtAssemChildPartsHistory.Rows[i]["child_part_description"].ToString());
+                                        cmd.Parameters.AddWithValue("@quantity", dtAssemChildPartsHistory.Rows[i]["quantity"].ToString());
+                                        cmd.Parameters.AddWithValue("@part_weight", dtAssemChildPartsHistory.Rows[i]["part_weight"].ToString());
+                                        cmd.Parameters.AddWithValue("@net_weight", dtAssemChildPartsHistory.Rows[i]["net_weight"].ToString());
                                         cmd.ExecuteNonQuery();
-
-                                        transaction.Commit();
                                     }
+
+                                    transaction.Commit();
                                 }
-                                conn.Close();
                             }
 
 
-                            int lastInsertRowID = 0;
-                            //Insert the assembly part number and get the ID
-                            using (var conn = new SQLiteConnection(connectionString, true))
-                            {
-                                // Be sure you already created the Person Table!
-
-                                conn.Open();
-
-                                using (var cmd = new SQLiteCommand(conn))
-                                {
-                                    using (var transaction = conn.BeginTransaction())
-                                    {
-                                        cmd.CommandText = @"select seq from sqlite_sequence where name='5.assembly_history'; ";
-                                        lastInsertRowID = Convert.ToInt32(cmd.ExecuteScalar());
-                                        transaction.Commit();
-                                    }
-                                }
-                                conn.Close();
-                            }
-
-                            DataTable dtAssemChildPartsHistory = new DataTable();
-                            dtAssemChildPartsHistory.Columns.Add(new DataColumn("assembly_history_id", typeof(Int32)));
-                            dtAssemChildPartsHistory.Columns.Add(new DataColumn("s_no", typeof(Int32)));
-                            dtAssemChildPartsHistory.Columns.Add(new DataColumn("child_part_number", typeof(string)));
-                            dtAssemChildPartsHistory.Columns.Add(new DataColumn("child_part_description", typeof(string)));
-                            dtAssemChildPartsHistory.Columns.Add(new DataColumn("quantity", typeof(Int32)));
-                            dtAssemChildPartsHistory.Columns.Add(new DataColumn("part_weight", typeof(string)));
-                            dtAssemChildPartsHistory.Columns.Add(new DataColumn("net_weight", typeof(string)));
-
-                            for (int i = 0; i < dgvAssemChildPartsList.Rows.Count; i++)
-                            {
-                                DataRow dr = dtAssemChildPartsHistory.NewRow();
-                                dr["assembly_history_id"] = lastInsertRowID;
-                                dr["s_no"] = dgvAssemChildPartsList.Rows[i].Cells["S.No"].Value.ToString();
-                                dr["child_part_number"] = dgvAssemChildPartsList.Rows[i].Cells["PartNumber"].Value.ToString();
-                                dr["child_part_description"] = dgvAssemChildPartsList.Rows[i].Cells["Description"].Value.ToString();
-                                dr["quantity"] = dgvAssemChildPartsList.Rows[i].Cells["NoOfQty"].Value.ToString();
-                                dr["part_weight"] = dgvAssemChildPartsList.Rows[i].Cells["PartWeight"].Value.ToString() + " KG";
-                                dr["net_weight"] = dgvAssemChildPartsList.Rows[i].Cells["NetWeight"].Value.ToString() + " KG";
-                                dtAssemChildPartsHistory.Rows.Add(dr);
-                            }
-
-                            //Bulk insert datatable in sqlite db
-                            using (var conn = new SQLiteConnection(connectionString, true))
-                            {
-                                conn.Open();
-
-                                using (var cmd = new SQLiteCommand(conn))
-                                {
-                                    using (var transaction = conn.BeginTransaction())
-                                    {
-                                        for (var i = 0; i < dtAssemChildPartsHistory.Rows.Count; i++)
-                                        {
-                                            cmd.CommandText =
-                                                @"INSERT INTO [6.assembly_childpart_history] (assembly_history_id, s_no, child_part_number, child_part_description,quantity, part_weight, net_weight)" +
-                                                @" VALUES (@assembly_history_id, @s_no, @child_part_number, @child_part_description,@quantity, @part_weight, @net_weight);";
-                                            cmd.Parameters.AddWithValue("@assembly_history_id", dtAssemChildPartsHistory.Rows[i]["assembly_history_id"].ToString());
-                                            cmd.Parameters.AddWithValue("@s_no", dtAssemChildPartsHistory.Rows[i]["s_no"].ToString());
-                                            cmd.Parameters.AddWithValue("@child_part_number", dtAssemChildPartsHistory.Rows[i]["child_part_number"].ToString());
-                                            cmd.Parameters.AddWithValue("@child_part_description", dtAssemChildPartsHistory.Rows[i]["child_part_description"].ToString());
-                                            cmd.Parameters.AddWithValue("@quantity", dtAssemChildPartsHistory.Rows[i]["quantity"].ToString());
-                                            cmd.Parameters.AddWithValue("@part_weight", dtAssemChildPartsHistory.Rows[i]["part_weight"].ToString());
-                                            cmd.Parameters.AddWithValue("@net_weight", dtAssemChildPartsHistory.Rows[i]["net_weight"].ToString());
-                                            cmd.ExecuteNonQuery();
-                                        }
-
-                                        transaction.Commit();
-                                    }
-                                }
-
-
-                                conn.Close();
-                            }
-                            MessageBox.Show("Data saved successfully in database", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            conn.Close();
                         }
-
-
-                        //Clear all entries
-                        txtAssemPalletWeight.Text = lblAssemTotalNetWeight.Text = lblAssemGrossWeight.Text = "0.0000";
-                        tbAssemblyPartNumber.Text = "";
-                        ResetAssemblyPartsWeighing();
-                        tbAssemblyPartNumber.Focus();
-
-                        this.Cursor = Cursors.Default;
+                        MessageBox.Show("Data saved successfully in database", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
+
+
+                    //Clear all entries
+                    txtAssemPalletWeight.Text = lblAssemTotalNetWeight.Text = lblAssemGrossWeight.Text = "0.0000";
+                    tbAssemblyPartNumber.Text = "";
+                    ResetAssemblyPartsWeighing();
+                    tbAssemblyPartNumber.Focus();
+
+                    this.Cursor = Cursors.Default;
+
                 }
                 catch (Exception ex)
                 {
@@ -1859,7 +1820,12 @@ namespace AutoWeighingAndPrinting
 
                     MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                finally
+                {
+                    this.Cursor = Cursors.Default;
+                    if (File.Exists(outputFile))
+                        File.Delete(outputFile);
+                }
 
             }
         }
@@ -2030,5 +1996,157 @@ namespace AutoWeighingAndPrinting
                 MessageBox.Show(ex.Message, "Error Checking App License", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnSelectPrinter_Click(object sender, EventArgs e)
+        {
+            using (PrintDialog dialog = new PrintDialog())
+            {
+                dialog.PrinterSettings = new PrinterSettings();
+
+                dialog.UseEXDialog = appSettings.IsUseExDialog;
+
+                if (!string.IsNullOrWhiteSpace(appSettings.PrinterName))
+                {
+                    dialog.PrinterSettings.PrinterName =
+                        appSettings.PrinterName;
+                }
+
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    appSettings.PrinterName =
+                        dialog.PrinterSettings.PrinterName;
+
+                    config.WriteSettings(appSettings);
+
+                    txtPrinterName.Text = appSettings.PrinterName;
+                }
+            }
+
+            UpdateSelectionControls();
+        }
+
+        private void btnSelectCustomer_Click(object sender, EventArgs e)
+        {
+            var sizeFolders = PrnHelper.GetSizeFolders();
+
+            if (sizeFolders.Length == 0)
+            {
+                MessageBox.Show(
+                    "No PRN size folders found.",
+                    "Customer Selection",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (sizeFolders.Length == 1)
+            {
+                appSettings.SelectedSize =
+                    Path.GetFileName(sizeFolders[0]);
+
+                config.WriteSettings(appSettings);
+
+                using (CustomerSelectionForm customerForm =
+                       new CustomerSelectionForm())
+                {
+                    customerForm.ShowDialog(this);
+                }
+            }
+            else
+            {
+                using (SizeSelectionForm sizeForm =
+                       new SizeSelectionForm())
+                {
+                    sizeForm.ShowDialog(this);
+                }
+            }
+
+            appSettings = config.ReadSettings();
+
+            txtCustomerName.Text =
+                appSettings.PrintingFileName ?? "";
+
+            txtSelectedLabelSize.Text = appSettings.SelectedSize ?? "-";
+
+            UpdateSelectionControls();
+        }
+
+
+        private void UpdateSelectionControls()
+        {
+            bool printerSelected =
+                IsPrinterInstalled(appSettings.PrinterName);
+
+            bool customerSelected =
+                !string.IsNullOrWhiteSpace(appSettings.PrintingFileName) &&
+                !string.IsNullOrWhiteSpace(appSettings.SelectedSize);
+
+            bool canStart = printerSelected && customerSelected;
+
+            //Child Part
+            tbReferenceNumber.Enabled = canStart;
+            tbRequiredQty.Enabled = canStart;
+            btnChildPartSubmit.Enabled = canStart;
+
+            // Assembly Part
+            tbAssemblyPartNumber.Enabled = canStart;
+            tbSerialNo.Enabled = canStart;
+            btnAssemblyPartSubmit.Enabled = canStart;
+            btnSerialNo.Enabled = canStart;
+        }
+
+        private bool IsPrinterInstalled(string printerName)
+        {
+            foreach (string installedPrinter in PrinterSettings.InstalledPrinters)
+            {
+                if (string.Equals(
+                    installedPrinter,
+                    printerName,
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void LoadPrinterAndCustomer()
+        {
+            appSettings = config.ReadSettings();
+
+            txtPrinterName.Text =
+                appSettings.PrinterName ?? "";
+
+            txtCustomerName.Text =
+                appSettings.PrintingFileName ?? "";
+
+            txtSelectedLabelSize.Text = appSettings.SelectedSize ?? "-";
+
+            UpdateSelectionControls();
+        }
+
+        private bool AllowtoProceedWeighing()
+        {
+            appSettings = config.ReadSettings();
+
+            if (!IsPrinterInstalled(appSettings.PrinterName) ||
+               string.IsNullOrWhiteSpace(appSettings.PrintingFileName) ||
+               string.IsNullOrWhiteSpace(appSettings.SelectedSize))
+            {
+                MessageBox.Show(
+                    "Please select a valid printer and customer before proceeding.",
+                    "Selection Required",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                UpdateSelectionControls();
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }
