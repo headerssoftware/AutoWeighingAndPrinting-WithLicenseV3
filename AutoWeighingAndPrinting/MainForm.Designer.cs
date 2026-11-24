@@ -1505,7 +1505,7 @@
             this.btnSelectCustomer.TabIndex = 41;
             this.btnSelectCustomer.Text = "Change";
             this.btnSelectCustomer.UseVisualStyleBackColor = true;
-            this.btnSelectCustomer.Click += new System.EventHandler(this.btnSelectCustomer_Click);
+            this.btnSelectCustomer.Click += new System.EventHandler(this.BtnSelectCustomer_Click);
             // 
             // txtCustomerName
             // 
@@ -1535,7 +1535,7 @@
             this.btnSelectPrinter.TabIndex = 38;
             this.btnSelectPrinter.Text = "Change";
             this.btnSelectPrinter.UseVisualStyleBackColor = true;
-            this.btnSelectPrinter.Click += new System.EventHandler(this.btnSelectPrinter_Click);
+            this.btnSelectPrinter.Click += new System.EventHandler(this.BtnSelectPrinter_Click);
             // 
             // txtPrinterName
             // 

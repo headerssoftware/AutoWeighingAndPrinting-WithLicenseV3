@@ -1655,6 +1655,9 @@ namespace AutoWeighingAndPrinting
 
                     string customerName = appSettings.PrintingFileName;
                     string date = DateTime.Now.ToString("dd/MMM/yyyy");
+                    string time24 = DateTime.Now.ToString("HH:mm");
+                    string time12 = DateTime.Now.ToString("hh:mm tt");
+
                     string palletWeight = txtAssemPalletWeight.Text + " KG";
                     REPEAT_AssemPalletWeight = txtAssemPalletWeight.Text;
                     string grossWeight = lblAssemGrossWeight.Text + " KG";
@@ -1677,6 +1680,8 @@ namespace AutoWeighingAndPrinting
                     text = text.Replace("{PARTINFOVALUE}", partInfoValue);
                     text = text.Replace("{NETWEIGHT}", netWeight);
                     text = text.Replace("{DATE}", date);
+                    text = text.Replace("{TIME24}", time24);
+                    text = text.Replace("{TIME12}", time12);
                     text = text.Replace("{BATCHNO}", "");
                     text = text.Replace("{OTHERINFO}", "");
                     text = text.Replace("{BOXNO}", "1");
@@ -1997,7 +2002,7 @@ namespace AutoWeighingAndPrinting
             }
         }
 
-        private void btnSelectPrinter_Click(object sender, EventArgs e)
+        private void BtnSelectPrinter_Click(object sender, EventArgs e)
         {
             using (PrintDialog dialog = new PrintDialog())
             {
@@ -2025,7 +2030,7 @@ namespace AutoWeighingAndPrinting
             UpdateSelectionControls();
         }
 
-        private void btnSelectCustomer_Click(object sender, EventArgs e)
+        private void BtnSelectCustomer_Click(object sender, EventArgs e)
         {
             var sizeFolders = PrnHelper.GetSizeFolders();
 
