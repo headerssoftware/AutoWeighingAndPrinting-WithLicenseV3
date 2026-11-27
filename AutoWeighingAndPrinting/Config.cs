@@ -129,8 +129,9 @@ namespace AutoWeighingAndPrinting
                 EnablePrintingHistory = false,
                 DeleteHistoryDays = 180,
                 HistoryDeletedDate = DateTime.Now,
-                LicenseKey = "MRLMH-TMJAO-UPKEP-ETHTI",
-                IsUseExDialog = true
+                LicenseKey = "LVIYK-LYBQE-UYNXO-VQMXA",
+                IsUseExDialog = true,
+                IsTotalWeighingEnabled = false
             };
         }
 
@@ -173,8 +174,6 @@ namespace AutoWeighingAndPrinting
         public DateTime HistoryDeletedDate { get; set; }
         public string LicenseKey { get; set; }
         public bool IsUseExDialog { get; set; }
-
-
-
+        public bool IsTotalWeighingEnabled { get; set; }
     }
 }

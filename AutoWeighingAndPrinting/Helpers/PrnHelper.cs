@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace AutoWeighingAndPrinting.Helpers
@@ -17,7 +19,12 @@ namespace AutoWeighingAndPrinting.Helpers
             if (!Directory.Exists(PrnRootPath))
                 return new string[0];
 
-            return Directory.GetDirectories(PrnRootPath);
+            return Directory.GetDirectories(PrnRootPath)
+                    .Where(dir => !string.Equals(
+                        Path.GetFileName(dir),
+                        "TOTAL WEIGHT",
+                        StringComparison.OrdinalIgnoreCase))
+                    .ToArray();
         }
     }
 

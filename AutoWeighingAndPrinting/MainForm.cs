@@ -64,6 +64,17 @@ namespace AutoWeighingAndPrinting
 
             LoadPrinterAndCustomer();
 
+            bool isTotalWeighingEnabled = appSettings.IsTotalWeighingEnabled;
+            if(isTotalWeighingEnabled)
+            {
+                //Do nothing
+            }
+            else
+            {
+                tcMainForm.TabPages.Remove(TpTotalWeighing);
+            }
+
+
             DateTime historyDeletedDate = appSettings.HistoryDeletedDate;
             if (historyDeletedDate.Date >= DateTime.Now.Date)
             {
@@ -828,6 +839,10 @@ namespace AutoWeighingAndPrinting
 
         private void LblWeight_TextChanged(object sender, EventArgs e)
         {
+            if (tcMainForm.SelectedTab == TpTotalWeighing)
+            {
+                lblTotalWeight.Text = lblWeight.Text;
+            }
 
             if (lblWeight.Text == "Disconnected" || lblWeight.Text == "Timeout Error" || lblWeight.Text == "IO Error" || lblWeight.Text == "Invalid Operation" || lblWeight.Text.StartsWith("Exception"))
             {
@@ -1260,6 +1275,17 @@ namespace AutoWeighingAndPrinting
                 tbAssemblyPartNumber.Text = "";
                 tbAssemblyPartNumber.Focus();
                 txtAssemPalletWeight.Text = "0.0000";
+            }
+
+            if (tcMainForm.SelectedTab == TpTotalWeighing)
+            {
+                dtpDate.Value = DateTime.Now;
+                tbMachineNo.Text = "";
+                tbWorkOrderNo.Text = "";
+                tbOptionalText.Text = "";
+                tbPackingCaseWeight.Text = "";
+                cbOptional.Checked = false;
+                tbMachineNo.Focus();
             }
         }
 
@@ -2153,5 +2179,108 @@ namespace AutoWeighingAndPrinting
             return true;
         }
 
+        private void BtnPrintLabel_Click(object sender, EventArgs e)
+        {
+            if (tbMachineNo.Text == string.Empty || tbWorkOrderNo.Text == string.Empty || tbPackingCaseWeight.Text == string.Empty)
+            {
+                MessageBox.Show("Values cannot be empty. Please fill the data", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (cbOptional.Checked == true && tbOptionalText.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Optional Textbox cannot be empty. Either fill the data or uncheck the option", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (lblTotalWeight.Text == "Disconnected" || lblTotalWeight.Text == "Timeout Error" || lblTotalWeight.Text == "IO Error" || lblTotalWeight.Text == "Invalid Operation" || lblTotalWeight.Text.StartsWith("Exception"))
+            {
+                MessageBox.Show("Total Weight Value is not valid.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                appSettings = config.ReadSettings();
+                if (!IsPrinterInstalled(appSettings.PrinterName))
+                    throw new Exception("Selected printer is not installed.");
+
+                string outputSourcePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\PRN FILE\\TOTAL WEIGHT\\";
+                string outputFileName = "TOTALWEIGHT.prn";
+                //Check output Source File exists
+                if (!File.Exists(outputSourcePath + outputFileName))
+                {
+                    MessageBox.Show("Output File not found", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                string outputTargetPath = Path.GetTempPath();
+
+                // Use Path class to manipulate file and directory paths.
+                string outputSourceFile = Path.Combine(outputSourcePath, outputFileName);
+                string outputDestFile = Path.Combine(outputTargetPath, outputFileName);
+
+                this.Cursor = Cursors.WaitCursor;
+
+                string machineNo = tbMachineNo.Text.Trim();
+                string workOrderNo = tbWorkOrderNo.Text.Trim();
+                string packingCaseWeight = tbPackingCaseWeight.Text.Trim();
+                string date = dtpDate.Value.ToString("dd/MM/yyyy");
+                string optionalText = tbOptionalText.Text.Trim();
+                string totalWeight = lblTotalWeight.Text;
+
+                // To copy a folder's contents to a new location:
+                // Create a new target folder, if necessary.
+                if (!System.IO.Directory.Exists(outputTargetPath))
+                {
+                    System.IO.Directory.CreateDirectory(outputTargetPath);
+                }
+                // To copy a file to another location and 
+                // overwrite the destination file if it already exists.
+                System.IO.File.Copy(outputSourceFile, outputDestFile, true);
+
+                //Replace the code with data
+                string text = File.ReadAllText(outputDestFile);
+                text = text.Replace("{MACHINENO}", machineNo);
+                text = text.Replace("{WORKORDERNO}", workOrderNo);
+                text = text.Replace("{PACKINGCASEWEIGHT}", packingCaseWeight);
+                text = text.Replace("{DATE}", date);
+                text = text.Replace("{OPTIONALTEXT}", optionalText);
+                text = text.Replace("{TOTALWEIGHT}", totalWeight);
+
+                File.WriteAllText(outputDestFile, text);
+
+                SendTextFileToPrinter(outputDestFile, appSettings.PrinterName);
+
+                File.Delete(outputDestFile);
+
+                //Reset the fields
+                TcMainForm_SelectedIndexChanged(sender, e);
+
+                this.Cursor = Cursors.Default;
+
+
+            }
+            catch (Exception ex)
+            {
+                this.Cursor = Cursors.Default;
+
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbOptional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOptional.Checked == true)
+            {
+                tbOptionalText.Enabled = true;
+                tbOptionalText.Text = "EXPORT";
+            }
+            else
+            {
+                tbOptionalText.Enabled = false;
+                tbOptionalText.Text = "";
+            }
+        }
     }
 }
